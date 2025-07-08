@@ -17,6 +17,9 @@ importers:
       '@slidev/theme-seriph':
         specifier: latest
         version: 0.25.0
+      slidev-theme-dracula:
+        specifier: ^0.2.0
+        version: 0.2.0
       vue:
         specifier: ^3.5.17
         version: 3.5.17(typescript@5.8.3)
@@ -607,6 +610,10 @@ packages:
   '@slidev/theme-seriph@0.25.0':
     resolution: {integrity: sha512-PnFQbn4I70+/cVie5iAr0Im6sYvnwjkO7Yj5KonTyJZFFJFytckLTrD3ijft/J4cRnz7OmSzTyQKNX1FN/x0YQ==}
     engines: {node: '>=14.0.0', slidev: '>=v0.47.0'}
+
+  '@slidev/types@0.42.11':
+    resolution: {integrity: sha512-K7+UWzEQpUe3eEFs7ktm3tw17Ke9ZOJPTy7yGSlZfWl4jCTf9Z0HNKECPLQ3JGL6EkJ4Wyy1y0HE92/20cTn0Q==}
+    engines: {node: '>=14.0.0'}
 
   '@slidev/types@0.47.5':
     resolution: {integrity: sha512-X67V4cCgM0Sz50bP8GbVzmiL8DHC2IXvdKcsN7DlxHyf+/T4d9GveeGukwha5Fx3MuYeGZWKag7TFL2ZY4w54A==}
@@ -2267,6 +2274,10 @@ packages:
   sisteransi@1.0.5:
     resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
 
+  slidev-theme-dracula@0.2.0:
+    resolution: {integrity: sha512-ndMD27+gUNYt9aXrb4/0vSBHKP007mpD2eCJppzhqXDG1DmN0Q6I6iFz+QvIjOPDKzzPjoYZbsWp6lPLJjgs9g==}
+    engines: {node: '>=14.0.0', slidev: '>=0.19.3'}
+
   source-map-js@1.2.1:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
     engines: {node: '>=0.10.0'}
@@ -2322,6 +2333,10 @@ packages:
   super-regex@0.2.0:
     resolution: {integrity: sha512-WZzIx3rC1CvbMDloLsVw0lkZVKJWbrkJ0k1ghKFmcnPrW1+jWbgTkTEWVtD9lMdmI4jZEz40+naBxl1dCUhXXw==}
     engines: {node: '>=14.16'}
+
+  theme-vitesse@0.7.9:
+    resolution: {integrity: sha512-wgxHWOIEcIBp/5MAdO8Z5c0vdKy5J5008Kqt/uOYruel9oJ4TrvH3qXgCsatp4ImROd1UWsIgQ3C0R8db38qgA==}
+    engines: {vscode: ^1.43.0}
 
   time-span@5.1.0:
     resolution: {integrity: sha512-75voc/9G4rDIJleOo4jPvN4/YC4GRZrY8yy1uU4lwrB3XEQbWve8zXoO5No4eFrGcTAMYyoY67p8jRQdtA1HbA==}
@@ -3427,6 +3442,8 @@ snapshots:
       '@slidev/types': 0.47.5
       codemirror-theme-vars: 0.1.2
       prism-theme-vars: 0.2.5
+
+  '@slidev/types@0.42.11': {}
 
   '@slidev/types@0.47.5': {}
 
@@ -5436,6 +5453,13 @@ snapshots:
 
   sisteransi@1.0.5: {}
 
+  slidev-theme-dracula@0.2.0:
+    dependencies:
+      '@slidev/types': 0.42.11
+      codemirror-theme-vars: 0.1.2
+      prism-theme-vars: 0.2.5
+      theme-vitesse: 0.7.9
+
   source-map-js@1.2.1: {}
 
   space-separated-tokens@2.0.2: {}
@@ -5495,6 +5519,8 @@ snapshots:
       clone-regexp: 3.0.0
       function-timeout: 0.1.1
       time-span: 5.1.0
+
+  theme-vitesse@0.7.9: {}
 
   time-span@5.1.0:
     dependencies:
