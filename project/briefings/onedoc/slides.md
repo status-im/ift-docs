@@ -12,7 +12,7 @@ export:
 
 # OneDoc project briefing
 
-Unified, AI-ready framework for IFT's user documentation
+A unified, AI-aware stack for IFT user docs
 
 --- 
 
@@ -46,7 +46,7 @@ Unified, AI-ready framework for IFT's user documentation
 # Proposed solution: Unified documentation framework
 
 <div class="flex justify-center items-center h-full">
-  <img src="/Users/campo/Documents/repos/ift-docs/project/media/unified-documentation-framework-dark.png" class="max-h-96" />
+  <img src="./media/unified-documentation-framework-dark.png" class="max-h-96" />
 </div>
 
 <div class="absolute right-30px bottom-30px">
@@ -55,7 +55,7 @@ Unified, AI-ready framework for IFT's user documentation
 
 ---
 
-# 1/ What means **Unified platform**?
+# 1️⃣ What does **unified platform** mean?
 
 <div class="mt-20 text-3xl">
 	Consolidate all user-facing documentation for IFT projects onto a single, AI-native platform, specifically GitBook, to provide a central access point for users.
@@ -67,7 +67,7 @@ Unified, AI-ready framework for IFT's user documentation
 
 ---
 
-# 2/ What means **Standardized workflow**?
+# 2️⃣ What does **standardized workflow** mean?
 
 <div class="mt-20 text-3xl">
 	Establish a standardized workflow for creating and updating documentation using a "docs-as-code" model, with all content stored in a single GitHub monorepo, to align methods and facilitate contributions.
@@ -79,7 +79,7 @@ Unified, AI-ready framework for IFT's user documentation
 
 ---
 
-# 3/ What means **Clear ownership**?
+# 3️⃣ What does **clear ownership** mean?
 
 <div class="mt-10 text-3xl">
 	Federated ownership model
@@ -176,20 +176,3 @@ zoom: 0.7
 <div class="absolute right-30px bottom-30px">
 	<SlideCurrentNo /> / <SlidesTotal />
 </div>
-
----
-zoom: 0.9
----
-
-# Risks and asks
-
-| **Risk**                                                             | **Likelihood** | **Mitigation** |
-| :--------------------------------------------------------------- | :--------: | :--------: |
-| Project leads declined to participate (R1)                          | 🟡          | TBD        |
-| Workload underestimated for a single writer as project lead (R2) | 🔴          | TBD        |
-| Hidden technical debt in legacy docs (R3)                        | 🔴          | ✅          |
-| Executive sponsor changes / funding cut (R4)                     | ⚪          | TBD        |
-| Veto on SaaS hosting or non-Open Source solution (R5)            | 🟡          | ✅          |
-| Access to docs broken during migration (R6)                      | 🟢          | ✅          |
-| A single GitHub repo / GitBook server becomes a bottleneck (R7)  | 🟢          | ✅          |
-| Status and Keycard docs not migrated (R8)                        | 🟡          | TBD        |
