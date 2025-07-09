@@ -47,19 +47,19 @@ All documentation lives in **one monorepo** (this repo); each project has its ow
 
 ## Project status
 
-| #  | Phase                              | State |
-|----|------------------------------------| :---: |
-| 1  | Project plan and kick-off          | 🟡    |
-| 2  | GitBook and domain setup           | ⚪    |
-| 3  | Repo scaffold                      | 🟡    |
-| 4  | Style guide and templates (v1)     | 🟡    |
-| 5  | Pilot migration                    | ⚪    |
-| 6  | Pilot review                       | ⚪    |
-| 7  | Feedback and adjustments           | ⚪    |
-| 8  | Style guide and templates (v2)     | ⚪    |
-| 9  | Linter implementation              | ⚪    |
-| 10 | Training materials                 | ⚪    |
-| 11 | Training and mentoring             | ⚪    |
+| #  | Phase                              | State | Progress |
+|----|------------------------------------|:-----:|:--------:|
+| 1  | Project plan and kick-off          | 🟡    | 🟩🟩🟩⬜⬜ |
+| 2  | GitBook and domain setup           | ⚪    | ⬜⬜⬜⬜⬜ |
+| 3  | Repo scaffold                      | 🟡    | 🟩🟩🟩⬜⬜ |
+| 4  | Style guide and templates (v1)     | 🟡    | 🟩🟩🟩⬜⬜ |
+| 5  | Pilot migration                    | ⚪    | ⬜⬜⬜⬜⬜ |
+| 6  | Pilot review                       | ⚪    | ⬜⬜⬜⬜⬜ |
+| 7  | Feedback and adjustments           | ⚪    | ⬜⬜⬜⬜⬜ |
+| 8  | Style guide and templates (v2)     | ⚪    | ⬜⬜⬜⬜⬜ |
+| 9  | Linter implementation              | ⚪    | ⬜⬜⬜⬜⬜ |
+| 10 | Training materials                 | ⚪    | ⬜⬜⬜⬜⬜ |
+| 11 | Training and mentoring             | ⚪    | ⬜⬜⬜⬜⬜ |
 
 Legend: 🟢 Done 🟡 In progress ⚪ Not started 🔴 Blocked
 
@@ -97,9 +97,10 @@ For style, naming and review rules see the **[Style Guide](docs/STYLE_GUIDE.md)*
 ## Contact
 
 > 🚧 This is a work in progress
+
 <!--
 Questions or ideas? Join us on **Discord → `#onedoc`**  
 Invite link: <https://discord.gg/ift-onedoc>
 -->
 
-Licensed under MIT
+Licensed under MIT.
