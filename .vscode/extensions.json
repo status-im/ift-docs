@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "GitHub.copilot",
+    "bierner.github-markdown-preview",
+    "kisstkondoros.vscode-gutter-preview",
+    "bierner.markdown-mermaid",
+    "DavidAnson.vscode-markdownlint",
+    "esbenp.prettier-vscode",
+    "ban.spellright"
+  ]
+}
