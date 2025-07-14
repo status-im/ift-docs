@@ -1,11 +1,18 @@
 {
   "recommendations": [
     "GitHub.copilot",
-    "bierner.github-markdown-preview",
+    "bierner.markdown-preview-github-styles",
+    "bierner.markdown-emoji",
+    "bierner.markdown-checkbox",
+    "bierner.markdown-yaml-preamble",
     "kisstkondoros.vscode-gutter-preview",
     "bierner.markdown-mermaid",
     "DavidAnson.vscode-markdownlint",
     "esbenp.prettier-vscode",
-    "ban.spellright"
+    "ban.spellright",
+    "GitHub.copilot-chat",
+    "MermaidChart.vscode-mermaid-chart",
+    "ms-vscode.wordcount",
+    "redhat.vscode-yaml"
   ]
 }
