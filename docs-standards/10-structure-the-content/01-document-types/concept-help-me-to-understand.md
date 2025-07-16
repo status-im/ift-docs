@@ -1,19 +1,10 @@
 # Concept - Help me to understand
 
 > ℹ️ **Note:**
-<<<<<<< Updated upstream
-> 
-> For the template associated to this topic, see [concept template](../../../templates/concept/template-concept.md).
-
-Concept topics build the mental model behind a feature or product. They explain the "why" so users can understand the purpose and benefits of the feature.
-
-For example, a user starting with Waku might need to understand the concept of "Waku nodes" before they can effectively use the Waku protocol.
-=======
 >
 > For the template associated to this topic, see [concept template](../../../templates/concept/concept-template.md).
 
 Concept topics build the mental model behind a feature or product. They explain the "why" so users can understand the purpose and benefits of the feature. For example, a developer starting with Waku might need to understand the concept of "Waku nodes" before they can effectively use the Waku protocol.
->>>>>>> Stashed changes
 
 Concepts provide non-procedural information that complements other topic types, such as [procedure](./procedure-help-me-to-do.md) or [reference](./reference-help-me-to-remember.md) topics, but never replaces or duplicates them.
 
@@ -28,11 +19,7 @@ Create a concept topic whenever readers must understand background knowledge bef
 
 > ℹ️ **Note:**
 >
-<<<<<<< Updated upstream
->  A list of frequently asked questions (FAQs) falls under the concept category.
-=======
 > A list of frequently asked questions (FAQs) falls under the concept category.
->>>>>>> Stashed changes
 
 ## Writing a concept topic
 
@@ -45,11 +32,7 @@ Check out the [file names and location rules](../../../CONTRIBUTING.md#file-name
 - Target for documents between 900 and 1 500 words. Split longer ideas into separate concept topics.
 - Replace dense prose with [lists](../../20-style-the-content/06-bullet-lists.md) and [tables](../../20-style-the-content/08-tables.md) to improve readability.
 - Richly [link](../../20-style-the-content/10-links.md) to related topics, especially procedure and reference topics.
-<<<<<<< Updated upstream
-- Include [diagrams or images](../../30-work-with-media/03-diagrams.md) to illustrate complex ideas or workflows.
-=======
 - Include [diagrams or images](../../30-work-with-media/_index.md) to illustrate complex ideas or workflows.
->>>>>>> Stashed changes
 
 > ☝️ **Tip:**
 >
@@ -111,11 +94,7 @@ One short, imperative sentence that (a) defines the topic in plain language and 
 Guidelines:
 
 - Single sentence with no links, list items, or formatting. Ends with a period.
-<<<<<<< Updated upstream
-- Stay under 120 characters / 20 words.
-=======
 - Use H4 format. Stay under 120 characters / 20 words.
->>>>>>> Stashed changes
 - Use imperative verbs to describe the topic's purpose or benefit: *Learn*, *Explore*, *Understand*, *Discover*, and so on.
 - Adds new value beyond the title. It should not repeat the title or be a rephrased version of it.
 
@@ -128,15 +107,6 @@ Guidelines:
 
 This information-type [admonition](../../20-style-the-content/12-admonitions.md) is exclusively to alert readers about who can use this feature and shouldn't be used for any other information. For example, a feature is only available to specific application role or using a specific tool or interface.
 
-<<<<<<< Updated upstream
-Example: *This feature is available to users with the **Admin** role in the application.*
-
-### Introduction
-
-Start with one or two lead sentences in a single paragraph that explains the concept, its purpose, and its relevance. This should be concise and engaging, ideally no more than 50 words.
-
-Using one paragraph per idea, explain the concept's main points. If necessary, provide context or background information to help readers understand the concept.
-=======
 > ⚙️ **Example:**
 >
 > *This feature is available to users with the **Admin** role in the application.*
@@ -149,7 +119,6 @@ Guidelines:
 - After the lead, explain the concept's main points using one paragraph per idea.
 - If necessary, provide context or background information to help readers understand the concept.
 - Link to related topics or headers in the same document to support the reader's gathering of information.
->>>>>>> Stashed changes
 
 > ⚙️ **Example:**
 >
@@ -159,12 +128,6 @@ Guidelines:
 
 ### Diagram or image (optional)
 
-<<<<<<< Updated upstream
-Include a [diagram or image](../../20-style-the-content/diagrams.md) that illustrates the concept. This could be a flowchart, screenshot, or any visual aid that helps clarify the topic.
-
-### Use case example (optional)
-
-=======
 This section is part of the introduction and doesn't use a heading.
 
 Guidelines:
@@ -182,24 +145,10 @@ Guidelines:
 
 This section is part of the introduction and doesn't use a heading.
 
->>>>>>> Stashed changes
 Provide a concrete, real-world scenario for the product feature. It answers the reader's silent question, "How can I use this feature in my work?" Use a bullet list format to present multiple use cases clearly.
 
 > ⚙️ **Example:**
 >
-<<<<<<< Updated upstream
->*For example, you can configure custom environment variables so they are set every time you open a codespace, and you can ensure that temporary files are retained when the codespace stops.*
-
-### Comparison (optional)
-
-Use this section to compare other options and alternatives. This is specially useful when the concept has different implementations. Use a list or table format to clearly present the differences.
-
-### `The basics` section
-
-This section provides a high-level overview of the concept, covering the most important takeaways without going into detail.
-
-Use the `The basics` H2 heading for this section and an unordered list to present the key points. Each point should be a concise statement that captures the essence of the concept.
-=======
 > *For example, you can configure custom environment variables so they are set every time you open a codespace, and you can ensure that temporary files are retained when the codespace stops.*
 
 ### Comparison (optional)
@@ -234,7 +183,6 @@ Guidelines:
 - Write a single unordered list with three bullet points that summarize the concept.
 - Order the points from most important to least important.
 - Aim for one sentence per bullet point, maximum two very short ones.
->>>>>>> Stashed changes
 
 > ⚙️ **Example:**
 >
