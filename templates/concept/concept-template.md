@@ -1,4 +1,4 @@
-# Concept template (annotated)
+# Concept template
 
 <!-- Important: Remove all Markdown comments before publishing the topic. -->
 
