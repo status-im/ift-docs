@@ -120,7 +120,7 @@ Guidelines:
 > For more information, check out the [diagrams](../../30-work-with-media/03-diagrams.md#mermaid-diagrams) and [screenshots](../../30-work-with-media/02-screenshots.md) information.
 -->
 
-(Optional) { Use case example}
+(Optional) { Use case example }
 
 <!--
 Provide a concrete, real-world scenario for the product feature. It answers the reader's silent question, "How can I use this feature in my work?" Use a bullet list format to present multiple use cases clearly.
