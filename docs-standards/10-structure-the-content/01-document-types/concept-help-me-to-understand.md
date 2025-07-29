@@ -21,7 +21,7 @@ Create a concept topic whenever readers must understand background knowledge bef
 >
 > A list of frequently asked questions (FAQs) falls under the concept category.
 
-## Writing a concept topic
+## Write a concept topic
 
 ### Filenames
 
@@ -40,38 +40,38 @@ Check out the [file names and location rules](../../../CONTRIBUTING.md#file-name
 
 ## Concept topic structure
 
-Concept topics follow a specific structure to ensure consistency and clarity. This table outlines the required elements, their formats, and dependencies:
+Concept topics follow a specific structure to ensure consistency and clarity. This table outlines the required elements and their formats:
 
-| #   | Element                                   | Format                        | Required   | Depends on            |
-|:----|:------------------------------------------|:------------------------------|:-----------|:----------------------|
-| 1   | [Title](#title)                           | H1                            | Yes        | -                     |
-| 2   | [Subtitle](#subtitle)                     | H4                            | Yes        | Title                 |
-| 3   | [Admonition](#admonition)                 | Information admonition        | No         | -                     |
-| 4   | [Introduction](#introduction)             | Paragraph                     | Yes        | -                     |
-| 5   | [Diagram or image](#diagram-or-image)     | Mermaid diagram or image      | No         | Introduction          |
-| 6   | [Use case example](#use-case-example)     | Paragraph, list               | No         | Introduction          |
-| 7   | [Comparison](#comparison)                 | Paragraph, list, table        | No         | Introduction          |
-| 8   | [`The basics`](#the-basics) heading       | H2                            | Yes        | -                     |
-| 9   | [`The basics`](#the-basics) list          | Unordered list                | Yes        | `The basics` H2       |
-| 10  | [H2 section](#h2-h4-sections) title       | H2                            | Yes        | -                     |
-| 11  | [H2 section](#h2-h4-sections) content     | Paragraph, others             | Yes        | H2 section title      |
-| 12  | [H3 section](#h2-h4-sections) title       | H3                            | No         | H2 section            |
-| 13  | [H3 section](#h2-h4-sections) content     | Paragraph, others             | No         | H3 section title      |
-| 14  | [H4 section](#h2-h4-sections) title       | H4                            | No         | H3 section            |
-| 15  | [H4 section](#h2-h4-sections) content     | Paragraph, others             | No         | H4 section title      |
-| 16  | [H5-H6 section](#h2-h4-sections)          | -                             | Forbidden  | -                     |
-| 17  | [Further reading](#further-reading)       | -                             | Forbidden  | -                     |
+| #   | Element                                   | Format                        | Required   |
+|:----|:------------------------------------------|:------------------------------|:-----------|
+| 1   | [Title](#title)                           | H1                            | Yes        |
+| 2   | [Subtitle](#subtitle)                     | H4                            | Yes        |
+| 3   | [Admonition](#admonition)                 | Information admonition        | No         |
+| 4   | [Introduction](#introduction)             | Paragraph                     | Yes        |
+| 5   | [Diagram or image](#diagram-or-image)     | Mermaid diagram or image      | No         |
+| 6   | [Use case example](#use-case-example)     | Paragraph, list               | No         |
+| 7   | [Comparison](#comparison)                 | Paragraph, list, table        | No         |
+| 8   | ["The basics"](#the-basics) heading       | H2                            | Yes        |
+| 9   | ["The basics"](#the-basics) list          | Unordered list                | Yes        |
+| 10  | [H2 section](#h2-h4-sections) title       | H2                            | Yes        |
+| 11  | [H2 section](#h2-h4-sections) content     | Paragraph, others             | Yes        |
+| 12  | [H3 section](#h2-h4-sections) title       | H3                            | No         |
+| 13  | [H3 section](#h2-h4-sections) content     | Paragraph, others             | No         |
+| 14  | [H4 section](#h2-h4-sections) title       | H4                            | No         |
+| 15  | [H4 section](#h2-h4-sections) content     | Paragraph, others             | No         |
+| 16  | [H5-H6 section](#h2-h4-sections)          | -                             | Forbidden  |
+| 17  | [Further reading](#further-reading)       | -                             | Forbidden  |
 
 ### Title
 
-Concepts titles should explain, not instruct. They should be descriptive and concise (no more than 60 characters), indicating the main idea of the concept.
+Concept titles should explain, not instruct. They should be descriptive and concise (no more than 60 characters), indicating the main idea of the concept.
 
 Guidelines:
 
-1. Use cue words such as `Guide to`, `About`, `Understand`, `FAQ`, or `Introduction to`. Do not use active verbs like `Learn` or `How to`.
-2. For verbs, use the base form over the gerund form. For example, use `Understand` instead of `Understanding`.
-3. Start with `About` to signal background reading. Avoid gerunds that look like procedures.
-4. Use the `FAQ:` prefix for question compilations. Don't phrase FAQs as tasks.
+1. Use cue words such as "Guide to", "About", "Understand", "FAQ", or "Introduction to". Do not use active verbs like "Learn" or "How to".
+2. For verbs, use the base form over the gerund form. For example, use "Understand" instead of "Understanding".
+3. Start with "About" to signal background reading. Avoid gerunds that look like procedures.
+4. Use the "FAQ:" prefix for question compilations. Don't phrase FAQs as tasks.
 5. When none of the cue words fit, choose a concise noun phrase.
 
 | Rule | Usage         | ⚙️ Example                        |
@@ -132,7 +132,7 @@ This section is part of the introduction and doesn't use a heading.
 
 Guidelines:
 
-- Use one diagram or image per concept. If you need two, the concept needs splitting or the second visual belongs to alater H2 section.
+- Use one diagram or image per concept. If you need two, the concept needs splitting or the second visual belongs to another H2 section.
 - To show an architecture, flow, or process, use a Mermaid diagram.
 - For UI or CLI outputs, when the interface itself is the concept, use a screenshot or image.
 - For simple relationships, use a Mermaid diagram. Even two boxes and an arrow is clearer than prose.
@@ -173,13 +173,13 @@ Guidelines:
 > | Privacy impact      | Neutral – standard Pub/Sub propagation        | Neutral – preserves Relay’s anonymity properties  |
 > | Resource guarantees | Relies on network-level quotas, no enforcement| Stronger resilience due to rate limiting          |
 
-### `The basics` section
+### "The basics" section
 
 This section provides a high-level overview of the concept, covering the most important takeaways without going into detail. Each point should be a concise statement that captures the essence of the concept.
 
 Guidelines:
 
-- Use `The basics` H2 heading for this section.
+- Use " H2 heading for this section.
 - Write a single unordered list with three bullet points that summarize the concept.
 - Order the points from most important to least important.
 - Aim for one sentence per bullet point, maximum two very short ones.
