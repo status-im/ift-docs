@@ -36,7 +36,7 @@ Check out the [file names and location rules](../../../CONTRIBUTING.md#file-name
 
 > ☝️ **Tip:**
 >
-> In Visual Studio Code, use the [Live Word Count](https://marketplace.visualstudio.com/items?itemName=Taptic.live-word-count) ↗ extension  that is part of the recommended repository extensions.
+> In Visual Studio Code, use the [Live Word Count](https://marketplace.visualstudio.com/items?itemName=Taptic.live-word-count) ↗ extension that is part of the recommended repository extensions.
 
 ## Concept topic structure
 
