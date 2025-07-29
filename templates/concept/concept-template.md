@@ -39,7 +39,7 @@ version: ''
 <!--
 Guidelines:
 
-- Concepts titles should be descriptive and concise (no more than 60 characters), indicating the main idea of the concept.
+- Concept titles should be descriptive and concise (no more than 60 characters), indicating the main idea of the concept.
 - Use cue words such as `Guide to`, `About`, `Understand`, `FAQ`, or `Introduction to`. Do not use active verbs like `Learn` or `How to`.
 - For verbs, use the base form over the gerund form. For example, use `Understand` instead of `Understanding`.
 - Start with `About` to signal background reading. Avoid gerunds that look like procedures.
