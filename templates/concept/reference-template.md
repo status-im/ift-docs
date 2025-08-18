@@ -135,7 +135,7 @@ Guidelines:
 
 > ℹ️ **Note:**
 >
-> For more information, check out the [Using headings to organize content](../../docs-standards/10-structure-the-content/concept-help-me-to-understand.md#using-headings-to-organize-content) in the docs standards.
+> For more information, check out [Using headings to organize content](../../docs-standards/10-structure-the-content/concept-help-me-to-understand.md#using-headings-to-organize-content) in the docs standards.
 -->
 
 { Paragraph, list, or table }
