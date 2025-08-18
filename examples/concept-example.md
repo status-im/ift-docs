@@ -40,7 +40,7 @@ GitHub Codespaces and [GitHub.dev](./about-github-dev.md) both let you work with
 
 -  A stopped codespace keeps its file system and container image until deleted.
 - Only the running state accrues compute charges; stopped instances incur storage fees.
-* GitHub auto-deletes a codespace after its retention period unless you delete it sooner.
+- GitHub auto-deletes a codespace after its retention period unless you delete it sooner.
 
 ## Lifecycle events
 
