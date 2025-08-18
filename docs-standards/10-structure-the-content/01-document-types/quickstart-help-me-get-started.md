@@ -23,34 +23,34 @@ Check out the [file names and location rules](../../../CONTRIBUTING.md#file-name
 - A quickstart isn’t about explaining every detail, but about helping users quickly accomplish something with your product. For information such as alternative methods or considerations when completing a task, link to a separate [procedure](./procedure-help-me-to-do.md) article.
 - Non-procedural information in a quickstart must follow these rules. If any rule fails, move the information to a separate [concept](./concept-help-me-to-understand.md) article. In the quickstart, provide a summary and link to the concept article.
 
-    | Check   | Rule                                                                                   |
-    |:--------|:--------------------------------------------------------------------------------------|
-    | (R1) Scope     | The information only answers: **what** the quickstart or task does, **why** it matters, and **when** to use it.      |
-    | (R2) Length    | TThe information must be no longer than 150 words or two short paragraphs.                                              |
-    | (R3) Structure | The information doesn't contain H3 headings, tables, or diagrams.                                                |
-    | (R4) Reuse     | The information is unique and does not appear in other documents.                       |
-    | (R5) Blocking  | Omitting the information would cause immediate failure of the described tasks.       |
+    | Check   | Rule                                                                                                         |
+    |:--------|:------------------------------------------------------------------------------------------------------------|
+    | (R1) Scope     | The information only answers: **what** the quickstart or task does, **why** it matters, and **when** to use it. |
+    | (R2) Length    | The information must be no longer than 150 words or two short paragraphs.                             |
+    | (R3) Structure | The information doesn't contain H3 headings, tables, or diagrams.                                     |
+    | (R4) Reuse     | The information is unique and does not appear in other documents.                                     |
+    | (R5) Blocking  | Omitting the information would cause immediate failure of the described tasks.                        |
 
 ## Quickstart structure
 
-| #   | Element                                              | Format                        | Required |
-|:----|:-----------------------------------------------------|:------------------------------|:---------|
-| 1   | [Title](#title) reads "Quickstart"                                    | H1                            | Yes      |
-| 2   | [Subtitle](#subtitle)                                | H4                            | Yes      |
-| 3   | [Admonition](#admonition-optional)                   | Information admonition        | Yes      |
-| 4   | ["Overview"](#overview) heading                        | H2                            | Yes      |
-| 5   | ["Overview"](#overview) content                        | Paragraph                     | Yes      |
-| 6   | ["Before you start"](#before-you-start) heading        | H2                            | No       |
-| 7   | ["Before you start"](#before-you-start) content        | Bullet list                   | No       |
-| 8   | [Task 1 heading](#task-heading)                      | H2                            | Yes      |
-| 9  | [Task 1 steps](#task-steps)                          | Numbered list                 | Yes      |
-| 10  | [Task 1 code sample or image](#code-sample-or-image-optional) | Code block or image  | No       |
-| 11  | [Task 1 subtask heading](#task-subtask-heading-optional)                     | H3 heading | No       |
-| 12  | [Task 1 subtask steps](#task-subtask-steps-optional)                     | Numbered list | No       |
-| 12  | [Task 2 heading](#task-2-heading)                     | H2 heading | No       |
-| 12  | [Task 2 steps](#task-2-steps)                     | Numbered list | No       |
-| 13  | ["Next steps"](#next-steps-optional) heading           | H2                            | No       |
-| 14  | ["Next steps"](#next-steps-optional) content           | Bullet list                   | No       |
+| #  | Element                                                                 | Format                     | Required |
+|:---|:-----------------------------------------------------------------------|:---------------------------|:--------:|
+| 1  | [Title](#title) — "Quickstart"                                         | H1                         | Yes      |
+| 2  | [Subtitle](#subtitle)                                                  | H4                         | Yes      |
+| 3  | [Admonition](#admonition-optional)                                     | Information admonition     | Yes      |
+| 4  | ["Overview" heading](#overview)                                        | H2                         | Yes      |
+| 5  | ["Overview" content](#overview)                                        | Paragraph                  | Yes      |
+| 6  | ["Before you start" heading](#before-you-start-section)                | H2                         | No       |
+| 7  | ["Before you start" content](#before-you-start-section)                | Bullet list                | No       |
+| 8  | [Task 1 heading](#task-heading)                                        | H2                         | Yes      |
+| 9  | [Task 1 steps](#task-steps)                                            | Numbered list              | Yes      |
+| 10 | [Task 1 code sample or image](#code-sample-or-image-optional)          | Code block or image        | No       |
+| 11 | [Task 1 subtask heading](#task-subtask-heading-optional)               | H3                         | No       |
+| 12 | [Task 1 subtask steps](#task-subtask-steps-optional)                   | Numbered list              | No       |
+| 13 | [Task 2 heading](#task-2-heading)                                      | H2                         | No       |
+| 14 | [Task 2 steps](#task-2-steps)                                          | Numbered list              | No       |
+| 15 | ["Next steps" heading](#next-steps-optional)                           | H2                         | No       |
+| 16 | ["Next steps" content](#next-steps-optional)                           | Bullet list                | No       |
 
 ### Title
 
