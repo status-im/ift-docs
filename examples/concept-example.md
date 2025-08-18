@@ -1,7 +1,7 @@
 ---
 title: About the codespace lifecycle
 topic: Codespaces
-author: jorge-campo
+author: jorge-campo, cheny0
 version: 1
 url: docs/codespaces/about-codespace-lifecycle
 ---
@@ -12,10 +12,11 @@ url: docs/codespaces/about-codespace-lifecycle
 
 #### Explore how GitHub Codespaces provides instant, cloud-based development environments for any project.
 
-> 📒 **Note**  
+> 📒 **Note**
+>
 > GitHub Codespaces is available on GitHub Free, Pro, Team, and Enterprise Cloud plans.
 
-A [codespace](./about-codespaces.md) is a cloud-hosted development environment that lives on GitHub’s infrastructure. The [codespace lifecycle](#lifecycle-events) determines what happens to your source code, container state, and [billing](#billing). By understanding each event you can keep changes safe, avoid surprise costs, and choose the right retention strategy for every project.
+A [codespace](./about-codespaces.md) is a cloud-hosted development environment that lives on GitHub’s infrastructure. The [codespace lifecycle](#lifecycle-events) determines what happens to your source code, container state, and [billing](#billing-implications). By understanding each event you can keep changes safe, avoid surprise costs, and choose the right retention strategy for every project.
 
 You can create a short-lived workspace for quick tasks and delete it the same day to avoid storage costs, or keep a workspace running for longer to retain caches and build outputs. How long you keep a codespace running depends on your workflow.
 
@@ -38,7 +39,7 @@ GitHub Codespaces and [GitHub.dev](./about-github-dev.md) both let you work with
 
 ## The basics
 
--  A stopped codespace keeps its file system and container image until deleted.
+- A stopped codespace keeps its file system and container image until deleted.
 - Only the running state accrues compute charges; stopped instances incur storage fees.
 - GitHub auto-deletes a codespace after its retention period unless you delete it sooner.
 
@@ -85,7 +86,6 @@ GitHub detaches and deletes the volume only when you delete the codespace or its
 ### User settings volume
 
 GitHub mounts a personal volume with your editor settings, extensions, and dotfiles into every codespace. Because it is independent of any single workspace, your customized tools reappear automatically, even after you recreate codespaces across multiple repositories.
-
 
 ## Billing implications
 
