@@ -203,7 +203,7 @@ Guidelines:
 - Stop at H4. Deeper levels (H5, H6) are forbidden.
 -->
 
-(Optional){ H4 section content }
+(Optional) #### { H4 section content }
 
 { Paragraph, list, or table content }
 
