@@ -91,7 +91,7 @@ This information-type admonition is exclusively to alert readers about who can u
 
 > ℹ️ **Note:**
 >
-> For more information, check out [Admonitions](../../docs-standards/20-style-the-content/12-admonitions.md)
+> For more information, check out [Admonitions](../../docs-standards/20-style-the-content/12-admonitions.md).
 -->
 
 { Introduction }
