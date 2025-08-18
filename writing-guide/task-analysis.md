@@ -6,7 +6,11 @@ Good documentation helps people to get things done. Task analysis is the process
 
 Task analysis takes place before you start writing documentation. By analyzing the tasks the developers need to perform, you create a clear structure for your documentation, focus on what's important, and avoid writing unnecessary content.
 
-The quality of your task analysis determines the quality of your documentation and the time it takes to write it. It is safe to say that the more time you spend on task analysis, the less time you will spend on writing documentation. On average, professional technical writers don't spend more than 15-20% of their time writing. This is only possible because, as a result of their task analysis, they know exactly what to write.
+> **Tip:**
+>
+> Task analysis forces you to stop and think about the developer's goals before writing the correct approach. It shifts the focus from "what I know" to "what the developer needs to do".
+
+The quality of your task analysis determines the quality of your documentation and the time it takes to write it. It is safe to say that the more time you spend on task analysis, the less time you will spend on writing. On average, professional technical writers don't spend more than 15-20% of their time writing. This is only possible because they use task analysis to know exactly what to write.
 
 This guide provides a step-by-step approach to task analysis for developer documentation, with only the necessary background information and a template and examples to help you get started.
 
