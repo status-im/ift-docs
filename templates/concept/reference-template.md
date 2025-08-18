@@ -149,7 +149,7 @@ Add here the reference information. Use tables or lists primarily. When in doubt
 <!--
 > ℹ️ **Note:**
 >
-> For information about code formatting, check out [Code](../../docs-standards/20-style-the-content/13-code.md)
+> For information about code formatting, check out [Code](../../docs-standards/20-style-the-content/13-code.md).
 -->
 
 (Optional) { Screenshot }
