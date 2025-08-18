@@ -157,7 +157,7 @@ Add here the reference information. Use tables or lists primarily. When in doubt
 <!--
 > ℹ️ **Note:**
 >
-> For more information, check out [Screenshots](../../docs-standards/30-work-with-media/02-screenshots.md)
+> For more information, check out [Screenshots](../../docs-standards/30-work-with-media/02-screenshots.md).
 -->
 
 (Optional) ### { H3 section title }
