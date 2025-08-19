@@ -179,7 +179,7 @@ This section provides a high-level overview of the concept, covering the most im
 
 Guidelines:
 
-- Use " H2 heading for this section.
+- Use the "The basics" H2 heading for this section.
 - Write a single unordered list with three bullet points that summarize the concept.
 - Order the points from most important to least important.
 - Aim for one sentence per bullet point, maximum two very short ones.
