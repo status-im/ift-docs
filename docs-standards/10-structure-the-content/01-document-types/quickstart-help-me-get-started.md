@@ -25,10 +25,10 @@ Check out the [file names and location rules](../../../CONTRIBUTING.md#file-name
 
     | Check   | Rule                                                                                                         |
     |:--------|:------------------------------------------------------------------------------------------------------------|
-    | (R1) Scope     | The information only answers: **what** the quickstart or task does, **why** it matters, and **when** to use it. |
-    | (R2) Length    | The information must be no longer than 150 words or two short paragraphs.                             |
-    | (R3) Structure | The information doesn't contain H3 headings, tables, or diagrams.                                     |
-    | (R4) Reuse     | The information is unique and does not appear in other documents.                                     |
+    | (R1) Scope     | Only answers: **what** the quickstart or task does, **why** it matters, and **when** to use it.      |
+    | (R2) Length    | No longer than 150 words or two short paragraphs.                                                     |
+    | (R3) Structure | Does not contain H3 headings, tables, or diagrams.                                                    |
+    | (R4) Reuse     | Unique and does not appear in other documents.                                                        |
     | (R5) Blocking  | Omitting the information would cause immediate failure of the described tasks.                        |
 
 ## Quickstart structure
@@ -86,7 +86,7 @@ Guidelines:
 
 - Use the "Overview" H2 heading for this section.
 - Start with a brief discussion of this product or feature and its core purposes. Then describe what the user can accomplish in this quickstart.
-The overview should be one or a maximum of two paragraphs. Use an additional [concept](./concept-help-me-to-understand.md) article if you need to provide more information.
+- The overview should be one or a maximum of two paragraphs. Use an additional [concept](./concept-help-me-to-understand.md) article if you need to provide more information.
 - Link to related topics to support the reader's gathering of information.
 
 ### "Before you start" section
