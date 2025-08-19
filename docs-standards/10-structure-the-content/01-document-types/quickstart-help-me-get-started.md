@@ -129,6 +129,7 @@ Guidelines:
 
 Guidelines:
 
+- Don’t include “Task,” “Subtask,” or numbering in the heading.
 - Focus on the result, not on the task.
 - Start the title with an action verb in the imperative form. Don't use the -ing form of the verb.
 - Use H2 headings for each task.
