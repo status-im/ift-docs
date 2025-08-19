@@ -23,38 +23,38 @@ Check out the [file names and location rules](../../../CONTRIBUTING.md#file-name
 - A quickstart isn’t about explaining every detail, but about helping users quickly accomplish something with your product. For information such as alternative methods or considerations when completing a task, link to a separate [procedure](./procedure-help-me-to-do.md) article.
 - Non-procedural information in a quickstart must follow these rules. If any rule fails, move the information to a separate [concept](./concept-help-me-to-understand.md) article. In the quickstart, provide a summary and link to the concept article.
 
-    | Check   | Rule                                                                                                   |
-    |:--------|:-------------------------------------------------------------------------------------------------------|
-    | (R1) Scope     | Only answers: **what** the quickstart or task does, **why** it matters, and **when** to use it. |
-    | (R2) Length    | No longer than 150 words or two short paragraphs.                                               |
-    | (R3) Structure | Does not contain H3 headings, tables, or diagrams.                                              |
-    | (R4) Reuse     | Unique and does not appear in other documents.                                                  |
-    | (R5) Blocking  | Omitting the information would cause immediate failure of the described tasks.                  |
+    | Check   | Rule                                                                                                                   |
+    |:--------|:-----------------------------------------------------------------------------------------------------------------------|
+    | (R1) Scope     | The information only answers: **what** the quickstart or task does, **why** it matters, and **when** to use it. |
+    | (R2) Length    | The information is no longer than 150 words or two short paragraphs.                                            |
+    | (R3) Structure | The information doesn't contain H3 headings, tables, or diagrams.                                               |
+    | (R4) Reuse     | The information doesn't appear in other documents.                                                              |
+    | (R5) Blocking  | Omitting the information would cause immediate failure of the described tasks.                                  |
 
 ## Quickstart structure
 
-| #  | Element                                                                | Format                     | Required |
-|:---|:-----------------------------------------------------------------------|:---------------------------|:---------|
-| 1  | [Title](#title) — "Quickstart"                                         | H1                         | Yes      |
-| 2  | [Subtitle](#subtitle)                                                  | H4                         | Yes      |
-| 3  | [Admonition](#admonition-optional)                                     | Information admonition     | Yes      |
-| 4  | ["Overview" heading](#overview)                                        | H2                         | Yes      |
-| 5  | ["Overview" content](#overview)                                        | Paragraph                  | Yes      |
-| 6  | ["Before you start" heading](#before-you-start-section)                | H2                         | No       |
-| 7  | ["Before you start" content](#before-you-start-section)                | Bullet list                | No       |
-| 8  | [Task 1 heading](#task-heading)                                        | H2                         | Yes      |
-| 9  | [Task 1 steps](#task-steps)                                            | Numbered list              | Yes      |
-| 10 | [Task 1 code sample or image](#code-sample-or-image-optional)          | Code block or image        | No       |
-| 11 | [Task 1 subtask heading](#task-subtask-heading-optional)               | H3                         | No       |
-| 12 | [Task 1 subtask steps](#task-subtask-steps-optional)                   | Numbered list              | No       |
-| 13 | [Task 2 heading](#task-2-heading)                                      | H2                         | No       |
-| 14 | [Task 2 steps](#task-2-steps)                                          | Numbered list              | No       |
-| 15 | ["Next steps" heading](#next-steps-optional)                           | H2                         | No       |
-| 16 | ["Next steps" content](#next-steps-optional)                           | Bullet list                | No       |
+| #  | Element                                                       | Format                 | Required |
+|:---|:--------------------------------------------------------------|:-----------------------|:---------|
+| 1  | [Title](#title) reads "Quickstart"                            | H1                     | Yes      |
+| 2  | [Subtitle](#subtitle)                                         | H4                     | Yes      |
+| 3  | [Admonition](#admonition-optional)                            | Information admonition | Yes      |
+| 4  | ["Overview"](#overview) heading                               | H2                     | Yes      |
+| 5  | ["Overview"](#overview) content                               | Paragraph              | Yes      |
+| 6  | ["Before you start"](#before-you-start-section) heading       | H2                     | No       |
+| 7  | ["Before you start"](#before-you-start-section) content       | Bullet list            | No       |
+| 8  | [Task 1](#task-heading) heading                               | H2                     | Yes      |
+| 9  | [Task 1](#task-steps) steps                                   | Numbered list          | Yes      |
+| 10 | [Task 1 code sample or image](#code-sample-or-image-optional) | Code block or image    | No       |
+| 11 | [Task 1 subtask](#task-subtask-heading-optional) heading      | H3                     | No       |
+| 12 | [Task 1 subtask](#task-subtask-steps-optional) steps          | Numbered list          | No       |
+| 13 | [Task 2](#task-2-heading) heading                             | H2                     | Yes      |
+| 14 | [Task 2](#task-2-steps) steps                                 | Numbered list          | Yes      |
+| 15 | ["Next steps"](#next-steps-optional) heading                  | H2                     | No       |
+| 16 | ["Next steps"](#next-steps-optional) content                  | Bullet list            | No       |
 
 ### Title
 
-Quickstart titles use only the word “Quickstart” with no additional information.
+Quickstart titles use only the word "Quickstart" with no additional information.
 
 ### Subtitle
 
@@ -100,15 +100,17 @@ This section provides:
 Guidelines:
 
 - Use the "Before you start" H2 heading for this section.
-- Write a single bullet list.
+- Write a single bullet list of noun phrases. Don't include verbs such as "learn" or "prepare".
 - Provide [links](../../20-style-the-content/10-links.md) to related content such as installation instructions or articles that provide required knowledge.
 - Setting up or installing prerequisites is not part of a quickstart. If you must explain the procedure and it takes less than three steps, include it in the [task](#task-section) where you describe setting up your product.
 
 > ⚙️ **Example:**
-> 
-> - Learn the basics of [Ethereum](https://ethereum.org/en/developers/docs/intro-to-ethereum/) ↗. 
-> - Learn how to use the command line.
-> - Prepare a machine running Ubuntu Linux with the following requirements:
+>
+> Before you begin, make sure you have:
+>
+> - A basic understanding of [Ethereum](https://ethereum.org/en/developers/docs/intro-to-ethereum/) ↗ concepts
+> - Proficiency with the command line
+> - A machine running Ubuntu Linux with the following minimum requirements:
 >   - 4 GB memory
 >   - 2 TB SSD
 >   - Linux 64-bit
@@ -219,5 +221,4 @@ Guidelines:
 - Consider a logical connection from the current quickstart that can act as a basis for your users' next learning.
 
 ---
-
 *Examples adapted from GitHub Docs (CC BY 4.0). See [Attributions](/ATTRIBUTIONS.md) for details.*
