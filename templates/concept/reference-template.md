@@ -80,7 +80,7 @@ Guidelines:
 > For more information, check out the [reference subtitle](../../docs-standards/10-structure-the-content/01-document-types/reference.md#subtitle) standards.
 -->
 
-(Optional){ Admonition }
+(Optional) { Admonition }
 
 <!--
 This information-type admonition is exclusively to alert readers about who can use this feature and shouldn't be used for any other information. For example, a feature is only available to specific application role or using a specific tool or interface.
@@ -130,7 +130,7 @@ Use simple section titles. Refer to this list of common section titles:
 
 <!--
 Guidelines:
-- One H2 section = one concept. Don't mix two ideas under the same heading.
+- One H2 section = one idea. Don't mix two ideas under the same heading.
 - Arrange H2 sections from general to specific, or from most important to least important.
 
 > ℹ️ **Note:**
@@ -178,9 +178,9 @@ Guidelines:
 
 { Paragraph, list, or table content }
 
-(Optional){ Screenshot }
+(Optional) { Screenshot }
 
-(Optional){ Code }
+(Optional) { Code }
 
 (Optional) ### { H3 section title }
 
@@ -188,9 +188,9 @@ Guidelines:
 
 { Paragraph, list, or table content }
 
-(Optional){ Screenshot }
+(Optional) { Screenshot }
 
-(Optional){ Code }
+(Optional) { Code }
 
 (Optional) #### { H4 section title }
 
@@ -207,6 +207,6 @@ Guidelines:
 
 { Paragraph, list, or table content }
 
-(Optional){ Screenshot }
+(Optional) { Screenshot }
 
-(Optional){ Code }
+(Optional) { Code }
