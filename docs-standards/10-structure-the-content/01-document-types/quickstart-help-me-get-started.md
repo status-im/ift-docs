@@ -23,18 +23,18 @@ Check out the [file names and location rules](../../../CONTRIBUTING.md#file-name
 - A quickstart isn’t about explaining every detail, but about helping users quickly accomplish something with your product. For information such as alternative methods or considerations when completing a task, link to a separate [procedure](./procedure-help-me-to-do.md) article.
 - Non-procedural information in a quickstart must follow these rules. If any rule fails, move the information to a separate [concept](./concept-help-me-to-understand.md) article. In the quickstart, provide a summary and link to the concept article.
 
-    | Check   | Rule                                                                                                         |
-    |:--------|:------------------------------------------------------------------------------------------------------------|
-    | (R1) Scope     | Only answers: **what** the quickstart or task does, **why** it matters, and **when** to use it.      |
-    | (R2) Length    | No longer than 150 words or two short paragraphs.                                                     |
-    | (R3) Structure | Does not contain H3 headings, tables, or diagrams.                                                    |
-    | (R4) Reuse     | Unique and does not appear in other documents.                                                        |
-    | (R5) Blocking  | Omitting the information would cause immediate failure of the described tasks.                        |
+    | Check   | Rule                                                                                                   |
+    |:--------|:-------------------------------------------------------------------------------------------------------|
+    | (R1) Scope     | Only answers: **what** the quickstart or task does, **why** it matters, and **when** to use it. |
+    | (R2) Length    | No longer than 150 words or two short paragraphs.                                               |
+    | (R3) Structure | Does not contain H3 headings, tables, or diagrams.                                              |
+    | (R4) Reuse     | Unique and does not appear in other documents.                                                  |
+    | (R5) Blocking  | Omitting the information would cause immediate failure of the described tasks.                  |
 
 ## Quickstart structure
 
-| #  | Element                                                                 | Format                     | Required |
-|:---|:-----------------------------------------------------------------------|:---------------------------|:--------:|
+| #  | Element                                                                | Format                     | Required |
+|:---|:-----------------------------------------------------------------------|:---------------------------|:---------|
 | 1  | [Title](#title) — "Quickstart"                                         | H1                         | Yes      |
 | 2  | [Subtitle](#subtitle)                                                  | H4                         | Yes      |
 | 3  | [Admonition](#admonition-optional)                                     | Information admonition     | Yes      |
