@@ -99,6 +99,21 @@ A unified, AI-aware stack for IFT user docs
 
 ---
 
+# How OneDoc addresses documentation pain points
+
+- **Fragmented toolchain** 👉 Consolidates all documentation tools into a single platform (GitBook)
+- **Uneven content quality** 👉 Establishes clear content standards and templates to ensure consistency
+- **Unclear onboarding** 👉 Provides ready-to-use guides and resources to help contributors get started
+- **Missing key info** 👉 Structures docs to surface key concepts
+- **Lack of standards** 👉 Adopts docs-as-code for easier authoring, maintenance, and navigation
+- **Diluted ownership** 👉 Ensures team accountability for documentation
+
+<div class="absolute right-30px bottom-30px">
+	<SlideCurrentNo /> / <SlidesTotal />
+</div>
+
+---
+
 # Project phases
 
 | **Phase**                                         | **Main steps**                                         |
@@ -106,7 +121,7 @@ A unified, AI-aware stack for IFT user docs
 | 0. Project documentation (I) and kick-off ⬥       | Project documentation and approval                     |
 | 1. GitBook and domain config ⬥                   | GitBook deployment and configuration and domain setup     |
 | 2. Monorepo setup ⬥                               | GitHub repository configuration                                   |
-| 3. Project documentation (II) ⬥                   | Content guidelines (style guide) and templates                              |
+| 3. Project documentation (II) ⬥                   | Docs standards (style guide) and templates                              |
 | 4. Pilot migration ⭑                              | Migration, scripting, manual updates, and auditing     |
 | 5. Pilot review ⭑                                 | Content clean-up and review                            |
 
