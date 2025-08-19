@@ -100,7 +100,7 @@ Guidelines:
 > For examples, check out [concept introduction](../../docs-standards/10-structure-the-content/concept-help-me-to-understand.md#introduction) standards and [concept example](./concept-example.md).
 -->
 
-(Optional){ Diagram or image }
+(Optional) { Diagram or image }
 
 <!--
 - Use one diagram or image per concept. If you need two, the concept needs splitting or the second visual belongs to alater H2 section.
@@ -123,7 +123,7 @@ Provide a concrete, real-world scenario for the product feature. It answers the 
 > *For example, you can configure custom environment variables so they are set every time you open a codespace, and you can ensure that temporary files are retained when the codespace stops.*
 -->
 
-(Optional){ Comparison }
+(Optional) { Comparison }
 
 <!--
 Guidelines:
@@ -173,7 +173,7 @@ Guidelines:
 <!--
 Headings guidelines:
 
-- One heading = one concept. Don't mix two ideas under the same heading.
+- One heading = one idea. Don't mix two ideas under the same heading.
 - Arrange H2 sections from general to specific, or from most important to least important.
 - Start with a paragraph before you add lists or tables.
 - When possible, limit the document depth to H3.
@@ -187,7 +187,7 @@ Headings guidelines:
 
 { Key idea description }
 
-(Optional){ Screenshot }
+(Optional) { Screenshot }
 
 <!--
 > ℹ️ **Note:**
@@ -195,7 +195,7 @@ Headings guidelines:
 > For more information, check out [Screenshots](../../docs-standards/30-work-with-media/02-screenshots.md)
 -->
 
-(Optional){ Code }
+(Optional) { Code }
 
 <!--
 > ℹ️ **Note:**
@@ -211,7 +211,7 @@ H3 is used to break down the main H2 section into smaller, more manageable parts
 
 { Key idea description }
 
-(Optional){ Screenshot }
+(Optional) { Screenshot }
 
 (Optional){ Code }
 
@@ -225,9 +225,9 @@ If you add an H3, at least one sibling H3 must follow or the split is unnecessar
 
 { Key idea description }
 
-(Optional){ Screenshot }
+(Optional) { Screenshot }
 
-(Optional){ Code }
+(Optional) { Code }
 
 (Optional) ### { Section H4 title }
 
@@ -237,6 +237,6 @@ Stop at H4. Deeper levels (H5, H6) are forbidden.
 
 { Key idea description }
 
-(Optional){ Screenshot }
+(Optional) { Screenshot }
 
 (Optional){ Code }
