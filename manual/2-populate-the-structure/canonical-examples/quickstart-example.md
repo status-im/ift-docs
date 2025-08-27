@@ -17,7 +17,9 @@ url: docs/repositories/quickstart
 
 ## Overview
 
-Repositories are project containers on GitHub. They store source code, configuration, and related files. In this quickstart, you create a repository, edit a file, and clone the repository to your computer. This helps you begin collaborating or versioning your code immediately.
+In this quickstart, you create a repository, edit a file, and clone the repository to your computer. This helps you begin collaborating or versioning your code immediately.
+
+Repositories are project containers on GitHub. They store source code, configuration, and related files.
 
 ## Before you start
 
