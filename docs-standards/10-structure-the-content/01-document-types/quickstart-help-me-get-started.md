@@ -156,7 +156,7 @@ Guidelines:
 
 > ⚙️ **Example:**
 >
-> ## Manage files using Codex Vault
+> ## Handle files using Codex Vault
 >
 > You can use Codex Vault, a GUI web application, to manage your files on the Codex testnet. Once you have your Codex node running using the installer, you can access the Codex Vault at https://app.codex.storage.
 >
@@ -173,7 +173,7 @@ Guidelines:
 
 > ℹ️ **Note:**
 >
-> For additional tips on writing tasks, see [Procedure docs standards](procedure-help-me-to-do.md
+> For additional tips on writing tasks, see [Procedure docs standards](./procedure-help-me-to-do.md
 ).
 
 #### Code sample or image (optional)
