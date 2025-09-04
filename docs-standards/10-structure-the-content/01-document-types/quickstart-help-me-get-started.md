@@ -33,24 +33,25 @@ Check out the [file names and location rules](../../../CONTRIBUTING.md#file-name
 
 ## Quickstart structure
 
-| #  | Element                                                       | Format                 | Required |
-|:---|:--------------------------------------------------------------|:-----------------------|:---------|
-| 1  | [Title](#title) reads "Quickstart"                            | H1                     | Yes      |
-| 2  | [Subtitle](#subtitle)                                         | H4                     | Yes      |
-| 3  | [Admonition](#admonition-optional)                            | Information admonition | Yes      |
-| 4  | ["Overview"](#overview) heading                               | H2                     | Yes      |
-| 5  | ["Overview"](#overview) content                               | Paragraph              | Yes      |
-| 6  | ["Before you start"](#before-you-start-section) heading       | H2                     | No       |
-| 7  | ["Before you start"](#before-you-start-section) content       | Bullet list            | No       |
-| 8  | [Task 1](#task-heading) heading                               | H2                     | Yes      |
-| 9  | [Task 1](#task-steps) steps                                   | Numbered list          | Yes      |
-| 10 | [Task 1 code sample or image](#code-sample-or-image-optional) | Code block or image    | No       |
-| 11 | [Task 1 subtask](#task-subtask-heading-optional) heading      | H3                     | No       |
-| 12 | [Task 1 subtask](#task-subtask-steps-optional) steps          | Numbered list          | No       |
-| 13 | [Task 2](#task-2-heading) heading                             | H2                     | Yes      |
-| 14 | [Task 2](#task-2-steps) steps                                 | Numbered list          | Yes      |
-| 15 | ["Next steps"](#next-steps-optional) heading                  | H2                     | No       |
-| 16 | ["Next steps"](#next-steps-optional) content                  | Bullet list            | No       |
+| #  | Element                                                          | Format                 | Required |
+|:---|:-----------------------------------------------------------------|:-----------------------|:---------|
+| 1  | [Title](#title) reads "Quickstart"                               | H1                     | Yes      |
+| 2  | [Subtitle](#subtitle)                                            | H4                     | Yes      |
+| 3  | [Admonition](#admonition-optional)                               | Information admonition | No       |
+| 4  | ["Overview"](#overview) heading                                  | H2                     | Yes      |
+| 5  | ["Overview"](#overview) content                                  | Paragraph              | Yes      |
+| 6  | ["Before you start"](#before-you-start-section-optional) heading | H2                     | No       |
+| 7  | ["Before you start"](#before-you-start-section-optional) content | Bullet list            | No       |
+| 8  | [Task 1](#task-heading) heading                                  | H2                     | Yes      |
+| 9  | [Task 1](#task-introduction-optional) introduction               | Paragraph              | No       |
+| 10 | [Task 1](#task-steps) steps                                      | Numbered list          | Yes      |
+| 11 | [Task 1 code sample or image](#code-sample-or-image-optional)    | Code block or image    | No       |
+| 12 | [Task 1 subtask](#task-subtask-heading-optional) heading         | H3                     | No       |
+| 13 | [Task 1 subtask](#task-subtask-steps-optional) steps             | Numbered list          | No       |
+| 14 | [Task 2](#task-2-heading) heading                                | H2                     | Yes      |
+| 15 | [Task 2](#task-2-steps) steps                                    | Numbered list          | Yes      |
+| 16 | ["Next steps"](#next-steps-optional) heading                     | H2                     | No       |
+| 17 | ["Next steps"](#next-steps-optional) content                     | Bullet list            | No       |
 
 ### Title
 
@@ -89,7 +90,7 @@ Guidelines:
 - The overview should be one or a maximum of two paragraphs. Use an additional [concept](./concept-help-me-to-understand.md) article if you need to provide more information.
 - Link to related topics to support the reader's gathering of information.
 
-### "Before you start" section
+### "Before you start" section (optional)
 
 This section provides:
 
@@ -100,7 +101,9 @@ This section provides:
 Guidelines:
 
 - Use the "Before you start" H2 heading for this section.
-- Write a single bullet list of noun phrases. Don't include verbs such as "learn" or "prepare".
+- Start the section with "Before you begin, make sure you have..."
+- After the starting sentence, write a single bullet list of noun phrases or a short paragraph if there's only one prerequisite.
+- Don't include verbs such as "learn" or "prepare".
 - Provide [links](../../20-style-the-content/10-links.md) to related content such as installation instructions or articles that provide required knowledge.
 - Setting up or installing prerequisites is not part of a quickstart. If you must explain the procedure and it takes less than three steps, include it in the [task](#task-section) where you describe setting up your product.
 
@@ -144,11 +147,17 @@ Guidelines:
 > - *Connect to the Codex network*
 > - *Configure system admin access*
 
+#### Task introduction (optional)
+
+Guidelines:
+
+- Optionally, include a short introduction paragraph to provide context or required knowledge for the task.
+- Don't repeat the title information. For example, if the task title is "Search for a contact using the Status display name," don't introduce the task with "To search for a contact using the Status display name [...]"
+
 #### Task steps
 
 Guidelines:
 
-- Optionally, include an introduction paragraph to provide context or required knowledge for the task.
 - Include a short description for each step, even when it contains a code sample.
 - Provide examples of sample output, such as return data, a message, so that the users can validate whether they perform the step correctly or not.
 - Include one action in a step.

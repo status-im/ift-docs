@@ -22,27 +22,27 @@ A procedure topic describes how to complete an action using a series of steps. P
 
 ## Procedure structure
 
-| #  | Element                                                       | Format                 | Required |
-|:---|:--------------------------------------------------------------|:-----------------------|:---------|
-| 1  | [Title](#title)                            | H1                     | Yes      |
-| 2  | [Subtitle](#subtitle)                                         | H4                     | Yes      |
-| 3  | [Admonition](#admonition-optional)                            | Information admonition | Yes      |
-| 4  | [Introduction](#introduction)                             | H2                     | Yes      |
-| 5  | [Example](#example)                               | Paragraph              | Yes      |
-| 5  | ["What to expect"](#what-to-expect)   heading                            | Paragraph              | Yes      |
-| 5  | ["What to expect"](#what-to-expect)   content                            | Paragraph              | Yes      |
-| 5  | [Task Admonition](#admonition)                               | Paragraph              | Yes      |
-| 6  | ["Before you start"](#before-you-start-section) heading       | H2                     | No       |
-| 7  | ["Before you start"](#before-you-start-section) content       | Bullet list            | No       |
-| 8  | [Task 1](#task-heading) heading                               | H2                     | Yes      |
-| 9  | [Task 1](#task-steps) steps                                   | Numbered list          | Yes      |
-| 10 | [Task 1 code sample or image](#code-sample-or-image-optional) | Code block or image    | No       |
-| 11 | [Task 1 subtask](#task-subtask-heading-optional) heading      | H3                     | No       |
-| 12 | [Task 1 subtask](#task-subtask-steps-optional) steps          | Numbered list          | No       |
-| 13 | [Task 2](#task-2-heading) heading                             | H2                     | Yes      |
-| 14 | [Task 2](#task-2-steps) steps                                 | Numbered list          | Yes      |
-| 15 | ["Next steps"](#next-steps-optional) heading                  | H2                     | No       |
-| 16 | ["Next steps"](#next-steps-optional) content                  | Bullet list            | No       |
+| #  | Element                                                          | Format                 | Required |
+|:---|:-----------------------------------------------------------------|:-----------------------|:---------|
+| 1  | [Title](#title)                                                  | H1                     | Yes      |
+| 2  | [Subtitle](#subtitle)                                            | H4                     | Yes      |
+| 3  | [Admonition](#admonition-optional)                               | Information admonition | No       |
+| 4  | [Introduction](#introduction)                                    | Paragraph              | Yes      |
+| 5  | [Example](#example-(optional))                                   | Paragraph              | No       |
+| 6  | ["What to expect"](#what-to-expect-section-optional) heading     | H2                     | No       |
+| 7  | ["What to expect"](#what-to-expect-section-optional) content     | Bullet list            | No       |
+| 8  | [Task Admonition 1](#task-admonition-1-optional)                 | Admonition             | No       |
+| 9  | ["Before you start"](#before-you-start-section-optional) heading | H2                     | No       |
+| 10 | ["Before you start"](#before-you-start-section-optional) content | Bullet list            | No       |
+| 11 | [Task](#task-heading) heading                                    | H2                     | Yes      |
+| 12 | [Task](#task-introduction-optional) introduction                 | Paragraph              | No       |
+| 13 | [Task](#task-steps) steps                                        | Numbered list          | Yes      |
+| 14 | [Task code sample or image](#code-sample-or-image-optional)      | Code block or image    | No       |
+| 15 | [Task admonition 2](#task-admonition-2-optional)                 | Admonition             | No       |
+| 16 | [Subtask](#subtask-heading-optional) heading                     | H3                     | No       |
+| 17 | [Subtask](#subtask-steps-optional) steps                         | Numbered list          | No       |
+| 18 | ["Common questions"](#common-questions-section-optional) heading | H2                     | No       |
+| 19 | ["Common questions"](#common-questions-section-optional) content | Paragraph              | No       |
 
 ### Title
 
@@ -95,7 +95,7 @@ This section explains what the task is and why it matters, providing background 
 Guidelines:
 - This section doesn't use a heading.
 - Start with one or two lead sentences in a single paragraph that explains what the task is and why it matters. This lead should be concise and engaging, ideally no more than 50 words.
-- If the background information requires more than three sentences, move the content to a separate section under the introduction and use a H2 heading.
+- If the background information requires more than three sentences, move the content to a separate section after the introduction and use a H2 heading.
 - Link to related topics or headers in the same document to support the reader's gathering of information.
 
 ### Example (optional)
@@ -116,9 +116,11 @@ Guidelines:
 
 > ⚙️ **Example:**
 >
-> - To delegate Admin-level functions, assign the.......  permission to a collectible or ENS name owner.
+> - Burning tokens is an irreversible blockchain transaction that requires to pay a [network fee (gas fee)](./understand-network-fees).
+> - After burning a token, the existing holders keep their tokens, but the token's total supply decreases.
+> - You can burn a certain amount of tokens or all the remaining tokens.
 
-### Admonition
+### Task admonition 1 (optional)
 
 This admonition provides general notes, tips, or warnings about the task that users should know before starting the task.
 
@@ -140,11 +142,24 @@ Guidelines:
 - Only include prerequisites that are specific to the procedure document. Include general prerequisites in the "Before your start" section of the product installation guide.
 - Start the section with "Before you begin, make sure you have..."
 - After the starting sentence, write a single bullet list of noun phrases or a short paragraph if there's only one prerequisite.
+- Don't include verbs such as "learn" or "prepare".
 - Provide [links](../../20-style-the-content/10-links.md) to related content such as installation instructions or articles that provide required knowledge.
 
 > ⚙️ **Example:**
 >
 > Before you begin, make sure you have the admin level access permission.
+
+
+> ⚙️ **Example:**
+>
+> Before you begin, make sure you have:
+>
+> - A basic understanding of [Ethereum](https://ethereum.org/en/developers/docs/intro-to-ethereum/) ↗ concepts
+> - Proficiency with the command line
+> - A machine running Ubuntu Linux with the following minimum requirements:
+>   - 4 GB memory
+>   - 2 TB SSD
+>   - Linux 64-bit
 
 ### Task section
 
@@ -152,10 +167,9 @@ Use this section to describe what users need to do.
 
 Guidelines:
 
-- If you introduce the task with a sentence (this is optional; see Procedure structure), don't repeat the title information. For example, if the task title is "Search for a contact using the Status display name," don't introduce the task with "To search for a contact using the Status display name [...]"
-- If your quickstart involves a complex task, break it down into different logical subtasks with each subtask consisting of one or more related steps. 
+- If your procedure topic involves a complex task, break it down into different logical subtasks with each subtask consisting of one or more related steps. 
 - Describe the most straightforward steps of the tasks.
-Follow the UI elements guidelines to describe the user interactions.
+- Follow the [UI elements guidelines](../../20-style-the-content/11-ui-elements.md) to describe the user interactions with the UI.
 
 #### Task heading
 
@@ -166,23 +180,41 @@ Guidelines:
 - Use H3 headings for each subtask.
 - Avoid H4 headings. Deeper levels (H5, H6) are forbidden. If you need more levels, reorganize the content into more tasks or subtasks.
 
+#### Task introduction (optional)
+
+Guidelines:
+
+- Optionally, include a short introduction paragraph to provide context or required knowledge for the task.
+- Don't repeat the title information. For example, if the task title is "Search for a contact using the Status display name," don't introduce the task with "To search for a contact using the Status display name [...]"
+
 #### Task steps
 
 Guidelines:
-In the first step, tell the user where to start.
-- Optionally, include an introduction paragraph to provide context or required knowledge for the task.
+
 - Include a short description for each step, even when it contains a code sample.
+- In the first step, tell the user where to start.
 - Provide examples of sample output, such as return data, a message, so that the users can validate whether they perform the step correctly or not.
 - Use one step for each user action. It's OK to combine simple actions into a single step.
 - Limit the procedure to a maximum of seven steps. If you need more steps to explain the task, create a subtask.
-Use words consistently when describing user actions. For example, if you use remove in one step, don't use clear, empty or another synonym in a different step.
-- Use a period at the end of each step (check the Punctuation section for more information).
+- Use words consistently when describing user actions. For example, if you use *remove* in one step, don't use *clear*, *empty* or another synonym in a different step.
+- Don't use sublists inside lists; instead, use a new list on a subtask.
+- Use a period at the end of each step (check [Punctuation](../../20-style-the-content/05-punctuation-and-symbols.md) for more information).
+- Write the result of the action first, then the condition for the result.
+
+    | Usage      | Example                                                                 |
+    |:-----------|:------------------------------------------------------------------------|
+    | **Correct**   | Your Codex node announces itself to other network participants after you specify a public IP address. |
+    | Incorrect     | After specifying a public IP address, your Codex node announces itself to other network participants. |
+    | **Correct**   | To run a node, you must have the `nwaku` binary.                     |
+    | Incorrect     | You must have the `nwaku` binary to run a node.                      |
+
+- Don't use links in procedural steps, except when you need to reference a related subtask in the same article. You can use links in the optional paragraph before the steps.
 
 > ⚙️ **Example:**
 >
 > ## Handle files using Codex Vault
 >
-> You can use Codex Vault, a GUI web application, to manage your files on the Codex testnet. Once you have your Codex node running using the installer, you can access the Codex Vault at https://app.codex.storage.
+> You can use Codex Vault, a GUI web application, to manage your files on the Codex testnet. Once you have your Codex node running using the installer, you can access the Codex Vault at https://app.codex.storage ↗.
 >
 > ### Upload files
 >
@@ -205,36 +237,17 @@ Use less than two images or code samples per step. If you need more, the step ne
 >
 > When you use a code sample or image, it should be indented under the step description so that it's visually grouped with that step.
 
-#### Admonition (optional)
+#### Task admonition 2 (optional)
 
 This admonition provides notes, tips, or warnings about the result of the task or subtask.
 
 Place the admonition after the task or subtask, unless it contains critical information for a specific step. In that case, you can place it directly within the task steps.
 
-
-#### Task subtask heading (optional)
+#### Subtask heading (optional)
 
 Refer to the [task heading](#task-heading) section for guidelines.
 
-#### Task subtask steps (optional) 
-
-Refer to the [task steps](#task-steps) section for guidelines.
-
-#### Task 2 heading
-
-Refer to the [task heading](#task-heading) for guidelines.
-
-#### Task 2 steps 
-
-Refer to the [task steps](#task-steps) section for guidelines.
-
-...
-
-#### Task n heading (optional) 
-
-Refer to the [task heading](#task-heading) for guidelines.
-
-#### Task n steps (optional) 
+#### Subtask steps (optional) 
 
 Refer to the [task steps](#task-steps) section for guidelines.
 
