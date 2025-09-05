@@ -6,6 +6,14 @@
 
 A procedure topic describes how to complete an action using a series of steps. Procedures help users use and discover your product. These are the main characteristics of procedures:
 
+## Write a quickstart
+
+### Filenames
+
+Check out the [file names and location rules](../../../CONTRIBUTING.md#file-names-and-location-rules) for more information.
+
+### General rules
+
 - Two parts make up the procedure. The first part includes reference (non-procedural) information, while the second part includes procedural information.
 - A procedure explains a single task and, if necessary, additional subtasks. If the task is complex, consider splitting it into different procedure documents.
 - For tasks that may cause an error (for example, changing a password, choosing a user name, or sending crypto), consider adding a Common questions section at the end of the article, with answers to the most common issues. If the list of possible errors for a specific task is too long, use a FAQ (concept) article instead.
