@@ -21,6 +21,26 @@ UI elements are screen components the user can interact with. A checkbox, a menu
     | **Correct** | Go to **Settings > Messages > Privacy**.                           |
     | Incorrect   | Go to **Settings**, then go to **Messages**, then tap **Privacy**. |
 
+- Don't describe to users what's happening on the screen, unless the result is unexpected.
+
+    | Usage       | Example                                                                                        |
+    |:------------|:-----------------------------------------------------------------------------------------------|
+    | **Correct** | 1. Select Change.</br>2. On the Options dialog, uncheck the Automatic box.                      |
+    | Incorrect   | 1. Select Change. A new Options dialog opens.</br>2. On this dialog, uncheck the Automatic box. |
+
+- When the action occurs in a specific menu or area in the user interface, write the location before the action.
+
+- Write the result of the action first and then the condition for the result.
+
+    | Usage      | Example                                             |
+    |:-----------|:----------------------------------------------------|
+    | **Correct**   | From the **Settings**, change your profile picture.      |
+    | Incorrect     | Change your profile picture in the Settings.             |
+    | **Correct**   | In **Available tokens**, tap **Change token**.           |
+    | Incorrect     | Tap **Change token** in the **Available tokens** menu.   |
+
+- To describe menus or buttons in a particular user interface area, follow the order of the interface itself, going from left to right and from top to bottom. This means that if the user has the option to choose between *save* and *cancel* buttons, and the *save* button appears first, you should describe them in that order.
+
 ### Format guidelines
 
 - Format the UI element as seen on the screen, even if it contradicts the style conventions in this guide.
@@ -78,7 +98,7 @@ When you describe a UI interaction, use these action verbs:
 | Select a single UI element | *click* (desktop and web) or *tap* (mobile). |
 | Select one or more user-preferred options from a list | *choose* </br>Example: *Choose a name and highlight colour for your group chat*. |
 | Select one or more specific option from a list / select text | *select* </br>Example: *Select any channel with a lock icon from the channel list*. |
-| Acion on checkboxes | *check* the [UI label] box (to enable) / *uncheck* the [UI label] box (to disable). |
+| Action on checkboxes | *check* the [UI label] box (to enable) / *uncheck* the [UI label] box (to disable). |
 | Action on switches | *turn on*/*turn off* |
 | Go to previous screen | Use *return*. |
 | Swipe element | Use *swipe* [left or right] for desktop, web, and mobile. |
@@ -86,4 +106,4 @@ When you describe a UI interaction, use these action verbs:
 | Right click | *right click* for desktop and web interactions, when required. |
 | Start session | *log in* (verb) or *login* (noun) for desktop, web, and mobile. |
 | End session | *log out* (verb) or *logout* (noun) for desktop, web, and mobile. |
-| First-time access | Use *create profile*. |
+

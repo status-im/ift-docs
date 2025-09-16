@@ -25,13 +25,3 @@
     | Incorrect   | Browse people and Communities in Status   | browse-people-communities-status.md     |
     | **Correct** | FAQ: Import data from Discord             | faq-import-data-from-discord.md         |
     | **Correct** | Do's and don'ts of Profile security       | dos-and-donts-of-profile-security.md    |
-
-- At the index page level, use a bold typeface to stress the action and the feature or concept in the document.
-
-    | Usage       | Example                                   |
-    |:------------|:------------------------------------------|
-    | **Correct** | **Add** new members to your **Community** |
-    | Incorrect   | Add **new members** to your Community     |
-    | Incorrect   | Add new **members** to your Community     |
-    | **Correct** | About your crypto wallet **seed phrase**  |
-    | Incorrect   | About your **crypto wallet** seed phrase  |

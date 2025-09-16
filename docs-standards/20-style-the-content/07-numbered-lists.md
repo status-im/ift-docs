@@ -7,4 +7,4 @@
     | Usage     | Example |
     |:----------|:--------|
     | **Correct** | 1. Open the web page in your browser.<br>1. Click the "Sign In" button.<br>1. Enter your credentials. |
-    | Incorrect   | 1. Open the web page in your browser.<br>2. Click the "Sign In" button.<br>3. Enter your credentials.    |
+    | Incorrect   | 1. Open the web page in your browser.<br>2. Click the "Sign In" button.<br>3. Enter your credentials.  |
