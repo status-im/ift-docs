@@ -1,4 +1,4 @@
-# Task analysis
+# About task analysis
 
 ## What is task analysis?
 
@@ -22,9 +22,25 @@ This guide provides a step-by-step approach to task analysis for developer docum
 >
 > Task analysis for user and developer documentation share the same principles and goals but differ in important details. This guide focuses on developer documentation.
 
-## Task analysis in the documentation process
+## Information types and document types
 
-Task analysis is a foundational step in the documentation workflow. As outlined in this guide's intro, it fits into [Stage 1: Design the information](#link-needed), as illustrated in this diagram:
+The information types are the building blocks of your documentation. There are four main types: Concept (C), Procedure (P), Reference (R), and Troubleshooting (T).
+
+By combining these information types, you can create different document types. A document type is defined by its purpose and the main information type it contains. Each document type can also include additional information types (helpers) to provide context or support, such as the introduction in a procedure document.
+
+| Document type     | Purpose                          | Main information type | Helpers                  |
+|:------------------|:---------------------------------|:----------------------|:-------------------------------------------|
+| Procedure (P)        | Guide the developer through a task | Procedure             | C (intro), R (lookup)        |
+| Concept (C)           | Explain a topic or idea          | Concept               | P (example), R (details)   |
+| Reference (R)         | Provide detailed information     | Reference             | C (overview), P (usage)      |
+| Troubleshooting (T)   | Help resolve issues              | Troubleshooting       | C (background), R (error codes) |
+| Quickstart (Q)        | Quick overview to get started    | Procedure             | C (brief), R (links)         |
+| API documentation (A) | Describe API endpoints and usage | Reference             | C (overview), P (examples)   |
+
+For example:
+
+- A Procedure document is mostly steps, but it can include a short concept or introduction at the beginning (C).
+- A Concept document is mostly explanations, but it can include a few steps (P) or a reference table (R).
 
 ```mermaid
 flowchart LR
