@@ -1,9 +1,9 @@
 | Section                        | Format                              | Required  | ID                       |
 |:-------------------------------|:------------------------------------|:----------|:------------------------|
-| Title                          | H1                                  | Yes       | `PROC-PAGE-TITLE-001`        |
-| Subtitle                       | Single bold sentence                | Yes       | `PROC-PAGE-TITLE-002`        |
-| Access admonition              | Note-type admonition                | No        | `PROC-ACCESS-001`       |
-| Admonitions                    | Tip, Note, Important, Caution       | No        | `PROC-ADMONITIONS`      |
+| Title                          | H1                                  | Yes       | `PROC-PAGE-TITLE-001`   |
+| Subtitle                       | Single bold sentence                | Yes       | `PROC-PAGE-TITLE-002`   |
+| Access callout                 | Note-type callout                   | No        | `PROC-ACCESS-001`       |
+| Callouts                       | Tip, Note, Important, Caution       | No        | `PROC-CALLOUTS`         |
 | Overview                       | Paragraph                           | Yes       | `PROC-OVERVIEW`         |
 | Decisions                      | Paragraph, list, table              | No        | `PROC-DECISIONS`        |
 | Limits                         | Paragraph, list, table              | No        | `PROC-LIMITS`           |
@@ -64,12 +64,12 @@ Examples:
 - **Title**: *Quickstart for GitHub Actions* / **Subtitle**: *Try out the core features of GitHub Actions in minutes.*
 - **Title**: *Create a pull request* / **Subtitle**: *Create a pull request to propose and collaborate on changes to a repository.*
 
-## Access admonition guidelines <!-- PROC-ACCESS-001 -->
+## Access callout guidelines <!-- PROC-ACCESS-001 -->
 
-This note-type admonition is exclusively to alert readers about what roles, permissions, or product versions are required to perform the procedure.
+This note-type callout is exclusively to alert readers about what roles, permissions, or product versions are required to perform the procedure.
 
 - Place it after the title and subtitle, before the introduction. <!-- PROC-ACCESS-002 -->
-- Use the `Note` admonition style. <!-- PROC-ACCESS-003 -->
+- Use the `Note` callout style. <!-- PROC-ACCESS-003 -->
 - Start with the phrase: *This feature is available to users with...* or *To perform this procedure, you need...* <!-- PROC-ACCESS-004 -->
 - Focus on required roles, permissions, or product versions only. Don't include any other prerequisite such as knowledge, skills, or tools. <!-- PROC-ACCESS-005 -->
 
@@ -78,12 +78,12 @@ This note-type admonition is exclusively to alert readers about what roles, perm
 - *This feature is available to admin roles in version 5.0 or later with write permissions on the repository.*
 - *This procedure requires contributor roles in version 2.3 or higher and read/write access to the API endpoints.*
 
-## Admonitions guidelines <!-- PROC-ADMONITIONS -->
+## Callouts guidelines <!-- PROC-CALLOUTS -->
 
-- Use admonitions sparingly in the document and only when necessary to avoid overwhelming the reader. <!-- PROC-ADMONITIONS-001 -->
-- One admonition maximum per section <!-- PROC-ADMONITIONS-002 -->
-- Keep them concise. <!-- PROC-ADMONITIONS-003 -->
-- Use the appropriate type: `Tip`, `Note`, `Important`, or `Caution`. <!-- PROC-ADMONITIONS-004 -->
+- Use callouts sparingly in the document and only when necessary to avoid overwhelming the reader. <!-- PROC-CALLOUTS-001 -->
+- One callout maximum per section <!-- PROC-CALLOUTS-002 -->
+- Keep them concise. <!-- PROC-CALLOUTS-003 -->
+- Use the appropriate type: `Tip`, `Note`, `Important`, or `Caution`. <!-- PROC-CALLOUTS-004 -->
 
 ## Introduction guidelines
 
@@ -120,7 +120,7 @@ For an example of a procedure introduction, check out the [procedure example](./
 
 - A paragraph, list, or table that describes any limitations related to the procedure. For example, "Initial cache warm-up can take up to 60 minutes". <!-- PROC-LIMITS-001 -->
 - Consider quotas, rate limits, timeouts, eventual consistency, or destructive side effects. <!-- PROC-LIMITS-002 -->
-- Use admonitions for critical constraints. <!-- PROC-LIMITS-003 -->
+- Use callouts for critical constraints. <!-- PROC-LIMITS-003 -->
 - If applicable, mention any workarounds or mitigation strategies. <!-- PROC-LIMITS-004 -->
 - For complex limitations, link to a separate heading or dedicated limitations guide. <!-- PROC-LIMITS-005 -->
 
@@ -128,13 +128,13 @@ For an example of a procedure introduction, check out the [procedure example](./
 
 - A paragraph, list, or table that highlights potential impacts of performing the procedure. For example, when completing the procedure can potentially expose sensitive information. <!-- PROC-IMPACT-001 -->
 - Call out risks, required privileges, and safer alternatives. <!-- PROC-IMPACT-002 -->
-- Use admonitions for critical security impacts. <!-- PROC-IMPACT-003 -->
+- Use callouts for critical security impacts. <!-- PROC-IMPACT-003 -->
 - For complex security considerations, link to a separate heading or dedicated security guide. <!-- PROC-IMPACT-004 -->
 
 ### Prerequisites guidelines (optional) <!-- group: PROC-PREREQ -->
 
 - A paragraph or list that describes technical setup (software, tools, config) needed to run the procedure. For example, "You must have at least Python 3.14 to complete this procedure." <!-- PROC-PREREQ-001 -->
-- Don't include roles, permissions, knowledge, or product versions here. Put those in the [access admonition](#access-admonition-guidelines) at the top.<!-- PROC-PREREQ-002 -->
+- Don't include roles, permissions, knowledge, or product versions here. Put those in the [access callout](#access-callout-guidelines) at the top.<!-- PROC-PREREQ-002 -->
 
 ## `What to expect` guidelines <!-- group: PROC-EXPECT -->
 
@@ -158,15 +158,15 @@ For an example, check out the [procedure example](./procedure-example.md).
 
 ### Procedure layout: flat <!-- group: PROC-STRUCT-FLAT -->
 
-| Element         | Format                           | Required | ID                       | Rules      |
-| :-------------- | :------------------------------- | :------: | :----------------------- | :--------- |
-| Task title      | H2                               |    Yes   | `PROC-STRUCT-FLAT-TITLE` | PROC-TASK-TITLE |
-| Task intro      | Paragraph                        |    No    | `PROC-STRUCT-FLAT-INTRO` | PROC-INTRO |
-| Task admonition | Admonition                       |    No    | `PROC-STRUCT-FLAT-ADM`   | PROC-ADM   |
-| Steps list      | Numbered list or checkboxes (1)  |    Yes   | `PROC-STRUCT-FLAT-STEPS` | PROC-STEP  |
-| Clarifiers      | Unordered bullets (depth 1) (2)  |    No    | `PROC-STRUCT-FLAT-BUL`   | PROC-BUL   |
-| Code            | Fenced code block                |    No    | `PROC-STRUCT-FLAT-CODE`  | PROC-CODE  |
-| Screenshot      | Image                            |    No    | `PROC-STRUCT-FLAT-IMG`   | PROC-SHOT  |
+| Element       | Format                          | Required | ID                        | Rules           |
+|:--------------|:--------------------------------|:---------|:--------------------------|:----------------|
+| Task title    | H2                              | Yes      | `PROC-STRUCT-FLAT-TITLE`  | PROC-TASK-TITLE |
+| Task intro    | Paragraph                       | No       | `PROC-STRUCT-FLAT-INTRO`  | PROC-INTRO      |
+| Task callout  | Callout                         | No       | `PROC-STRUCT-FLAT-CALL`   | PROC-CALL       |
+| Steps list    | Numbered list or checkboxes (1) | Yes      | `PROC-STRUCT-FLAT-STEPS`  | PROC-STEP       |
+| Clarifiers    | Unordered bullets (depth 1) (2) | No       | `PROC-STRUCT-FLAT-BUL`    | PROC-BUL        |
+| Code          | Fenced code block               | No       | `PROC-STRUCT-FLAT-CODE`   | PROC-CODE       |
+| Screenshot    | Image                           | No       | `PROC-STRUCT-FLAT-IMG`    | PROC-SHOT       |
 
 (1) Use checkboxes only for unordered or long-running tasks. Numbered lists are the default for procedures.
 (2) Use a short bullet list for clarifiers or alternatives. Do not create numbered sub-steps.
@@ -177,15 +177,15 @@ For an example, check out the [procedure example](./procedure-example.md).
 
 ### Procedure layout: sectioned <!-- group: PROC-STRUCT-SEC -->
 
-| Element (per step) | Format                          | Required | ID                      | Rules      |
-| :----------------- | :------------------------------ | :------: | :---------------------- | :--------- |
+| Element (per step) | Format                          | Required | ID                      | Rules           |
+| :----------------- | :------------------------------ | :------: | :---------------------- | :---------------|
 | Step title         | H2 `Step {n}:`                  |    Yes   | `PROC-STRUCT-SEC-TITLE` | PROC-TASK-TITLE |
-| Step intro         | Paragraph                       |    No    | `PROC-STRUCT-SEC-INTRO` | PROC-INTRO |
-| Step admonition    | Admonition                      |    No    | `PROC-STRUCT-SEC-ADM`   | PROC-ADM   |
-| Step actions       | Numbered list                   |    Yes   | `PROC-STRUCT-SEC-STEPS` | PROC-STEP  |
-| Clarifiers         | Unordered bullets (depth 1) (2) |    No    | `PROC-STRUCT-SEC-BUL`   | PROC-BUL   |
-| Code               | Fenced code block               |    No    | `PROC-STRUCT-SEC-CODE`  | PROC-CODE  |
-| Screenshot         | Image                           |    No    | `PROC-STRUCT-SEC-IMG`   | PROC-SHOT  |
+| Step intro         | Paragraph                       |    No    | `PROC-STRUCT-SEC-INTRO` | PROC-INTRO      |
+| Step callout       | Callout                         |    No    | `PROC-STRUCT-SEC-CALL`  | PROC-CALL       |
+| Step actions       | Numbered list                   |    Yes   | `PROC-STRUCT-SEC-STEPS` | PROC-STEP       |
+| Clarifiers         | Unordered bullets (depth 1) (2) |    No    | `PROC-STRUCT-SEC-BUL`   | PROC-BUL        |
+| Code               | Fenced code block               |    No    | `PROC-STRUCT-SEC-CODE`  | PROC-CODE       |
+| Screenshot         | Image                           |    No    | `PROC-STRUCT-SEC-IMG`   | PROC-SHOT       |
 
 (1) Use a short bullet list for clarifiers or alternatives. Do not create numbered sub-steps.
 
@@ -214,11 +214,11 @@ Use these guidelines for both flat and sectioned procedure layouts. <!-- PROC-GU
 - Do not repeat the task title wording. <!-- PROC-INTRO-NO-REPEAT -->
 - Add cross-references here, not inside steps. <!-- PROC-INTRO-LINKS -->
 
-### Task admonition (optional) guidelines <!-- group: PROC-ADM -->
+### Task callout (optional) guidelines <!-- group: PROC-CALL -->
 
-- Use one admonition after the intro for important notes, warnings, or tips. <!-- PROC-ADM-ONCE -->
-- Do not place admonitions between steps. <!-- PROC-ADM-NO-BETWEEN -->
-- One admonition maximum per task. <!-- PROC-ADM-ONE -->
+- Use one callout after the intro for important notes, warnings, or tips. <!-- PROC-CALL-ONCE -->
+- Do not place callouts between steps. <!-- PROC-CALL-NO-BETWEEN -->
+- One callout maximum per task. <!-- PROC-CALL-ONE -->
 
 ### Steps list guidelines <!-- group: PROC-STEP -->
 
