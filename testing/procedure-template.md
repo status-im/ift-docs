@@ -1,24 +1,21 @@
-# Procedure template
-
-## Non-procedural structure
-
-| Element                        | Format                       | Required | ID                 |
-|:-------------------------------|:-----------------------------|:---------|:-------------------|
-| Title                          | H1                           | Yes      | `PROC-TITLE-001`   |
-| Subtitle                       | H4                           | Yes      | `PROC-TITLE-002`   |
-| Access prerequisites admonition| Info-type admonition         | No       | `PROC-PREREQ-001`  |
-| Overview                       | Paragraph                    | Yes      | `PROC-OVERVIEW`    |
-| Admonition                     | Info admonition              | No       | `PROC-OVERVIEW-005`|
-| Decisions                      | Paragraph, list, table       | No       | `PROC-DECISIONS`   |
-| Limits                         | Paragraph, list, table       | No       | `PROC-LIMITS`      |
-| Impact                         | Paragraph, list, table       | No       | `PROC-IMPACT`      |
-| "What to expect" heading       | H2                           | Yes      | `PROC-EXPECT-001`  |
-| "What to expect" list          | Unordered list               | Yes      | `PROC-EXPECT-002`  |
-| Procedure layout               | Flat or sectioned            | Yes      | `PROC-STEPS-PATTERN-001` |
-| FAQ / Troubleshooting title    | H2                           | No       | `PROC-EXTRA-001`   |
-| FAQ / Troubleshooting content  | Paragraph, list              | No       | `PROC-EXTRA-002`   |
-| H5-H6 section                  | -                            | Forbidden| `PROC-EXTRA-003`   |
-| Further reading                | -                            | Forbidden| `PROC-EXTRA-004`   |
+| Section                        | Format                              | Required  | ID                       |
+|:-------------------------------|:------------------------------------|:----------|:------------------------|
+| Title                          | H1                                  | Yes       | `PROC-PAGE-TITLE-001`        |
+| Subtitle                       | Single bold sentence                | Yes       | `PROC-PAGE-TITLE-002`        |
+| Access admonition              | Note-type admonition                | No        | `PROC-ACCESS-001`       |
+| Admonitions                    | Tip, Note, Important, Caution       | No        | `PROC-ADMONITIONS`      |
+| Overview                       | Paragraph                           | Yes       | `PROC-OVERVIEW`         |
+| Decisions                      | Paragraph, list, table              | No        | `PROC-DECISIONS`        |
+| Limits                         | Paragraph, list, table              | No        | `PROC-LIMITS`           |
+| Impact                         | Paragraph, list, table              | No        | `PROC-IMPACT`           |
+| Prerequisites                  | Paragraph, list                     | No        | `PROC-PREREQ`           |
+| "What to expect" heading       | H2                                  | Yes       | `PROC-EXPECT-001`       |
+| "What to expect" list          | Unordered list                      | Yes       | `PROC-EXPECT-002`       |
+| Procedure layout               | Flat or sectioned                   | Yes       | `PROC-STEPS-PATTERN-001`|
+| FAQ / Troubleshooting title    | H2                                  | No        | `PROC-EXTRA-001`        |
+| FAQ / Troubleshooting content  | Paragraph, list, H3                 | No        | `PROC-EXTRA-002`        |
+| H4-H6 headings                 | -                                   | Forbidden | `PROC-FORBID-001`       |
+| Further reading                | -                                   | Forbidden | `PROC-FORBID-002`       |
 
 ## Front matter
 
@@ -27,20 +24,22 @@ title:
 doc_type: # [procedure, concept, reference, quickstart, api]
 product: # [codex, nomos, waku]
 topics: []
+steps_layout: # [flat|sectioned]
 authors: # GitHub username
 owner: ift
 doc_version: # increased by one after every update
 slug:
 ---
 
-## Title guidelines <!-- PROC-TITLE-001 -->
+## Title (H1) guidelines <!-- PROC-PAGE-TITLE-001 -->
 
-- **Keep it short and to the point**. Use Markdown H1 headings and aim for 50 to 60 characters; 80 characters maximum. <!-- PROC-TITLE-003 -->
-- **Use the imperative form**. Start the title with an action verb in the imperative form. Don't use the *-ing* form of the verb. <!-- PROC-TITLE-004 -->
-- **Use sentence case capitalization**. Capitalize only the first word and any proper nouns. <!-- PROC-TITLE-005 -->
-- **Focus on the result, not on the task**. Emphasize the desired outcome, rather than listing or describing the specific actions or steps involved. For example, instead of "Install Node.js and create a project directory", use "Set up a local development environment for Node.js". <!-- PROC-TITLE-006 -->
-- **Be specific and descriptive**. Include the action and the object/context (what/where/how). Avoid one- or two-word titles and empty verbs like *make*, *manage*, or *put*. <!-- PROC-TITLE-007 -->
-- **Avoid using punctuation marks**. Don't use colons, semicolons, or dashes. <!-- PROC-TITLE-008 -->
+- Use Markdown H1 headings and aim for 50 to 60 characters; 80 characters maximum. <!-- PROC-PAGE-TITLE-003 -->
+- Start with an action verb in the imperative form. Don't use the *-ing* form of the verb. <!-- PROC-PAGE-TITLE-004 -->
+- Capitalize only the first word and any proper nouns (sentence-style capitalization). <!-- PROC-PAGE-TITLE-005 -->
+- Focus on the result, not on the task. Emphasize the desired outcome, rather than describing the specific actions involved. For example, instead of "Install Node.js and create a project directory", use "Set up a local development environment for Node.js". <!-- PROC-PAGE-TITLE-006 -->
+- Include the action and the object/context (what/where/how). <!-- PROC-PAGE-TITLE-007 -->
+- Avoid one- or two-word titles and empty verbs like *make*, *manage*, or *put*. <!-- PROC-PAGE-TITLE-008 -->
+- Don't use punctuation marks, such as colons, semicolons, or dashes, except for the required `Step {n}:` prefix. <!-- PROC-PAGE-TITLE-009 -->
 
 Examples:
 
@@ -53,31 +52,38 @@ Examples:
 	| **Use** | Collaborate with others in a codespace  |
 	| Avoid   | Set up a live share session             |
 
-## Subtitle guidelines <!-- PROC-TITLE-002 -->
+## Subtitle guidelines <!-- PROC-PAGE-TITLE-002 -->
 
-- Single sentence with no links, list items, or formatting. Ends with a period. <!-- PROC-TITLE-009 -->
-- Use H4 format. Stay under 120 characters / 20 words. <!-- PROC-TITLE-010 -->
-- Use imperative verbs to describe the document purpose or benefit: *Learn*, *Explore*, *Understand*, *Discover*, *Create*, *Follow*, *Try*, and other action verbs. <!-- PROC-TITLE-011 -->
-- Adds new value beyond the title. It should not repeat the title or be a rephrased version of it. <!-- PROC-TITLE-012 -->
+- Single sentence with no links, list items, or formatting. Ends with a period. <!-- PROC-PAGE-TITLE-010 -->
+- Use bold format. Stay under 120 characters. <!-- PROC-PAGE-TITLE-011 -->
+- Use imperative verbs to describe the document purpose or benefit: *Learn*, *Explore*, *Understand*, *Discover*, *Create*, *Follow*, *Try*, and other action verbs. <!-- PROC-PAGE-TITLE-012 -->
+- Adds new value beyond the title. It should not repeat the title or be a rephrased version of it. <!-- PROC-PAGE-TITLE-013 -->
 
 Examples:
 
 - **Title**: *Quickstart for GitHub Actions* / **Subtitle**: *Try out the core features of GitHub Actions in minutes.*
 - **Title**: *Create a pull request* / **Subtitle**: *Create a pull request to propose and collaborate on changes to a repository.*
 
-## Access prerequisites admonition guidelines <!-- PROC-PREREQ-001 -->
+## Access admonition guidelines <!-- PROC-ACCESS-001 -->
 
-This information-type admonition is exclusively to alert readers about what roles, permissions, or product versions are required to perform the procedure.
+This note-type admonition is exclusively to alert readers about what roles, permissions, or product versions are required to perform the procedure.
 
-- Place it after the title and subtitle, before the introduction. <!-- PROC-PREREQ-002 -->
-- Use the **Info** admonition style. <!-- PROC-PREREQ-003 -->
-- Start with the phrase: *This feature is available to users with...* or *To perform this procedure, you need...* <!-- PROC-PREREQ-004 -->
-- Focus on required roles, permissions, or product versions only. Don't include any other prerequisite such as knowledge, skills, or tools. <!-- PROC-PREREQ-005 -->
+- Place it after the title and subtitle, before the introduction. <!-- PROC-ACCESS-002 -->
+- Use the `Note` admonition style. <!-- PROC-ACCESS-003 -->
+- Start with the phrase: *This feature is available to users with...* or *To perform this procedure, you need...* <!-- PROC-ACCESS-004 -->
+- Focus on required roles, permissions, or product versions only. Don't include any other prerequisite such as knowledge, skills, or tools. <!-- PROC-ACCESS-005 -->
 
 **Examples:**
 
 - *This feature is available to admin roles in version 5.0 or later with write permissions on the repository.*
 - *This procedure requires contributor roles in version 2.3 or higher and read/write access to the API endpoints.*
+
+## Admonitions guidelines <!-- PROC-ADMONITIONS -->
+
+- Use admonitions sparingly in the document and only when necessary to avoid overwhelming the reader. <!-- PROC-ADMONITIONS-001 -->
+- One admonition maximum per section <!-- PROC-ADMONITIONS-002 -->
+- Keep them concise. <!-- PROC-ADMONITIONS-003 -->
+- Use the appropriate type: `Tip`, `Note`, `Important`, or `Caution`. <!-- PROC-ADMONITIONS-004 -->
 
 ## Introduction guidelines
 
@@ -87,10 +93,11 @@ Every procedure requires an introduction that provides context and helps readers
 - [Decisions guidelines (optional)](#decisions-guidelines-optional)
 - [Limits guidelines (optional)](#limits-guidelines-optional)
 - [Impact guidelines (optional)](#impact-guidelines-optional)
+- [Prerequisites guidelines (optional)](#prerequisites-guidelines-optional)
 
 **Examples:**
 
-For an example, check out [concept example](./concept-example.md).
+For an example of a procedure introduction, check out the [procedure example](./procedure-example.md).
 
 ### Overview guidelines <!-- group: PROC-OVERVIEW -->
 
@@ -98,7 +105,7 @@ For an example, check out [concept example](./concept-example.md).
 - Mention where it applies and who it is for. <!-- PROC-OVERVIEW-002 -->
 - Provide a concrete, real-world scenario for the product feature. <!-- PROC-OVERVIEW-003 -->
 - Link to related documents or headings in the same document to assist the reader in gathering information. <!-- PROC-OVERVIEW-004 -->
-- Use the **Info** admonition style to highlight important notes or warnings related to the procedure. <!-- PROC-OVERVIEW-005 -->
+- Only add a short `Note` alert if it prevents confusion; otherwise keep the overview free of alerts. <!-- PROC-OVERVIEW-005 -->
 
 ### Decisions guidelines (optional) <!-- group: PROC-DECISIONS -->
 
@@ -117,99 +124,149 @@ For an example, check out [concept example](./concept-example.md).
 - If applicable, mention any workarounds or mitigation strategies. <!-- PROC-LIMITS-004 -->
 - For complex limitations, link to a separate heading or dedicated limitations guide. <!-- PROC-LIMITS-005 -->
 
-### Impact guidelines (optional) <!-- group: PROC-SECURITY -->
+### Impact guidelines (optional) <!-- group: PROC-IMPACT -->
 
-- A paragraph, list, or table that highlights potential impacts of performing the procedure. For example, when completing the procedure can potentially expose sensitive information. <!-- PROC-SECURITY-001 -->
-- Call out risks, required privileges, and safer alternatives. <!-- PROC-SECURITY-002 -->
-- Use admonitions for critical security impacts. <!-- PROC-SECURITY-003 -->
-- For complex security considerations, link to a separate heading or dedicated security guide. <!-- PROC-SECURITY-004 -->
+- A paragraph, list, or table that highlights potential impacts of performing the procedure. For example, when completing the procedure can potentially expose sensitive information. <!-- PROC-IMPACT-001 -->
+- Call out risks, required privileges, and safer alternatives. <!-- PROC-IMPACT-002 -->
+- Use admonitions for critical security impacts. <!-- PROC-IMPACT-003 -->
+- For complex security considerations, link to a separate heading or dedicated security guide. <!-- PROC-IMPACT-004 -->
+
+### Prerequisites guidelines (optional) <!-- group: PROC-PREREQ -->
+
+- A paragraph or list that describes technical setup (software, tools, config) needed to run the procedure. For example, "You must have at least Python 3.14 to complete this procedure." <!-- PROC-PREREQ-001 -->
+- Don't include roles, permissions, knowledge, or product versions here. Put those in the [access admonition](#access-admonition-guidelines) at the top.<!-- PROC-PREREQ-002 -->
 
 ## `What to expect` guidelines <!-- group: PROC-EXPECT -->
 
 - Use `What to expect` H2 Markdown heading for this section <!-- PROC-EXPECT-001 -->
 - Write a single unordered list with three bullet points that summarize the key results of the procedure. <!-- PROC-EXPECT-002 -->
-- Present the items in order from most important to least important. <!-- PROC-EXPECT-003 -->
-- Aim for one sentence per bullet point, maximum two short sentences. <!-- PROC-EXPECT-004 -->
+- Aim for one sentence per bullet point, maximum two short sentences. <!-- PROC-EXPECT-003 -->
+- Present the items in order from most important to least important. <!-- PROC-EXPECT-004 -->
 
 **Examples:**
 
-For an example, check out [concept example](./concept-example.md).
+For an example, check out the [procedure example](./procedure-example.md).
 
-## Procedural structure
+## Procedural structure <!-- group: PROC-STRUCT-PATTERN -->
 
-- Choose exactly one layout per article: `flat` or `sectioned`. Do not mix. <!-- PROC-STEPS-PATTERN-001 -->
+- Choose exactly one layout per article: `flat` or `sectioned`. Do not mix. <!-- PROC-STRUCT-PATTERN-001 -->
+- Don't use subtasks. Split into additional H2 task groups or use the sectioned layout instead. <!-- PROC-STRUCT-PATTERN-002 -->
 
-> **Information**
+> **Note**
 >
 > See [Steps structure: flat vs. sectioned](./procedure.md#steps-structure-flat-vs-sectioned) for guidance.
 
-### Procedure layout: flat <!-- group: PROC-STEPS-FLAT -->
+### Procedure layout: flat <!-- group: PROC-STRUCT-FLAT -->
 
-| Element | Format | Required | ID |
-|:--------|:-------|:---------|:---|
-| Steps list | Numbered list or checkboxes | Yes | `PROC-STEPS-FLAT-001` |
-| Step clarifiers | Unordered list | No | `PROC-STEPS-FLAT-002` |
-| Step code | Fenced code block | No | `PROC-STEPS-FLAT-003` |
-| Step screenshot | Image | No | `PROC-STEPS-FLAT-004` |
+| Element         | Format                           | Required | ID                       | Rules      |
+| :-------------- | :------------------------------- | :------: | :----------------------- | :--------- |
+| Task title      | H2                               |    Yes   | `PROC-STRUCT-FLAT-TITLE` | PROC-TASK-TITLE |
+| Task intro      | Paragraph                        |    No    | `PROC-STRUCT-FLAT-INTRO` | PROC-INTRO |
+| Task admonition | Admonition                       |    No    | `PROC-STRUCT-FLAT-ADM`   | PROC-ADM   |
+| Steps list      | Numbered list or checkboxes (1)  |    Yes   | `PROC-STRUCT-FLAT-STEPS` | PROC-STEP  |
+| Clarifiers      | Unordered bullets (depth 1) (2)  |    No    | `PROC-STRUCT-FLAT-BUL`   | PROC-BUL   |
+| Code            | Fenced code block                |    No    | `PROC-STRUCT-FLAT-CODE`  | PROC-CODE  |
+| Screenshot      | Image                            |    No    | `PROC-STRUCT-FLAT-IMG`   | PROC-SHOT  |
 
-### Procedure layout: sectioned <!-- group: PROC-STEP-SEC -->
+(1) Use checkboxes only for unordered or long-running tasks. Numbered lists are the default for procedures.
+(2) Use a short bullet list for clarifiers or alternatives. Do not create numbered sub-steps.
 
-| Element | Format | Required | ID |
-|:--------|:-------|:---------|:---|
-| Section title | H2: `Step {n}` | Yes | `PROC-STEP-SEC-001` |
-| Section intro | Paragraph | No | `PROC-STEP-SEC-002` |
-| Section actions | Ordered list | Yes | `PROC-STEP-SEC-003` |
-| Section clarifiers | Unordered list | No | `PROC-STEP-SEC-004` |
-| Section code | Fenced code block | No | `PROC-STEP-SEC-005` |
-| Section screenshot | Image | No | `PROC-STEP-SEC-006` |
+> **Note:**
+>
+> The `Rules` column points to the shared rule group that governs this element (see [Procedure guidelines](#procedure-guidelines)).
 
-## Task guidelines <!-- group: PROC-TASK -->
+### Procedure layout: sectioned <!-- group: PROC-STRUCT-SEC -->
 
-Every task requires:
+| Element (per step) | Format                          | Required | ID                      | Rules      |
+| :----------------- | :------------------------------ | :------: | :---------------------- | :--------- |
+| Step title         | H2 `Step {n}:`                  |    Yes   | `PROC-STRUCT-SEC-TITLE` | PROC-TASK-TITLE |
+| Step intro         | Paragraph                       |    No    | `PROC-STRUCT-SEC-INTRO` | PROC-INTRO |
+| Step admonition    | Admonition                      |    No    | `PROC-STRUCT-SEC-ADM`   | PROC-ADM   |
+| Step actions       | Numbered list                   |    Yes   | `PROC-STRUCT-SEC-STEPS` | PROC-STEP  |
+| Clarifiers         | Unordered bullets (depth 1) (2) |    No    | `PROC-STRUCT-SEC-BUL`   | PROC-BUL   |
+| Code               | Fenced code block               |    No    | `PROC-STRUCT-SEC-CODE`  | PROC-CODE  |
+| Screenshot         | Image                           |    No    | `PROC-STRUCT-SEC-IMG`   | PROC-SHOT  |
 
-- [Title](#title-guidelines)
-- [Introduction](#task-introduction-optional-guidelines) (Optional)
-- [Steps list](#steps-list-guidelines)
-- [Screenshot](#task-screenshot-optional-guidelines) (Optional)
-- [Admonition](#task-admonition-optional-guidelines) (Optional)
-- [Subtasks](#subtask-guidelines-optional) (Optional)
+(1) Use a short bullet list for clarifiers or alternatives. Do not create numbered sub-steps.
 
-### Title guidelines <!-- PROC-TASK-001 -->
+> **Note:**
+>
+> The `Rules` column points to the shared rule group that governs this element (see [Procedure guidelines](#procedure-guidelines)).
 
-- Use H2 Markdown heading for task titles. <!-- PROC-TASKTITLE-001 -->
+## Procedure guidelines
 
-### Task introduction (optional) guidelines <!-- PROC-TASKINTRO-002 -->
+Use these guidelines for both flat and sectioned procedure layouts. <!-- PROC-GUIDE-001 -->
 
-- One or two short sentences that provide context for the task. <!-- PROC-TASKINTRO-001 -->
-- Link to other headings in the same document here, not in the task steps. <!-- PROC-TASKINTRO-002 -->
-- Avoid repeating details from the task title. For example, if the task title is "Create a codespace from a template," do not start the introduction with "To create a codespace from a template..." <!-- PROC-TASKINTRO-003 -->
+### Title (H2) guidelines <!-- group: PROC-TASK-TITLE -->
 
-### Task admonition (optional) guidelines <!-- PROC-TASK-005 -->
+- Procedure section titles are Markdown H2 headings. <!-- PROC-TASK-TITLE-LEVEL-H2 -->
+- In the sectioned layout, prefix with `Step {n}:` starting at 1 and incrementing by 1. <!-- PROC-TASK-TITLE-STEP-H2 -->
+- Aim for 50–60 characters; 80 max. <!-- PROC-TASK-TITLE-LEN -->
+- Start with an imperative verb; avoid the *-ing* form. <!-- PROC-TASK-TITLE-VOICE -->
+- Use sentence case (capitalize only the first word and proper nouns). <!-- PROC-TASK-TITLE-CASE -->
+- Avoid empty verbs (*make*, *manage*, *put*). <!-- PROC-TASK-TITLE-VERB-SPECIFIC -->
+- Avoid one- or two-word titles. <!-- PROC-TASK-TITLE-NO-2WORD -->
+- Don’t use punctuation marks in titles (colons, semicolons, dashes) except in the sectioned layout (`Step {n}:`). <!-- PROC-TASK-TITLE-NO-PUNCT -->
 
-- If necessary, use a single admonition after the task introduction to highlight important notes, warnings, or tips related to the task. <!-- PROC-TASKADM-001 -->
-- Do not use admonitions between steps. <!-- PROC-TASKADM-002 -->
+### Task introduction (optional) guidelines <!-- group: PROC-INTRO -->
+
+- Write 1–2 short sentences that provide context. <!-- PROC-INTRO-BRIEF -->
+- Do not repeat the task title wording. <!-- PROC-INTRO-NO-REPEAT -->
+- Add cross-references here, not inside steps. <!-- PROC-INTRO-LINKS -->
+
+### Task admonition (optional) guidelines <!-- group: PROC-ADM -->
+
+- Use one admonition after the intro for important notes, warnings, or tips. <!-- PROC-ADM-ONCE -->
+- Do not place admonitions between steps. <!-- PROC-ADM-NO-BETWEEN -->
+- One admonition maximum per task. <!-- PROC-ADM-ONE -->
 
 ### Steps list guidelines <!-- group: PROC-STEP -->
 
-- Use a numbered list when the task can be completed in one go. <!-- PROC-STEP-LIST-ORDERED -->
+- Use a numbered list when the task is completed in one go. <!-- PROC-STEP-LIST-ORDERED -->
 - Use checkboxes when steps are unordered or spread over time. <!-- PROC-STEP-LIST-CHECKBOX -->
-- Start each step with an imperative verb; avoid -ing forms. <!-- PROC-STEP-VERB-IMPERATIVE -->
-- Aim for 2–7 steps; split if more are needed. <!-- PROC-STEP-COUNT-2-7 -->
-- Avoid one-step tasks; merge or rethink scope. <!-- PROC-STEP-NO-ONE -->
-- Bold UI elements (buttons, menus, options). <!-- PROC-STEP-UI-BOLD -->
-- Use inline code for commands, filenames, paths, output. <!-- PROC-STEP-CODE-INLINE -->
-- Don’t use external links inside steps; only same-page anchors. <!-- PROC-STEP-LINKS-INTERNAL -->
+- Start each step with an imperative verb; avoid *-ing* forms. <!-- PROC-STEP-VERB -->
 - One step = one user action (combine only trivial actions). <!-- PROC-STEP-ONE-ACTION -->
-- For UI locations, write location before action. <!-- PROC-STEP-LOCATION-FIRST -->
-- Write the result first, then the condition. <!-- PROC-STEP-RESULT-THEN-CONDITION -->
+- All steps must use number `1` (1, 1, 1, ... instead of 1, 2, 3, ...) <!-- PROC-STEP-ALL-ONE -->
+- Aim for 2–7 steps. Split if longer. <!-- PROC-STEP-RANGE -->
+- Avoid one-step tasks. <!-- PROC-STEP-NO-ONE -->
+- When adding paragraphs, images, or code under a step, insert a blank line and indent to align with the first text after the list marker. <!-- PROC-STEP-BLOCKS -->
+- Bold UI elements (buttons, menus, options). <!-- PROC-STEP-UI-BOLD -->
+- Use inline code for commands, filenames, paths, and output. <!-- PROC-STEP-CODE-INLINE -->
+- Don’t use external links in steps; only same-page anchors. <!-- PROC-STEP-LINKS-INTERNAL -->
+- For UI paths, put location before action. <!-- PROC-STEP-LOC-FIRST -->
+- For conditions, write the result first, then the condition. <!-- PROC-STEP-RESULT-FIRST -->
 
-### Task screenshot (optional) guidelines <!-- PROC-TASK-004 -->
+### Clarifiers (optional) guidelines <!-- group: PROC-BUL -->
 
+- Don't use numbered substeps beneath a step (nested ordered lists). <!-- PROC-BUL-NOSUBTASK -->
+- Use bullets for subactions, such as clarifiers or alternatives. <!-- PROC-BUL-BULLETS -->
+- Limit clarifiers to 2–4 items in one level. <!-- PROC-BUL-LIMIT -->
 
+### Task code (optional) guidelines <!-- group: PROC-CODE -->
 
-### Subtask guidelines (optional) <!-- group: PROC-SUBTASK -->
+Follow the code rules in the Style Guide. <!-- PROC-CODE-LINK -->
 
-<!-- **Second H3**
-If you add an H3, at least one sibling H3 must follow or the split is unnecessary.
--->
+**Example:**
 
+	1. Do this thing...
+
+	```bash
+	gh workflow run build --repo org/repo
+	```
+
+### Task screenshot (optional) guidelines <!-- group: PROC-SHOT -->
+
+Follow the Screenshots rules in the Style Guide. <!-- PROC-SHOT-LINK -->
+
+## FAQ / Troubleshooting guidelines (optional) <!-- group: PROC-EXTRA -->
+
+- Use H2 Markdown heading for this section. <!-- PROC-EXTRA-001 -->
+- Begin with "Troubleshooting [topic]" for error resolution or "Frequently asked questions" for query-based content. <!-- PROC-EXTRA-003 -->
+- Use paragraphs, lists, or H3 headings for content. <!-- PROC-EXTRA-002 -->
+- Use "Frequently asked questions" instead of "FAQ" alone. <!-- PROC-EXTRA-004 -->
+- For longer FAQ or complex troubleshooting scenarios, create a separate FAQ or Troubleshooting (concept) article instead. <!-- PROC-EXTRA-005 -->
+
+## Extra content guidelines (forbidden) <!-- group: PROC-FORBID -->
+
+- Do not use H4-H6 headings. <!-- PROC-FORBID-001 -->
+- Do not include a "Further reading" section or links to other related topics at the end of the document. <!-- PROC-FORBID-002 -->
