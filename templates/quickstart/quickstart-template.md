@@ -21,7 +21,10 @@
 
 ---
 title: ''
+topic: ''
+author: ''
 version: ''
+url: ''
 ---
 
 # Quickstart
@@ -42,7 +45,7 @@ Guidelines:
 > - *Quickly add payments to your project with Stripe.*
 -->
 
-(Optional){ Admonition }
+(Optional) { Admonition }
 
 <!--
 This information-type admonition is exclusively to alert readers about who can use this feature and shouldn't be used for any other information. For example, a feature is only available to specific application role or using a specific tool or interface.
@@ -79,7 +82,7 @@ This section provides:
 Guidelines:
 
 - Use the "Before you start" H2 heading for this section.
-- Write a single bullet list.
+- Write a single bullet list of noun phrases. Don't include verbs such as "learn" or "prepare".
 - Provide [links](../../20-style-the-content/10-links.md) to related content such as installation instructions or articles that provide required knowledge.
 - Setting up or installing prerequisites is not part of a quickstart. If you must explain the procedure and it takes less than three steps, include it in the [task](#task-section) where you describe setting up your product.
 
@@ -93,7 +96,7 @@ Guidelines:
 >   - Linux 64-bit
 -->
 
-{ Task section}
+{ Task section }
 
 <!--
 Guidelines:
@@ -110,6 +113,7 @@ Guidelines:
 <!--
 Guidelines:
 
+- Don’t include “Task,” “Subtask,” or numbering in the heading.
 - Focus on the result, not on the task.
 - Start the title with an action verb in the imperative form. Don't use the -ing form of the verb.
 - Use H2 headings for each task.
@@ -123,7 +127,7 @@ Guidelines:
 > - *Configure system admin access*
 -->
 
-{Task 1 steps}
+{ Task 1 steps }
 
 <!--
 Guidelines:
@@ -162,19 +166,19 @@ Use less than two images or code samples per step. If you need more, the step ne
 > When you use a code sample or image, it should be indented under the step description so that it's visually grouped with that step.
 -->
 
-(optional) ### {Task 1 subtask heading}
+(optional) ### { Task 1 subtask heading }
 
-(optional) {Task 1 subtask steps}
+(optional) { Task 1 subtask steps }
 
 ## { Task 2 heading }
 
-{Task 2 steps}
+{ Task 2 steps }
 
 ...
 
 (optional) ## { Task n title }
 
-(optional) {Task n steps}
+(optional) { Task n steps }
 
 (optional) ## Next steps
 
