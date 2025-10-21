@@ -1,8 +1,8 @@
-| Section                        | Format                              | Required  | ID                       |
+| Section                        | Format                              | Required  | ID                      |
 |:-------------------------------|:------------------------------------|:----------|:------------------------|
-| Title                          | H1                                  | Yes       | `PROC-PAGE-TITLE-001`   |
-| Subtitle                       | Single bold sentence                | Yes       | `PROC-PAGE-TITLE-002`   |
-| Access callout                 | Note-type callout                   | No        | `PROC-ACCESS-001`       |
+| Title                          | H1                                  | Yes       | `PROC-PAGE-TITLE`       |
+| Subtitle                       | Single bold sentence                | Yes       | `PROC-PAGE-SUBTITLE`    |
+| Access callout                 | Note-type callout                   | No        | `PROC-ACCESS`           |
 | Callouts                       | Tip, Note, Important, Caution       | No        | `PROC-CALLOUTS`         |
 | Overview                       | Paragraph                           | Yes       | `PROC-OVERVIEW`         |
 | Decisions                      | Paragraph, list, table              | No        | `PROC-DECISIONS`        |
@@ -22,7 +22,7 @@
 ---
 title:
 doc_type: # [procedure, concept, reference, quickstart, api]
-product: # [codex, nomos, waku]
+product: # [storage, blockchain, communication]
 topics: []
 steps_layout: # [flat|sectioned]
 authors: # GitHub username
@@ -31,15 +31,15 @@ doc_version: # increased by one after every update
 slug:
 ---
 
-## Title (H1) guidelines <!-- PROC-PAGE-TITLE-001 -->
+## Title guidelines <!-- group: PROC-PAGE-TITLE -->
 
-- Use Markdown H1 headings and aim for 50 to 60 characters; 80 characters maximum. <!-- PROC-PAGE-TITLE-003 -->
-- Start with an action verb in the imperative form. Don't use the *-ing* form of the verb. <!-- PROC-PAGE-TITLE-004 -->
-- Capitalize only the first word and any proper nouns (sentence-style capitalization). <!-- PROC-PAGE-TITLE-005 -->
-- Focus on the result, not on the task. Emphasize the desired outcome, rather than describing the specific actions involved. For example, instead of "Install Node.js and create a project directory", use "Set up a local development environment for Node.js". <!-- PROC-PAGE-TITLE-006 -->
-- Include the action and the object/context (what/where/how). <!-- PROC-PAGE-TITLE-007 -->
-- Avoid one- or two-word titles and empty verbs like *make*, *manage*, or *put*. <!-- PROC-PAGE-TITLE-008 -->
-- Don't use punctuation marks, such as colons, semicolons, or dashes, except for the required `Step {n}:` prefix. <!-- PROC-PAGE-TITLE-009 -->
+- Use Markdown H1 headings and aim for 50 to 60 characters; 80 characters maximum. <!-- PROC-PAGE-TITLE-001 -->
+- Start with an action verb in the imperative form. Don't use the *-ing* form of the verb. <!-- PROC-PAGE-TITLE-002 -->
+- Capitalize only the first word and any proper nouns (sentence-style capitalization). <!-- PROC-PAGE-TITLE-003 -->
+- Focus on the result, not on the task. Emphasize the desired outcome, rather than describing the specific actions involved. For example, instead of "Install Node.js and create a project directory", use "Set up a local development environment for Node.js". <!-- PROC-PAGE-TITLE-004 -->
+- Include the action and the object/context (what/where/how). <!-- PROC-PAGE-TITLE-005 -->
+- Avoid one- or two-word titles and empty verbs like *make*, *manage*, or *put*. <!-- PROC-PAGE-TITLE-006 -->
+- Don't use punctuation marks, such as colons, semicolons, or dashes, except for the required `Step {n}:` prefix. <!-- PROC-PAGE-TITLE-007 -->
 
 Examples:
 
@@ -52,19 +52,19 @@ Examples:
 	| **Use** | Collaborate with others in a codespace  |
 	| Avoid   | Set up a live share session             |
 
-## Subtitle guidelines <!-- PROC-PAGE-TITLE-002 -->
+## Subtitle guidelines <!-- group: PROC-PAGE-SUBTITLE -->
 
-- Single sentence with no links, list items, or formatting. Ends with a period. <!-- PROC-PAGE-TITLE-010 -->
-- Use bold format. Stay under 120 characters. <!-- PROC-PAGE-TITLE-011 -->
-- Use imperative verbs to describe the document purpose or benefit: *Learn*, *Explore*, *Understand*, *Discover*, *Create*, *Follow*, *Try*, and other action verbs. <!-- PROC-PAGE-TITLE-012 -->
-- Adds new value beyond the title. It should not repeat the title or be a rephrased version of it. <!-- PROC-PAGE-TITLE-013 -->
+- Single sentence with no links, list items, or formatting. Ends with a period. <!-- PROC-PAGE-SUBTITLE-001 -->
+- Use bold format. Stay under 120 characters. <!-- PROC-PAGE-SUBTITLE-002 -->
+- Use imperative verbs to describe the document purpose or benefit: *Learn*, *Explore*, *Understand*, *Discover*, *Create*, *Follow*, *Try*, and other action verbs. <!-- PROC-PAGE-SUBTITLE-003 -->
+- Adds new value beyond the title. It should not repeat the title or be a rephrased version of it. <!-- PROC-PAGE-SUBTITLE-004 -->
 
 Examples:
 
 - **Title**: *Quickstart for GitHub Actions* / **Subtitle**: *Try out the core features of GitHub Actions in minutes.*
 - **Title**: *Create a pull request* / **Subtitle**: *Create a pull request to propose and collaborate on changes to a repository.*
 
-## Access callout guidelines <!-- PROC-ACCESS-001 -->
+## Access callout guidelines <!-- group: PROC-ACCESS -->
 
 This note-type callout is exclusively to alert readers about what roles, permissions, or product versions are required to perform the procedure.
 
@@ -82,7 +82,7 @@ This note-type callout is exclusively to alert readers about what roles, permiss
 
 - Use callouts sparingly in the document and only when necessary to avoid overwhelming the reader. <!-- PROC-CALLOUTS-001 -->
 - One callout maximum per section <!-- PROC-CALLOUTS-002 -->
-- Keep them concise. <!-- PROC-CALLOUTS-003 -->
+- Keep callouts concise. <!-- PROC-CALLOUTS-003 -->
 - Use the appropriate type: `Tip`, `Note`, `Important`, or `Caution`. <!-- PROC-CALLOUTS-004 -->
 
 ## Introduction guidelines
@@ -136,16 +136,16 @@ For an example of a procedure introduction, check out the [procedure example](./
 - A paragraph or list that describes technical setup (software, tools, config) needed to run the procedure. For example, "You must have at least Python 3.14 to complete this procedure." <!-- PROC-PREREQ-001 -->
 - Don't include roles, permissions, knowledge, or product versions here. Put those in the [access callout](#access-callout-guidelines) at the top.<!-- PROC-PREREQ-002 -->
 
-## `What to expect` guidelines <!-- group: PROC-EXPECT -->
+## "What to expect" guidelines <!-- group: PROC-EXPECT -->
 
-- Use `What to expect` H2 Markdown heading for this section <!-- PROC-EXPECT-001 -->
+- Use "What to expect" H2 Markdown heading for this section <!-- PROC-EXPECT-001 -->
 - Write a single unordered list with three bullet points that summarize the key results of the procedure. <!-- PROC-EXPECT-002 -->
 - Aim for one sentence per bullet point, maximum two short sentences. <!-- PROC-EXPECT-003 -->
 - Present the items in order from most important to least important. <!-- PROC-EXPECT-004 -->
 
 **Examples:**
 
-For an example, check out the [procedure example](./procedure-example.md).
+Check out the [procedure example](./procedure-example.md).
 
 ## Procedural structure <!-- group: PROC-STRUCT-PATTERN -->
 
@@ -197,7 +197,7 @@ For an example, check out the [procedure example](./procedure-example.md).
 
 Use these guidelines for both flat and sectioned procedure layouts. <!-- PROC-GUIDE-001 -->
 
-### Title (H2) guidelines <!-- group: PROC-TASK-TITLE -->
+### Title guidelines <!-- group: PROC-TASK-TITLE -->
 
 - Procedure section titles are Markdown H2 headings. <!-- PROC-TASK-TITLE-LEVEL-H2 -->
 - In the sectioned layout, prefix with `Step {n}:` starting at 1 and incrementing by 1. <!-- PROC-TASK-TITLE-STEP-H2 -->
