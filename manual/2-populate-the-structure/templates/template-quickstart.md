@@ -2,35 +2,38 @@
 |:------------------------------|:-----------------------|:---------|:----------------------|
 | Title                         | H1                     | Yes      | `QST-PAGE-TITLE`      |
 | Subtitle                      | Single bold sentence   | Yes      | `QST-PAGE-SUBTITLE`   |
-| Access callout                | Information admonition | Note-type callout | `QST-ACCESS` |
-| Callouts                      | Tip, Note, Important, Caution | No  | `QST-CALLOUTS`        |
+| Access callout                | Note-type callout      | No       | `QST-ACCESS`.         |
+| Callouts                      | Tip, Note, Important, Caution | No  | `QST-CALLOUTS`      |
 | Overview                      | Paragraph              | Yes      | `QST-OVERVIEW`        |
-| "Before you start" title      | H2                     | No       | `QST-BEFORE-START-001` |
-| "Before you start" list       | Bullet list            | No       | `group: QST-BEFORE-START` |
-| Task titles                   | H2                     | Yes      | `group: QST-TASK-TITLE` |
-| Task steps                    | Numbered list          | Yes      | `group: QST-TASK`     |
-| "Next steps" title            | H2                     | No       | `QST-NEXT-001`        |
-| "Next steps" list             | Bullet list            | No       | `group: QST-NEXT`     |
-| Article length                | ~1,200 words           | -        | `QST-EXTRA-001`       |
+| "Before you start" title      | H2                     | No       | `QST-BEFORE-START-001`|
+| "Before you start" list       | Bullet list            | No       | `QST-BEFORE-START`    |
+| Task title                    | H2                     | Yes      | `QST-TASK-TITLE`      |
+| Task intro                    | Paragraph              |    No    | `QST-TASK-INTRO`      |
+| Task callout                  | Callout                |    No    | `QST-TASK-CALL`       |
+| Task actions                  | Numbered list          |    Yes   | `QST-TASK-STEPS`      |
+| Clarifiers                    | Unordered bullets (depth 1) (2) | No | `QST-TASK-BUL`     |
+| Code                          | Fenced code block      |    No    | `QST-TASK-CODE`       |
+| Screenshot                    | Image                  |    No    | `QST-TASK-IMG`        |
 | H4-H6 headings                | -                      | Forbidden| `QST-EXTRA-002`       |
+| "Next steps" title            | H2                     | No       | `QST-NEXT-001`        |
+| "Next steps" list             | Bullet list            | No       | `QST-NEXT`            |
 
 ## Front matter
 ---
 title:
 doc_type: # [procedure, concept, reference, quickstart, api]
-product: # [codex, nomos, waku]
+product: # [storage, blockchain, communication]
 topics: []
-steps_layout: # [flat|sectioned]
 authors: # GitHub username
 owner: ift
 doc_version: # increased by one after every update
 slug:
 ---
 
-## Title (H1) guidelines <!-- group: QST-PAGE-TITLE -->
+## Title guidelines <!-- group: QST-PAGE-TITLE -->
 
 - Use a Markdown H1 heading. <!-- QST-PAGE-TITLE-001 -->
-- Use only the word "Quickstart" as the title. <!-- QST-PAGE-TITLE-002 -->
+- For the title, use the word "Quickstart for" + the name of the project or feature. Do not add other text. For example, "Quickstart for Logos Storage". <!-- QST-PAGE-TITLE-002 -->
 
 ## Subtitle guidelines <!-- group: QST-PAGE-SUBTITLE -->
 
@@ -41,7 +44,7 @@ slug:
 
 **Examples:**
 
-- *Get hands-on with Waku’s key capabilities.*
+- *Get hands-on with Waku's key capabilities.*
 - *Quickly add payments to your project with Stripe.*
 
 ## Access callout guidelines <!-- group: QST-ACCESS -->
@@ -62,32 +65,33 @@ This note-type callout is exclusively to alert readers about what roles, permiss
 
 - Use callouts sparingly in the document and only when necessary to avoid overwhelming the reader. <!-- QST-CALLOUTS-001 -->
 - One callout maximum per section <!-- QST-CALLOUTS-002 -->
-- Keep them concise. <!-- QST-CALLOUTS-003 -->
+- Keep callouts concise. <!-- QST-CALLOUTS-003 -->
 - Use the appropriate type: `Tip`, `Note`, `Important`, or `Caution`. <!-- QST-CALLOUTS-004 -->
 
 ## Overview guidelines <!-- group: QST-OVERVIEW -->
 
 - Describe the product or feature' core purposes and what the user will achieve in this quickstart. <!-- QST-OVERVIEW-001 -->
-- Write one or two 50 to 100-word paragraphs. Use an additional [concept](./concept-help-me-to-understand.md) article if you need to provide more information. <!-- QST-OVERVIEW-002 -->
-- Link to related documents or headings in the same document to support the reader's gathering of information. <!-- QST-OVERVIEW-003 -->
+- Write one or two 50 to 100-word paragraphs. <!-- QST-OVERVIEW-002 -->
+-  Avoid lengthy discussions of the product or feature. Link to a [concept](./concept-help-me-to-understand.md) article if you need to provide more information. <!-- QST-OVERVIEW-003 -->
+- Link to related documents or headings in the same document to support the reader's gathering of information. <!-- QST-OVERVIEW-004 -->
 
 ## "Before you start" (optional) guidelines <!-- group: QST-BEFORE-START -->
 
 - Use the "Before you start" H2 heading for this section. <!-- QST-BEFORE-START-001 -->
-- Provide a bullet list describing: <!-- QST-BEFORE-START-002 -->
+- Write a single unordered list including: <!-- QST-BEFORE-START-002 -->
     - The intended audience of this quickstart.
     - Required prior knowledge for using this quickstart.
     - The software or hardware requirements.
-- Use noun phrases. Don't include verbs such as "learn" or "prepare". <!-- QST-BEFORE-START-003 -->
+- Use noun phrases (For example, "familiarity with Golang"). Don't include verbs such as "learn" or "prepare". <!-- QST-BEFORE-START-003 -->
 - Provide [links](../../20-style-the-content/10-links.md) to related content such as installation instructions or articles that provide required knowledge. <!-- QST-BEFORE-START-004 -->
-- Don't include the procedure for setting up or installing prerequisites. If you must explain the procedure and it takes less than three steps, include it in the [task](#task-section) where you describe setting up your product. <!-- QST-BEFORE-START-005 -->
+- Don't include the procedure for setting up or installing prerequisites. If you must explain the procedure, link to the corresponding document or resource. <!-- QST-BEFORE-START-005 -->
 
 > ⚙️ **Example:**
 >
 > Before you begin, make sure you have:
 >
 > - A basic understanding of [Ethereum](https://ethereum.org/en/developers/docs/intro-to-ethereum/) ↗ concepts
-> - Proficiency with the command line
+> - Knowledge of how to work with Python virtual environments
 > - A machine running Ubuntu Linux with the following minimum requirements:
 >   - 4 GB memory
 >   - 2 TB SSD
@@ -99,35 +103,7 @@ This note-type callout is exclusively to alert readers about what roles, permiss
     - The first task is usually about setting up or installing the product or feature. However, if setup requires more than seven steps, create a separate installation guide and direct readers to it in the [Before you start](#before-you-start-section) section. <!-- QST-TASK-002 -->
     - For the other task(s), focus on the core functionalities of the product or feature. <!-- QST-TASK-003 -->
 
-### Task procedural structure 
-
-- Tasks in a quickstart always use the `sectioned` procedural structure. <!-- QST-TASK-004 -->
-- Don't use subtasks. Split into additional H2 task groups or use the sectioned layout instead. <!-- QST-TASK-005 -->
-
-> **Note**
->
-> See [Steps structure: flat vs. sectioned](./procedure.md#steps-structure-flat-vs-sectioned) for guidance.
-
-### Task layout
-
-| Element (per task) | Format                          | Required | ID                      | Rules           |
-| :----------------- | :------------------------------ | :------: | :---------------------- | :---------------|
-| Task title         | H2                              |    Yes   | `QST-TASK-TITLE` | PROC-TASK-TITLE |
-| Task intro         | Paragraph                       |    No    | `QST-TASK-INTRO` | PROC-INTRO      |
-| Task callout       | Callout                         |    No    | `QST-TASK-CALL`  | PROC-CALL       |
-| Task actions       | Numbered list                   |    Yes   | `QST-TASK-STEPS` | PROC-STEP       |
-| Clarifiers         | Unordered bullets (depth 1) (2) |    No    | `QST-TASK-BUL`   | PROC-BUL        |、
-
-| Code               | Fenced code block               |    No    | `QST-TASK-CODE`  | PROC-CODE       |
-| Screenshot         | Image                           |    No    | `QST-TASK-IMG`   | PROC-SHOT       |
-
-(1) Use a short bullet list for clarifiers or alternatives. Do not create numbered sub-steps.
-
-> **Note:**
->
-> The `Rules` column points to the shared rule group that governs this element (see [Procedure guidelines](#procedure-guidelines)).
-
-### Task title (H2) guidelines <!-- group: QST-TASK-TITLE -->
+### Task title guidelines <!-- group: QST-TASK-TITLE -->
 
 - Task titles are Markdown H2 headings. <!-- QST-TASK-TITLE-LEVEL-H2 -->
 - Don’t include numbering in the title. <!-- QST-TASK-HEADING -->
@@ -144,13 +120,13 @@ This note-type callout is exclusively to alert readers about what roles, permiss
 > - *Connect to the Codex network*
 > - *Configure system admin access*
 
-### Task introduction (optional) guidelines <!-- group: QST-TASK-INTRO -->
+### Task introduction guidelines (optional) <!-- group: QST-TASK-INTRO -->
 
 - Write 1–2 short sentences that provide context. <!-- QST-TASK-INTRO-BRIEF -->
 - Do not repeat the task title wording. <!-- QST-TASK-INTRO-NO-REPEAT -->
 - Add cross-references here, not inside steps. <!-- QST-TASK-INTRO-LINKS -->
 
-### Task callout (optional) guidelines <!-- group: QST-TASK-CALL -->
+### Task callout guidelines (optional) <!-- group: QST-TASK-CALL -->
 
 - Use one callout after the intro for important notes, warnings, or tips. <!-- QST-TASK-CALL-ONCE -->
 - Do not place callouts between steps. <!-- QST-TASK-CALL-NO-BETWEEN -->
@@ -171,13 +147,13 @@ This note-type callout is exclusively to alert readers about what roles, permiss
 - For UI paths, put location before action. <!-- QST-TASK-STEP-LOC-FIRST -->
 - For conditions, write the result first, then the condition. <!-- QST-TASK-STEP-RESULT-FIRST -->
 
-### Clarifiers (optional) guidelines <!-- group: QST-TASK-BUL -->
+### Clarifiers guidelines (optional) <!-- group: QST-TASK-BUL -->
 
 - Don't use numbered substeps beneath a step (nested ordered lists). <!-- QST-TASK-BUL-NOSUBTASK -->
 - Use bullets for subactions, such as clarifiers or alternatives. <!-- QST-TASK-BUL-BULLETS -->
 - Limit clarifiers to 2–4 items in one level. <!-- QST-TASK-BUL-LIMIT -->
 
-### Task code (optional) guidelines <!-- group: QST-TASK-CODE -->
+### Task code guidelines (optional) <!-- group: QST-TASK-CODE -->
 
 Follow the code rules in the Style Guide. <!-- QST-TASK-CODE-LINK -->
 
@@ -189,11 +165,11 @@ Follow the code rules in the Style Guide. <!-- QST-TASK-CODE-LINK -->
     gh workflow run build --repo org/repo
     ```
 
-### Task screenshot (optional) guidelines <!-- group: QST-TASK-SHOT -->
+### Task screenshot guidelines (optional) <!-- group: QST-TASK-SHOT -->
 
 Follow the Screenshots rules in the Style Guide. <!-- QST-TASK-SHOT-LINK -->
 
-## `Next steps` (optional) guidelines <!-- group: QST-NEXT -->
+## `Next steps` guidelines (optional) <!-- group: QST-NEXT -->
 
 - Use the "Next steps" H2 heading for this section. <!-- QST-NEXT-001 -->
 - Write a bullet list of links to articles about other tasks that the users can try after completing the quickstart. <!-- QST-NEXT-002 -->
