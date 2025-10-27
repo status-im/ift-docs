@@ -4,14 +4,14 @@
 </p>
 -->
 
-# IFT Documentation (🚧 This is a work in progress)
+# Logos Documentation (🚧 This is a work in progress)
 
-**Unified, docs-as-code workflow for projects under the [Institute of Free Technology](https://free.technology/)**.
+**Unified, docs-as-code workflow for the Logos projects (https://free.technology/logos)**.
 
 <!-- Write in Markdown → merge a PR → GitBook publishes your product docs automatically.-->
 
 <!-- Todo
-[![CI](https://github.com/ift/onedoc/actions/workflows/ci.yml/badge.svg)](actions/workflows/ci.yml)
+[![CI](https://github.com/logos/onedoc/actions/workflows/ci.yml/badge.svg)](actions/workflows/ci.yml)
 -->
 
 [![Project board](https://img.shields.io/badge/Project-Board-blue)](https://github.com/orgs/status-im/projects/155/views/1)
@@ -61,7 +61,7 @@ For style, naming and review rules see the **[Style Guide](docs/STYLE_GUIDE.md)*
 
 <!--
 Questions or ideas? Join us on **Discord → `#onedoc`**  
-Invite link: <https://discord.gg/ift-onedoc>
+Invite link: <https://discord.gg/logos-onedoc>
 -->
 
 Licensed under MIT.

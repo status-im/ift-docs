@@ -1,6 +1,6 @@
-# IFT technical documentation guide
+# Logos technical documentation guide
 
-This guide is for the subject-matter experts (SMEs) who contribute to [IFT projects](https://free.technology/) ↗ documentation: the developers, infrastructure engineers, and other technical contributors responsible for designing and implementing features. It is written for technical experts who need to produce clear, effective documentation for the solutions they create, but who are not professional technical writers.
+This guide is for the subject-matter experts (SMEs) who contribute to [Logos projects](https://free.technology/logos) ↗ documentation: the developers, infrastructure engineers, and other technical contributors responsible for designing and implementing features. It is written for technical experts who need to produce clear, effective documentation for the solutions they create, but who are not professional technical writers.
 
 Our core assumption is that the primary barrier to writing documentation is the lack of a clear and repeatable process. This guide provides that process. It is designed to remove ambiguity, eliminate "blank page" anxiety, and offers a predictable workflow to create high-quality documentation consistently.
 
