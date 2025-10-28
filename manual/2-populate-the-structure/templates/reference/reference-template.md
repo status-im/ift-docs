@@ -141,7 +141,7 @@ Guidelines:
 { Paragraph, list, or table }
 
 <!--
-Add here the reference information. Use tables or lists primarily. When in doubt about the format, read [Tables](../../docs-standards/20-style-the-content/8-tables.md).
+Add here the reference information. Use tables or lists primarily. When in doubt about the format, read [Tables](../../docs-standards/20-style-the-content/09-tables.md).
 -->
 
 (Optional) { Code }
