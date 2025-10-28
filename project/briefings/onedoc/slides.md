@@ -2,24 +2,24 @@
 theme: dracula
 transition: slide-left
 title: OneDoc Project Briefing
-author: campo@ift
+author: campo@Logos
 browserExporter: 
 download: true
-exportFilename: ift-onedoc-project-briefing
+exportFilename: Logos-onedoc-project-briefing
 export:
     format: pdf
 ---
 
 # OneDoc project briefing
 
-A unified, AI-aware stack for IFT user docs
+A unified, AI-aware stack for Logos user docs
 
 --- 
 
 # OneDoc project goal
 
 <div class="mt-20 text-3xl">
-	To unify IFT's user-facing documentation on an AI-native platform (GitBook) with a "docs-as-code" workflow and clear roles, ensuring consistent, high-quality, and easily discoverable documentation to encourage greater developer adoption and contributions.
+	To unify Logos's user-facing documentation on an AI-native platform (GitBook) with a "docs-as-code" workflow and clear roles, ensuring consistent, high-quality, and easily discoverable documentation to encourage greater developer adoption and contributions.
 </div>
 
 <div class="absolute right-30px bottom-30px">
@@ -58,7 +58,7 @@ A unified, AI-aware stack for IFT user docs
 # 1️⃣ What does **unified platform** mean?
 
 <div class="mt-20 text-3xl">
-	Consolidate all user-facing documentation for IFT projects onto a single, AI-native platform, specifically GitBook, to provide a central access point for users.
+	Consolidate all user-facing documentation for Logos projects onto a single, AI-native platform, specifically GitBook, to provide a central access point for users.
 </div>
 
 <div class="absolute right-30px bottom-30px">
@@ -86,11 +86,11 @@ A unified, AI-aware stack for IFT user docs
 </div>
 
 <div class="mt-5 text-xl">
-	Define clear roles and responsibilities, including a project team (technical writers) and dedicated documentation owners within each IFT project, to ensure accountability for content creation and maintenance.
+	Define clear roles and responsibilities, including a project team (technical writers) and dedicated documentation owners within each Logos project, to ensure accountability for content creation and maintenance.
 </div>
 
 <div class="mt-5 text-xl">
-	Documentation owners continue reporting to their respective team leads, and not the project team, ensuring that writers fully integrate and align with their own team. This federated model avoids a centralized "IFT Docs" department.
+	Documentation owners continue reporting to their respective team leads, and not the project team, ensuring that writers fully integrate and align with their own team. This federated model avoids a centralized "Logos Docs" department.
 </div>
 
 <div class="absolute right-30px bottom-30px">
@@ -127,7 +127,7 @@ A unified, AI-aware stack for IFT user docs
 
 --
 
-##### ⬥ Once only / ⭑ Once per IFT project
+##### ⬥ Once only / ⭑ Once per Logos project
 
 <div class="absolute right-30px bottom-30px">
 	<SlideCurrentNo /> / <SlidesTotal />
@@ -143,11 +143,11 @@ A unified, AI-aware stack for IFT user docs
 | 7. Project documentation (III) ⬥                  | Style guide and templates updates                      |
 | 8. Linter implementation ⬥                        | Write VALE linter rules and linter implementation      |
 | 9. Project documentation (IV) ⬥                   | Training materials                                     |
-| 10. Training and mentoring ⭑                      | Training and mentoring the IFT project owner|
+| 10. Training and mentoring ⭑                      | Training and mentoring the Logos project owner|
 
 --
 
-##### ⬥ Once only / ⭑ Once per IFT project
+##### ⬥ Once only / ⭑ Once per Logos project
 
 <div class="absolute right-30px bottom-30px">
 	<SlideCurrentNo /> / <SlidesTotal />
