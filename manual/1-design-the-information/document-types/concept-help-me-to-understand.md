@@ -30,7 +30,7 @@ Check out the [file names and location rules](../../../CONTRIBUTING.md#file-name
 ### General rules
 
 - Target for documents between 900 and 1 500 words. Split longer ideas into separate concept topics.
-- Replace dense prose with [lists](../../20-style-the-content/06-bullet-lists.md) and [tables](../../20-style-the-content/09-tables.md) to improve readability.
+- Replace dense prose with [lists](../../20-style-the-content/06-bullet-lists.md) and [tables](../../20-style-the-content/08-tables.md) to improve readability.
 - Richly [link](../../20-style-the-content/10-links.md) to related topics, especially procedure and reference topics.
 - Include [diagrams or images](../../30-work-with-media/_index.md) to illustrate complex ideas or workflows.
 
