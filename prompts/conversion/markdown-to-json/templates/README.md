@@ -1,7 +1,6 @@
 # Run Markdown → JSON conversion via API script
 
 **Purpose**
-
 Convert a OneDoc Markdown procedure template into machine-readable JSON using a deterministic prompt and a pinned model.
 
 **Outputs**
@@ -66,7 +65,6 @@ Convert a OneDoc Markdown procedure template into machine-readable JSON using a 
    ```
 
 5. **Verify repository files are present**
-
    Change to the working directory at prompts/conversion/markdown-to-json and ensure `md2json-prompt-templates.md` and `transform.py` are in the directory.
 
 ---
@@ -209,7 +207,6 @@ Choose **one** backend option and set the environment variables.
      ```
 
 2. **Review validation fields**
-
    Open `out.json` and inspect:
 
    - `validation.missingRuleIds`
@@ -219,7 +216,6 @@ Choose **one** backend option and set the environment variables.
    - `validation.notes` (look for `CHECKLIST_FAIL:` or source flags)
 
 3. **Save JSON output**
-
    Rename the output file. Use the same name as the original Markdown file but with `.json` extension. For example:
 
    ```bash
