@@ -14,6 +14,7 @@
     - When the list items are complete sentences, use a period at the end of each sentence.
     - Don't use a period when the list items are not complete sentences or sentences with three words or less.
     - In a list with elements of more and less than three words mixed, don't use a period.
+    - If one item in a column is a complete sentence, all items in that column should end with a period, even if they are a single word.
 - Don't use colons after each item on a list; type the item definition on a new line. Here are some examples of using punctuation on a list:
 
     | Usage      | Example                                                                 |
