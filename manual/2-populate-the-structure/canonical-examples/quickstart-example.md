@@ -1,5 +1,5 @@
 ---
-title: Quickstart
+title: Quickstart for GitHub Repositories
 topic: Repositories
 author: jorge-campo, cheny0
 version: 1
@@ -8,14 +8,12 @@ url: docs/repositories/quickstart
 
 <!-- This document is an example for the concept template. It is not a real document and should be used for illustration purposes only. -->
 
-# Quickstart
+# Quickstart for GitHub Repositories
 
 #### Create and manage your first repository quickly.
 
 > 📒 **Note**  
 > You can create repositories in your personal account or any organization where you have the required permissions.
-
-## Overview
 
 In this quickstart, you create a repository, edit a file, and clone the repository to your computer. This helps you begin collaborating or versioning your code immediately.
 
