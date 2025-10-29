@@ -1,6 +1,7 @@
 # Run Markdown → JSON conversion via API script
 
 **Purpose**
+
 Convert a OneDoc Markdown procedure template into machine-readable JSON using a deterministic prompt and a pinned model.
 
 **Outputs**
@@ -10,13 +11,13 @@ Convert a OneDoc Markdown procedure template into machine-readable JSON using a 
 
 **Files in this folder**
 
-- `md2json-prompt-templates.md` — deterministic prompt (do not edit without bumping the version).
-- `transform.py` — API runner script.
-- `<your-template>.md` — the Markdown template to convert.
+- `md2json-prompt-templates.md`:  deterministic prompt (do not edit without bumping the version).
+- `transform.py`:  API runner script.
+- `<your-template>.md`:  the Markdown template to convert.
 
 ---
 
-## Part A — Set up the environment
+## Part A:  Set up the environment
 
 1. **Install Python 3.10+**
 
@@ -59,15 +60,16 @@ Convert a OneDoc Markdown procedure template into machine-readable JSON using a 
    ```
 
 5. **Verify repository files are present**
+
    Change to the working directory at prompts/conversion/markdown-to-json and ensure `md2json-prompt-templates.md` and `transform.py` are in the directory.
 
 ---
 
-## Part B — Configure the API backend
+## Part B:  Configure the API backend
 
 Choose **one** backend option and set the environment variables.
 
-### Option 1 — OpenAI API
+### Option 1:  OpenAI API
 
 1. **Export required variables**
 
@@ -96,13 +98,14 @@ Choose **one** backend option and set the environment variables.
      ```
 
 2. **Pin the model**
+
    Use a single, agreed model string (for example, `gpt-5`) across all tests.
 
-### Option 2 — OpenRouter
+### Option 2:  OpenRouter
 
 1. **Export required variables**
 
-   * macOS/Linux:
+   - macOS/Linux:
 
      ```bash
      export LLM_BACKEND=openrouter
@@ -114,7 +117,7 @@ Choose **one** backend option and set the environment variables.
      # Optional: export OPENROUTER_BASE_URL=https://openrouter.ai/api/v1
      ```
 
-   * Windows (PowerShell):
+   - Windows (PowerShell):
 
      ```powershell
      $env:LLM_BACKEND="openrouter"
@@ -127,16 +130,19 @@ Choose **one** backend option and set the environment variables.
      ```
 
 2. **Allow temperature/top_p defaults**
+
    For GPT-5 or other model variants that do not support custom sampling parameters, do not set `TEMPERATURE` or `TOP_P`. If the model supports them, set `TEMPERATURE=0`, `TOP_P=1`, and `ALLOW_SAMPLING_PARAMS=1`.
 
 3. **Pin the model**
+
    Use a single, agreed model string (for example, `gpt-5`) across all tests.
 
 ---
 
-## Part C — Convert Markdown to JSON
+## Part C:  Convert Markdown to JSON
 
 1. **Place your Markdown input**
+
    Put the file (for example, `procedure-template.md`) in the same folder as `transform.py`.
 
 2. **Change to the working folder**
@@ -146,6 +152,7 @@ Choose **one** backend option and set the environment variables.
    ```
 
 3. **Rename prompt file**
+
    Make a copy of the prompt template and rename it to `prompt.md`. For example:
 
    ```bash
@@ -171,7 +178,7 @@ Choose **one** backend option and set the environment variables.
 
 ---
 
-## Part D — Validate and review the output
+## Part D:  Validate and review the output
 
 1. **Validate JSON syntax**
 
@@ -190,6 +197,7 @@ Choose **one** backend option and set the environment variables.
      ```
 
 2. **Review validation fields**
+
    Open `out.json` and inspect:
 
    - `validation.missingRuleIds`
@@ -199,6 +207,7 @@ Choose **one** backend option and set the environment variables.
    - `validation.notes` (look for `CHECKLIST_FAIL:` or source flags)
 
 3. **Save JSON output**
+
    Rename the output file. Use the same name as the original Markdown file but with `.json` extension. For example:
 
    ```bash
@@ -207,7 +216,7 @@ Choose **one** backend option and set the environment variables.
 
 ---
 
-## Part E — Commit the results
+## Part E:  Commit the results
 
 1. **Clean up previous outputs**
 
@@ -235,7 +244,7 @@ Choose **one** backend option and set the environment variables.
 
 ---
 
-## Part F — Troubleshoot common issues
+## Part F:  Troubleshoot common issues
 
 1. **401/403 errors (authorization)**
 
