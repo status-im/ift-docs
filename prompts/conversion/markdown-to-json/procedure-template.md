@@ -220,7 +220,7 @@ Additional structural constraints:
 
 Use these guidelines for both flat and sectioned procedure layouts. <!-- PROC-BEHAV-GUIDE-APPLIES-BOTH -->
 
-### Title guidelines <!-- group: PROC-TASK-TITLE -->
+### Title <!-- group: PROC-TASK-TITLE -->
 
 - Procedure section titles are Markdown H2 headings. <!-- PROC-STRUCT-TASK-H2 -->
 - In the sectioned layout, prefix with `Step {n}:` starting at 1 and incrementing by 1. <!-- PROC-STRUCT-SEC-H2-STEP-PREFIX -->
