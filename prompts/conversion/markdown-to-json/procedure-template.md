@@ -261,7 +261,7 @@ Use these guidelines for both flat and sectioned procedure layouts. <!-- PROC-BE
 
 ### Clarifiers (optional) <!-- group: PROC-CLARIFIERS -->
 
-- Don't use numbered substeps beneath a step (nested ordered lists). <!-- PROC-STRUCT-CLARIFIERS-NO-ORDERED -->
+- Don't use numbered substeps beneath a step (nested ordered lists). <!-- PROC-STRUCT-CLARIFIERS-NO-SUBSTEPS -->
 - Use bullets for subactions, such as clarifiers or alternatives. <!-- PROC-STRUCT-CLARIFIERS-BULLETS -->
 - Limit clarifiers to 2–4 items in one level. <!-- PROC-BEHAV-CLARIFIERS-COUNT-2-4 -->
 
