@@ -90,7 +90,7 @@ This note-type callout is exclusively to alert readers about what roles, permiss
 - One callout maximum per section <!-- PROC-STRUCT-CALLOUTS-PER-SECTION-ONE -->
 - Keep each callout concise (≤ 2 short sentences). If the content needs a list or multiple paragraphs, move it into the body under a heading. <!-- PROC-BEHAV-CALLOUTS-CONCISE -->
 - Ensure the callout content is directly relevant to the nearby task or decision point. <!-- PROC-BEHAV-CALLOUTS-RELEVANT -->
-- Use the appropriate type: `Tip`, `Note`, `Important`, or `Caution`. <!-- PROC-BEHAVE-CALLOUTS-TYPE -->
+- Use the appropriate type: `Tip`, `Note`, `Important`, or `Caution`. <!-- PROC-BEHAV-CALLOUTS-TYPE -->
 - Do **not** include full procedural steps or long prerequisite checklists inside callouts. Put steps in the main flow; keep prerequisite lists in "Before you start." <!-- PROC-BEHAV-CALLOUTS-NO-STEPS -->
 - For the allowed callout types and when to use them, see the [writing rules](../../3-validating-design/writing-rules/README.md). <!-- PROC-BEHAV-CALLOUTS-TYPES-REFER-STYLEGUIDE -->
 
@@ -176,41 +176,44 @@ Check out the [procedure example](./procedure-example.md).
 
 ### Procedure layout: flat <!-- group: PROC-STRUCT-FLAT -->
 
-| Element        | Format                               | Required | ID                         | Rules               |
-|:---------------|:-------------------------------------|:---------|:---------------------------|:--------------------|
-| Task title     | H2                                   | Yes      | `PROC-STRUCT-FLAT-TITLE`   | PROC-TASK-TITLE     |
-| Task intro     | Paragraph                            | No       | `PROC-STRUCT-FLAT-INTRO`   | PROC-TASK-INTRO     |
-| Task callout   | Callout                              | No       | `PROC-STRUCT-FLAT-CALLOUT` | PROC-CALLOUTS       |
-| Steps list     | Numbered list or checkboxes (1)      | Yes      | `PROC-STRUCT-FLAT-STEPS`   | PROC-STEP           |
-| Clarifiers     | Bullets under a step (depth 1) (2)   | No       | `PROC-STRUCT-FLAT-CLAR`    | PROC-CLARIFIERS     |
-| Code           | Fenced code block under the step (3) | No       | `PROC-STRUCT-FLAT-CODE`    | PROC-CODE           |
-| Screenshot     | Image under the step (3)             | No       | `PROC-STRUCT-FLAT-IMG`     | PROC-SHOT           |
+| Element      | Format                              | Required | ID                        | Rules              |
+|:-------------|:------------------------------------|:---------|:--------------------------|:-------------------|
+| Task title   | H2                                  | Yes      | `PROC-STRUCT-FLAT-TITLE`  | PROC-TASK-TITLE    |
+| Task intro   | Paragraph                           | No       | `PROC-STRUCT-FLAT-INTRO`  | PROC-TASK-INTRO    |
+| Task callout | Callout                             | No       | `PROC-STRUCT-FLAT-CALLOUT`| PROC-TASK-CALLOUTS |
+| Steps list   | Numbered list or checkboxes (1)     | Yes      | `PROC-STRUCT-FLAT-STEPS`  | PROC-TASK-STEP     |
+| Clarifiers   | Bullets under a step (depth 1) (2)  | No       | `PROC-STRUCT-FLAT-CLAR`   | PROC-TASK-CLAR     |
+| Code         | Fenced code block under the step (3)| No       | `PROC-STRUCT-FLAT-CODE`   | PROC-TASK-CODE     |
+| Screenshot   | Image under the step (3)            | No       | `PROC-STRUCT-FLAT-IMG`    | PROC-TASK-IMG      |
 
 (1) Use checkboxes only for unordered or long-running tasks. Numbered lists are the default for procedures.  
 (2) Use a short bullet list for clarifiers or alternatives. Do not create numbered sub-steps.  
 (3) Nest code and images inside the list item they clarify (indent so they are children of the preceding step).
 
-> **Note**
+> **Note:**
 >
 > The "Rules" column points to the shared rule group that governs this element (see [Procedure guidelines](#procedure-guidelines)).
 
 ### Procedure layout: sectioned <!-- group: PROC-STRUCT-SEC -->
 
-| Element (per step) | Format                          | Required | ID                        | Rules           |
-|:-------------------|:--------------------------------|:--------:|:--------------------------|:----------------|
-| Step title         | H2 `Step {n}: …`                |   Yes    | `PROC-STRUCT-SEC-TITLE`   | PROC-TASK-TITLE |
-| Step intro         | Paragraph                       |   No     | `PROC-STRUCT-SEC-INTRO`   | PROC-TASK-INTRO |
-| Step callout       | Callout                         |   No     | `PROC-STRUCT-SEC-CALLOUT` | PROC-CALLOUTS   |
-| Step actions       | Numbered list (exactly one)     |   Yes    | `PROC-STRUCT-SEC-STEPS`   | PROC-STEP       |
-| Clarifiers         | Bullets under a step (depth 1)  |   No     | `PROC-STRUCT-SEC-CLAR`    | PROC-CLARIFIERS |
-| Code               | Fenced code block under the step|   No     | `PROC-STRUCT-SEC-CODE`    | PROC-CODE       |
-| Screenshot         | Image under the step            |   No     | `PROC-STRUCT-SEC-IMG`     | PROC-SHOT       |
+| Element (per step) | Format                              | Required | ID                        | Rules              |
+|:-------------------|:------------------------------------|:---------|:--------------------------|:-------------------|
+| Step title         | H2 `Step {n}: …`                    | Yes      | `PROC-STRUCT-SEC-TITLE`   | PROC-TASK-TITLE    |
+| Step intro         | Paragraph                           | No       | `PROC-STRUCT-SEC-INTRO`   | PROC-TASK-INTRO    |
+| Step callout       | Callout                             | No       | `PROC-STRUCT-SEC-CALLOUT` | PROC-TASK-CALLOUTS |
+| Step list          | Numbered list or checkboxes (1)     | Yes      | `PROC-STRUCT-SEC-STEPS`   | PROC-TASK-STEP     |
+| Clarifiers         | Bullets under a step (depth 1) (2)  | No       | `PROC-STRUCT-SEC-CLAR`    | PROC-TASK-CLAR     |
+| Code               | Fenced code block under the step (3)| No       | `PROC-STRUCT-SEC-CODE`    | PROC-TASK-CODE     |
+| Screenshot         | Image under the step (3)            | No       | `PROC-STRUCT-SEC-IMG`     | PROC-TASK-IMG      |
+
+(1) Use checkboxes only for unordered or long-running tasks. Numbered lists are the default for procedures.  
+(2) Use a short bullet list for clarifiers or alternatives. Do not create numbered sub-steps.  
+(3) Nest code and images inside the list item they clarify (indent so they are children of the preceding step).
 
 Additional structural constraints:
 
 - The first section title must be `Step 1:` and subsequent section titles must increment by 1. <!-- PROC-STRUCT-SEC-ORDER-ASC -->
-- Each "Step {n}" section contains **exactly one** ordered list of actions. <!-- PROC-STRUCT-SEC-ONE-OL -->
-- Do not insert headings, callouts, or tables **between** list items; place them either within the list item they clarify or after the list. <!-- PROC-STRUCT-SEC-NO-HEADINGS-IN-LIST -->
+- Each "Step {n}" section contains exactly one ordered list of actions. <!-- PROC-STRUCT-SEC-ONE-OL -->
 
 > **Note**
 >
@@ -220,7 +223,7 @@ Additional structural constraints:
 
 Use these guidelines for both flat and sectioned procedure layouts. <!-- PROC-BEHAV-GUIDE-APPLIES-BOTH -->
 
-### Title <!-- group: PROC-TASK-TITLE -->
+### Task/Step Title <!-- group: PROC-TASK-TITLE -->
 
 - Procedure section titles are Markdown H2 headings. <!-- PROC-STRUCT-TASK-H2 -->
 - In the sectioned layout, prefix with `Step {n}:` starting at 1 and incrementing by 1. <!-- PROC-STRUCT-SEC-H2-STEP-PREFIX -->
@@ -231,43 +234,43 @@ Use these guidelines for both flat and sectioned procedure layouts. <!-- PROC-BE
 - Avoid one- or two-word titles. <!-- PROC-BEHAV-TASK-TITLE-NO-ONE-TWO-WORD -->
 - Don’t use punctuation marks in titles (colons, semicolons, dashes) except in the sectioned layout (`Step {n}:`). <!-- PROC-BEHAV-TASK-TITLE-NO-PUNCT -->
 
-### Task intro (optional) <!-- group: PROC-TASK-INTRO -->
+### Task/Step intro (optional) <!-- group: PROC-TASK-INTRO -->
 
 - Write 1–2 short sentences that provide context. <!-- PROC-BEHAV-TASK-INTRO-BRIEF -->
 - Do not repeat the task title wording. <!-- PROC-BEHAV-TASK-INTRO-NO-REPEAT -->
 - Add cross-references here, not inside steps. <!-- PROC-BEHAV-TASK-INTRO-LINKS -->
 
-### Task callout (optional) <!-- group: PROC-CALLOUTS -->
+### Task/Step callout (optional) <!-- group: PROC-TASK-CALLOUTS -->
 
-- Use one callout after the intro for important notes, warnings, or tips. <!-- PROC-STRUCT-CALLOUTS-AFTER-INTRO -->
-- Do not place callouts between steps. <!-- PROC-STRUCT-CALLOUTS-NO-BETWEEN-STEPS -->
-- One callout maximum per task. <!-- PROC-STRUCT-CALLOUTS-PER-TASK-ONE -->
+- Use one callout after the intro for important notes, warnings, or tips. <!-- PROC-STRUCT-TASK-CALLOUTS-AFTER-INTRO -->
+- Do not place callouts between steps. <!-- PROC-STRUCT-TASK-CALLOUTS-NO-BETWEEN-STEPS -->
+- One callout maximum per task. <!-- PROC-STRUCT-TASK-CALLOUTS-PER-TASK-ONE -->
 
-### Steps list guidelines <!-- group: PROC-STEP -->
+### Steps list guidelines <!-- group: PROC-TASK-STEP -->
 
-- Use a numbered list when the task is completed in one go. <!-- PROC-BEHAV-STEP-ORDERED-ONEGO -->
-- Use checkboxes when steps are unordered or spread over time. <!-- PROC-BEHAV-STEP-CHECKBOX-UNORDERED -->
-- Start each step with an imperative verb; avoid -ing forms. <!-- PROC-BEHAV-STEP-IMPERATIVE -->
-- One step = one user action (combine only trivial actions). <!-- PROC-BEHAV-STEP-ONE-ACTION -->
-- Author ordered lists with `1.` for every item (1, 1, 1 …). <!-- PROC-STRUCT-STEP-OL-ONE -->
-- Aim for 2–7 steps. Split if longer. <!-- PROC-BEHAV-STEP-COUNT-2-7 -->
-- Avoid one-step tasks. <!-- PROC-BEHAV-STEP-NO-ONE -->
-- When adding paragraphs, images, or code under a step, insert a blank line and indent so they are children of that step. <!-- PROC-STRUCT-STEP-NESTING -->
-- Bold UI elements (buttons, menus, options). <!-- PROC-BEHAV-STEP-UI-BOLD -->
-- Use inline code for commands, filenames, paths, and output. <!-- PROC-BEHAV-STEP-CODE-INLINE -->
-- Don’t use external links in steps; only same-page anchors. <!-- PROC-BEHAV-STEP-LINKS-INTERNAL -->
-- For UI paths, put location before action. <!-- PROC-BEHAV-STEP-LOCATION-FIRST -->
-- For conditions, write the result first, then the condition. <!-- PROC-BEHAV-STEP-RESULT-THEN-CONDITION -->
+- Use a numbered list when the task is completed in one go. <!-- PROC-BEHAV-TASK-STEP-ORDERED-ONEGO -->
+- Use checkboxes when steps are unordered or spread over time. <!-- PROC-BEHAV-TASK-STEP-CHECKBOX-UNORDERED -->
+- Start each step with an imperative verb; avoid -ing forms. <!-- PROC-BEHAV-TASK-STEP-IMPERATIVE -->
+- One step = one user action (combine only trivial actions). <!-- PROC-BEHAV-TASK-STEP-ONE-ACTION -->
+- Author ordered lists with `1.` for every item (1, 1, 1 …). <!-- PROC-STRUCT-TASK-STEP-OL-ONE -->
+- Aim for 2–7 steps. Split if longer. <!-- PROC-BEHAV-TASK-STEP-COUNT-2-7 -->
+- Avoid one-step tasks. <!-- PROC-BEHAV-TASK-STEP-NO-ONE -->
+- When adding paragraphs, images, or code under a step, insert a blank line and indent so they are children of that step. <!-- PROC-STRUCT-TASK-STEP-NESTING -->
+- Bold UI elements (buttons, menus, options). <!-- PROC-BEHAV-TASK-STEP-UI-BOLD -->
+- Use inline code for commands, filenames, paths, and output. <!-- PROC-BEHAV-TASK-STEP-CODE-INLINE -->
+- Don’t use external links in steps; only same-page anchors. <!-- PROC-BEHAV-TASK-STEP-LINKS-INTERNAL -->
+- For UI paths, put location before action. <!-- PROC-BEHAV-TASK-STEP-LOCATION-FIRST -->
+- For conditions, write the result first, then the condition. <!-- PROC-BEHAV-TASK-STEP-RESULT-THEN-CONDITION -->
 
-### Clarifiers (optional) <!-- group: PROC-CLARIFIERS -->
+### Task/Step Clarifiers (optional) <!-- group: PROC-TASK-CLAR -->
 
-- Don't use numbered substeps beneath a step (nested ordered lists). <!-- PROC-STRUCT-CLARIFIERS-NO-ORDERED -->
-- Use bullets for subactions, such as clarifiers or alternatives. <!-- PROC-STRUCT-CLARIFIERS-BULLETS -->
-- Limit clarifiers to 2–4 items in one level. <!-- PROC-BEHAV-CLARIFIERS-COUNT-2-4 -->
+- Don't use numbered substeps beneath a step (nested ordered lists). <!-- PROC-STRUCT-TASK-CLAR-NO-ORDERED -->
+- Use bullets for subactions, such as clarifiers or alternatives. <!-- PROC-STRUCT-TASK-CLAR-BULLETS -->
+- Limit clarifiers to 2–4 items in one level. <!-- PROC-BEHAV-TASK-CLAR-COUNT-2-4 -->
 
-### Task code (optional) <!-- group: PROC-CODE -->
+### Task/Step code (optional) <!-- group: PROC-TASK-CODE -->
 
-Follow the code rules in the Style Guide. <!-- PROC-BEHAV-CODE-REFER-STYLEGUIDE -->
+Follow the code rules in the Style Guide. <!-- PROC-BEHAV-TASK-CODE-REFER-STYLEGUIDE -->
 
 **Example:**
 
@@ -277,9 +280,9 @@ Follow the code rules in the Style Guide. <!-- PROC-BEHAV-CODE-REFER-STYLEGUIDE 
 gh workflow run build --repo org/repo
 ```
 
-### Task screenshot (optional) guidelines <!-- group: PROC-SHOT -->
+### Task/Step screenshot (optional) <!-- group: PROC-TASK-IMG -->
 
-See the [writing rules] for screenshots (../../3-validating-design/writing-rules/README.md). <!-- PROC-BEHAV-SHOT-REFER-STYLEGUIDE -->
+See the [writing rules] for screenshots (../../3-validating-design/writing-rules/README.md). <!-- PROC-BEHAV-TASK-SHOT-REFER-STYLEGUIDE -->
 
 ## FAQ / Troubleshooting (optional) <!-- group: PROC-EXTRA -->
 
