@@ -91,7 +91,7 @@ This note-type callout is exclusively to alert readers about what roles, permiss
 - Keep each callout concise (≤ 2 short sentences). If the content needs a list or multiple paragraphs, move it into the body under a heading. <!-- PROC-BEHAV-CALLOUTS-CONCISE -->
 - Ensure the callout content is directly relevant to the nearby task or decision point. <!-- PROC-BEHAV-CALLOUTS-RELEVANT -->
 - Use the appropriate type: `Tip`, `Note`, `Important`, or `Caution`. <!-- PROC-BEHAVE-CALLOUTS-TYPE -->
-- Do **not** include full procedural steps or long prerequisite checklists inside callouts. Put steps in the main flow; keep prerequisite lists in “Before you start.” <!-- PROC-BEHAV-CALLOUTS-NO-STEPS -->
+- Do **not** include full procedural steps or long prerequisite checklists inside callouts. Put steps in the main flow; keep prerequisite lists in "Before you start." <!-- PROC-BEHAV-CALLOUTS-NO-STEPS -->
 - For the allowed callout types and when to use them, see the [writing rules](../../3-validating-design/writing-rules/README.md). <!-- PROC-BEHAV-CALLOUTS-TYPES-REFER-STYLEGUIDE -->
 
 **Example:**
@@ -216,11 +216,11 @@ Additional structural constraints:
 >
 > The "Rules" column points to the shared rule group that governs this element (see [Procedure guidelines](#procedure-guidelines)).
 
-## Procedure guidelines
+## Procedure
 
 Use these guidelines for both flat and sectioned procedure layouts. <!-- PROC-BEHAV-GUIDE-APPLIES-BOTH -->
 
-### Title guidelines <!-- group: PROC-TASK-TITLE -->
+### Title <!-- group: PROC-TASK-TITLE -->
 
 - Procedure section titles are Markdown H2 headings. <!-- PROC-STRUCT-TASK-H2 -->
 - In the sectioned layout, prefix with `Step {n}:` starting at 1 and incrementing by 1. <!-- PROC-STRUCT-SEC-H2-STEP-PREFIX -->
@@ -277,17 +277,21 @@ Follow the code rules in the Style Guide. <!-- PROC-BEHAV-CODE-REFER-STYLEGUIDE 
 gh workflow run build --repo org/repo
 ```
 
+### Task screenshot (optional) guidelines <!-- group: PROC-SHOT -->
+
+See the [writing rules] for screenshots (../../3-validating-design/writing-rules/README.md). <!-- PROC-BEHAV-SHOT-REFER-STYLEGUIDE -->
+
 ## FAQ / Troubleshooting (optional) <!-- group: PROC-EXTRA -->
 
 - Use an H2 Markdown heading for this section. <!-- PROC-STRUCT-EXTRA-H2 -->
 - Place this section after the final procedure section and before "Next steps" (if present). <!-- PROC-STRUCT-EXTRA-POSITION -->
-- Begin with "Troubleshooting {topic}” for error resolution or "Frequently asked questions" for question-based content. <!-- PROC-BEHAV-EXTRA-TITLE-PATTERN -->
+- Begin with "Troubleshooting {topic}" for error resolution or "Frequently asked questions" for question-based content. <!-- PROC-BEHAV-EXTRA-TITLE-PATTERN -->
 - Use paragraphs, lists, or H3 headings for the content. <!-- PROC-STRUCT-EXTRA-ALLOWED-BLOCKS-H3 -->
 - If you use H3 question headings, write them in sentence case and end with a question mark. <!-- PROC-BEHAV-EXTRA-H3-QUESTION-FORM -->
 - Use "Frequently asked questions" instead of "FAQ" alone. <!-- PROC-BEHAV-EXTRA-TERM-FAQ -->
 - For longer or complex cases, create a separate FAQ or Troubleshooting (concept) article and link to it. <!-- PROC-BEHAV-EXTRA-SPLIT-IF-LONG -->
 
-## Extra content guidelines (forbidden) <!-- group: PROC-FORBID -->
+## Forbidden content <!-- group: PROC-FORBID -->
 
 - Do not use H4–H6 headings. <!-- PROC-STRUCT-FORBID-H4-H6 -->
 - Do not include a "Further reading" section or links to other related topics at the end of the document. <!-- PROC-BEHAV-FORBID-NO-FURTHER-READING -->
