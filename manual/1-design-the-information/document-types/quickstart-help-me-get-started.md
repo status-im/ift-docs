@@ -85,7 +85,7 @@ This information-type [admonition](../../20-style-the-content/12-admonitions.md)
 Guidelines:
 
 - Use the "Overview" H2 heading for this section.
-- Start with a brief discussion of this product or feature and its core purposes. Then describe what the user can accomplish in this quickstart.
+- Start with what the user can accomplish in this quickstart. Then add a brief discussion of this product or feature and its core purposes.
 - The overview should be one or a maximum of two paragraphs. Use an additional [concept](./concept-help-me-to-understand.md) article if you need to provide more information.
 - Link to related topics to support the reader's gathering of information.
 
