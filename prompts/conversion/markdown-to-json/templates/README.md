@@ -155,7 +155,7 @@ Choose **one** backend option and set the environment variables.
 4. **Run the transformer**
 
    ```bash
-   python transform.py procedure-template.md out.json
+   python transform.py <TEMPLATE_FILE_NAME>.md out.json
    ```
 
    > **Note:** Depending on the model, the script task may take several minutes to complete.
