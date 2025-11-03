@@ -109,6 +109,7 @@ This note-type callout is exclusively to alert readers about what roles, permiss
 **Example:**
 
 > **Note:**
+>
 > Keep container resources within the documented limits to avoid throttling.
 
 ## Intro
@@ -221,7 +222,7 @@ For an example of a task, check out the [procedure example](./procedure-example.
 - Use checkboxes when steps are unordered or spread over time. <!-- PROC-BEHAV-TASK-STEPS-CHECKBOX-UNORDERED -->
 - Start each step with an imperative verb; avoid -ing forms. <!-- PROC-BEHAV-TASK-STEPS-IMPERATIVE -->
 - One step = one user action (combine only trivial actions). <!-- PROC-BEHAV-TASK-STEPS-ONE-ACTION -->
-- Author ordered lists with `1.` for every item (1, 1, 1 …). <!-- PROC-STRUCT-TASK-STEPS-OL-ONE -->
+- Write ordered lists with `1.` for every item (1, 1, 1 …). <!-- PROC-STRUCT-TASK-STEPS-OL-ONE -->
 - Aim for 2–7 steps. Split if longer. <!-- PROC-BEHAV-TASK-STEPS-COUNT-2-7 -->
 - Avoid one-step tasks. <!-- PROC-BEHAV-TASK-STEPS-NO-ONE -->
 - When adding paragraphs, images, or code under a step, insert a blank line and indent so they are children of that step. <!-- PROC-STRUCT-TASK-STEPS-NESTING -->
