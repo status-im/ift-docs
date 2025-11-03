@@ -19,7 +19,7 @@
 ---
 title:
 doc_type: # [procedure, concept, reference, quickstart, api]
-product: # [storage, blockchain, communication]
+product: # [storage, blockchain, connect]
 topics: []
 steps_layout: # [flat|sectioned]
 authors: # GitHub username
