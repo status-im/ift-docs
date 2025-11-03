@@ -24,7 +24,7 @@ Convert a OneDoc Markdown procedure template into machine-readable JSON using a 
    Verify:
 
    ```bash
-   python --version
+   python3 --version
    ```
 
    If not installed, download from [python.org](https://www.python.org/downloads/) or use a package manager.
@@ -32,7 +32,13 @@ Convert a OneDoc Markdown procedure template into machine-readable JSON using a 
 2. **Create a virtual environment**
 
    ```bash
-   python -m venv .venv
+   python3 -m venv .venv
+   ```
+
+   If you have multiple Python versions, you may need to use the absolute path to Python 3.10+, for example:
+
+   ```bash
+   /usr/local/bin/python3.10 -m venv .venv
    ```
 
    > **Note:** Name the virtual environment folder `.venv`; it's included in `.gitignore`.
@@ -162,7 +168,13 @@ Choose **one** backend option and set the environment variables.
 4. **Run the transformer**
 
    ```bash
-   python transform.py <TEMPLATE_FILE_NAME>.md out.json
+   python3 transform.py <TEMPLATE_FILE_NAME>.md out.json
+   ```
+
+   If your virtual Python environment and script are in different directories, use absolute paths. For example:
+
+   ```bash
+   /home/user/.venv/bin/python /logos-docs/prompts/conversion/markdown-to-json/templates/transform.py procedure-template.md out.json
    ```
 
    > **Note:** Depending on the model, the script task may take several minutes to complete.
@@ -185,7 +197,7 @@ Choose **one** backend option and set the environment variables.
    - Using Python:
 
      ```bash
-     python -m json.tool out.json > /dev/null && echo "JSON OK"
+     python3 -m json.tool out.json > /dev/null && echo "JSON OK"
      ```
 
      This should complete without errors.
