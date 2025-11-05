@@ -6,7 +6,7 @@
 
 Logos is a modular stack that combines a blockchain for trustless agreements, decentralized storage, and an anonymous communication layer. Logos consolidates previously separate efforts (Nomos, Codex, Waku) under one public identity to reduce cognitive load and provide a coherent developer experience.
 
-To learn more about Logos, visit the [Logos main site](https://logos.foundation).
+To learn more about Logos, visit the [Logos main site](https://logos.co/).
 
 ## Documentation status and timeline
 
