@@ -2,14 +2,13 @@
 |:------------------------------|:------------------------------------|:----------|:---------------------------------|
 | Title                         | H1                                  | Yes       | `QST-TITLE`                      |
 | Subtitle                      | Single bold sentence                | Yes       | `QST-SUBTITLE`                   |
-| Access callout                | Note-type callout                   | No        | `QST-ACCESS`                     |
+| Access callouts               | Note-type callout                   | No        | `QST-ACCESS`                     |
 | Callouts                      | Tip, Note, Important, Caution       | No        | `QST-CALLOUTS`                   |
 | Overview                      | Paragraph                           | Yes       | `QST-OVERVIEW`                   |
-| "Before you start" title      | H2                                  | No        | `QST-STRUCT-BEFORE-START-H2-TEXT`|
-| "Before you start" list       | Bullet list                         | No        | `QST-BEFORE-START`               |
+| "Before you start"            | Bullet list                         | No        | `QST-BEFORE-START`               |
 | Task title                    | H2                                  | Yes       | `QST-TASK-TITLE`                 |
 | Task intro                    | Paragraph                           | No        | `QST-TASK-INTRO`                 |
-| Task callout                  | Callout                             | No        | `QST-TASK-CALLOUTS`              |
+| Task callouts                 | Callout                             | No        | `QST-TASK-CALLOUTS`              |
 | Task actions                  | Numbered list                       | Yes       | `QST-TASK-STEP`                  |
 | Clarifiers                    | Unordered bullets (depth 1) (2)     | No        | `QST-TASK-CLARIFIERS`            |
 | Code                          | Fenced code block                   | No        | `QST-TASK-CODE`                  |
@@ -33,7 +32,7 @@ slug:
 ## Title <!-- group: QST-TITLE -->
 
 - Use a Markdown H1 heading. <!-- QST-STRUCT-TITLE-H1 -->
-- The title consists of the phrase "Quickstart for" and the name of the project or feature. Do not add other text. For example, "Quickstart for Logos Storage". <!-- QST-BEHAV-TITLE-IMPERATIVE  -->
+- The title consists of the phrase "Quickstart for" and the name of the project or feature. For example, "Quickstart for Logos Storage". Do not add other text. <!-- QST-BEHAV-TITLE-IMPERATIVE  -->
 
 ## Subtitle <!-- group: QST-SUBTITLE -->
 
@@ -49,7 +48,7 @@ slug:
 - *Get hands-on with Waku's key capabilities.*
 - *Quickly add payments to your project with Stripe.*
 
-## Access callout <!-- group: QST-ACCESS -->
+## Access callouts <!-- group: QST-ACCESS -->
 
 This note-type callout is exclusively to alert readers about what roles, permissions, or product versions are required to perform the procedure.
 
@@ -135,7 +134,7 @@ B
 - Do not repeat the task title wording. <!-- QST-BEHAV-TASK-INTRO-NO-REPEAT -->
 - Add cross-references here, not inside steps. <!-- QST-BEHAV-TASK-INTRO-LINKS -->
 
-### Task callout (optional) <!-- group: QST-TASK-CALLOUTS -->
+### Task callouts (optional) <!-- group: QST-TASK-CALLOUTS -->
 
 - Use one callout after the intro for important notes, warnings, or tips. <!-- QST-STRUCT-TASK-CALLOUTS-AFTER-INTRO -->
 - Do not place callouts between steps. <!-- QST-STRUCT-TASK-CALLOUTS-NO-BETWEEN-STEPS -->
