@@ -11,7 +11,7 @@ You need at least one quickstart for each product. If the product is complex, yo
 ```markdown
 # {Quickstart title}
 
-[...]
+{Overview}
 
 ## Before you start
 
