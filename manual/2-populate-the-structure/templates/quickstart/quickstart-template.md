@@ -14,8 +14,7 @@
 | Code                          | Fenced code block                   | No        | `QST-TASK-CODE`                  |
 | Screenshot                    | Image                               | No        | `QST-TASK-IMG`                   |
 | H4-H6 headings                | -                                   | Forbidden | `QST-STRUCT-FORBID-H4-H6`        |
-| "Next steps" title            | H2                                  | No        | `QST-STRUCT-NEXT-H2-TEXT`        |
-| "Next steps" list             | Bullet list                         | No        | `QST-NEXT`                       |
+| "Next steps"                  | Bullet list                         | No        | `QST-NEXT`                       |
 
 ## Front matter
 ---
