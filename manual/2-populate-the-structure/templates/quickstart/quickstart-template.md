@@ -1,25 +1,4 @@
-<<<<<<< HEAD
 # Quickstart template <!-- This is an informative header; remove it before merging your content. -->
-=======
-| Section                       | Format                              | Required  | ID                               |
-|:------------------------------|:------------------------------------|:----------|:---------------------------------|
-| Title                         | H1                                  | Yes       | `QST-TITLE`                      |
-| Subtitle                      | Single bold sentence                | Yes       | `QST-SUBTITLE`                   |
-| Access callouts               | Note-type callout                   | No        | `QST-ACCESS`                     |
-| Callouts                      | Tip, Note, Important, Caution       | No        | `QST-CALLOUTS`                   |
-| Overview                      | Paragraph                           | Yes       | `QST-OVERVIEW`                   |
-| "Before you start"            | Bullet list                         | No        | `QST-BEFORE-START`               |
-| Task title                    | H2                                  | Yes       | `QST-TASK-TITLE`                 |
-| Task intro                    | Paragraph                           | No        | `QST-TASK-INTRO`                 |
-| Task callouts                 | Callout                             | No        | `QST-TASK-CALLOUTS`              |
-| Task actions                  | Numbered list                       | Yes       | `QST-TASK-STEP`                  |
-| Clarifiers                    | Unordered bullets (depth 1) (2)     | No        | `QST-TASK-CLARIFIERS`            |
-| Code                          | Fenced code block                   | No        | `QST-TASK-CODE`                  |
-| Screenshot                    | Image                               | No        | `QST-TASK-IMG`                   |
-| H4-H6 headings                | -                                   | Forbidden | `QST-STRUCT-FORBID-H4-H6`        |
-| "Next steps" title            | H2                                  | No        | `QST-STRUCT-NEXT-H2-TEXT`        |
-| "Next steps" list             | Bullet list                         | No        | `QST-NEXT`                       |
->>>>>>> 4f2b915 (Apply Campo's comments)
 
 ---
 title:
