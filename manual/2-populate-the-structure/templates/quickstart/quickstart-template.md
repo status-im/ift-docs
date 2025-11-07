@@ -145,7 +145,6 @@ B
 - Use a numbered list. <!-- QST-BEHAV-TASK-STEP-ORDERED -->
 - Start each step with an imperative verb; avoid *-ing* forms. <!-- QST-BEHAV-TASK-STEP-VERB -->
 - One step = one user action (combine only trivial actions). <!-- QST-BEHAV-TASK-STEP-ONE-ACTION -->
-- All steps must use number `1` (1, 1, 1, ... instead of 1, 2, 3, ...) <!-- QST-BEHAV-TASK-STEP-ALL-ONE -->
 - Aim for 2–7 steps. Split if longer. <!-- QST-BEHAV-TASK-STEP-RANGE -->
 - Avoid one-step tasks. <!-- QST-BEHAV-TASK-STEP-NO-ONE -->
 - When adding paragraphs, images, or code under a step, insert a blank line and indent to align with the first text after the list marker. <!-- QST-BEHAV-TASK-STEP-BLOCKS -->
@@ -182,7 +181,7 @@ Follow the Screenshots rules in the Style Guide. <!-- QST-BEHAV-IMG-REFER-STYLEG
 - Use the "Next steps" H2 heading for this section. <!-- QST-STRUCT-NEXT-H2-TEXT -->
 - For each bullet point, write an article title and the link to it. <!-- QST-STRUCT-NEXT-FORMAT -->
 - Write at most three bullet points. <!-- QST-STRUCT-NEXT-3POINTS -->
-- Consider a logical connection from the current quickstart that can act as a basis for users' next learning. <!-- QST-BEHAV-NEXT-logic -->
+- Consider a logical connection from the current quickstart that can act as a basis for users' next learning. <!-- QST-BEHAV-NEXT-LOGIC -->
 
 ## Extra content guidelines <!-- group: QST-EXTRA -->
 
