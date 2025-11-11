@@ -192,7 +192,7 @@ Every procedure requires at least one task. Each task includes these mandatory a
 
 **Examples:**
 
-For an example of a task, check out the [procedure example](./procedure-example.md).
+For an example of a task, check out the [procedure example](./procedure-example-sectioned.md).
 
 ### Task title <!-- group: PROC-TASK-TITLE -->
 
