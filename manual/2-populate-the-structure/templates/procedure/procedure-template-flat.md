@@ -161,7 +161,7 @@ For an example of a procedure introduction, check out the [procedure example](./
 ### Prerequisites (optional) <!-- group: PROC-PREREQ -->
 
 - List only the technical setup needed to run the procedure (software, versions, tools, configuration). <!-- PROC-BEHAV-PREREQ-SCOPE -->
-- Don’t include roles, permissions, or product variants here; put those in the [access callout](#access-callout-optional). <!-- PROC-BEHAV-PREREQ-NO-ROLES -->
+- Don't include roles, permissions, or product variants here; put those in the [access callout](#access-callout-optional). <!-- PROC-BEHAV-PREREQ-NO-ROLES -->
 - Prefer a single bullet list of noun phrases; keep it brief and link to install/setup instructions as needed. <!-- PROC-BEHAV-PREREQ-LIST-NOUNS -->
 
 ## "What to expect" <!-- group: PROC-EXPECT -->
