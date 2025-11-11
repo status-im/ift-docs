@@ -405,7 +405,7 @@
         {
           "id": "PROC-BEHAV-PREREQ-NO-ROLES",
           "group": "BEHAV",
-          "description": "Don’t include roles, permissions, or product variants here; put those in the access callout.",
+          "description": "Don't include roles, permissions, or product variants here; put those in the access callout.",
           "examples": []
         },
         {
