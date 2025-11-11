@@ -1,7 +1,7 @@
-# Markdown → JSON template conversion (v4)
+# Markdown → JSON template conversion (v5)
 
 **Task**  
-Convert the attached OneDoc **Markdown template** into a **machine-readable JSON** using the schema below. Be mechanical, not creative. **Do not paraphrase.** The output must be **one JSON object only** (in a fenced ```json code block), with keys emitted in the schema order.
+Convert the attached OneDoc **Markdown procedure template** into a **machine-readable JSON** using the schema below. Be mechanical, not creative. **Do not paraphrase.** The output must be **one JSON object only** (inside a fenced ```json code block), with keys emitted in the schema order.
 
 **Consumers**: preflight validator (structure), linter (behavior), and an LLM (examples/context).
 
@@ -26,7 +26,6 @@ Convert the attached OneDoc **Markdown template** into a **machine-readable JSON
   "sections": [
     {
       "id": "RULE-ID",
-      "group": "STRUCT|BEHAV",
       "title": "string",
       "required": "required|optional|forbidden",
       "format": "string|null",
@@ -47,7 +46,7 @@ Convert the attached OneDoc **Markdown template** into a **machine-readable JSON
       "rules": [
         {
           "id": "RULE-ID",
-          "group": "STRUCT|BEHAV|FORBID",
+          "group": "BEHAV|STRUCT|FORBID",
           "description": "string"
         }
       ]
@@ -63,21 +62,23 @@ Convert the attached OneDoc **Markdown template** into a **machine-readable JSON
 }
 ````
 
+> **Important**: `sections[*]` has **no `group` field**. Rules mix `STRUCT` and `BEHAV` within a section by design. Only **rules** carry `group`.
+
 ---
 
 ## 0) Hints block contract (authoritative IDs)
 
-You will receive a **machine-readable hints block** (JSON) that includes:
+You will receive a machine-readable hints block (JSON) that includes:
 
-* `section_ids_from_table`: ordered list of section IDs from the top table.
-* `sections_table`: ordered objects `{id, title, required, format}` from the table.
-* `rule_ids_exact`: **ordered** list of rule IDs detected from rule lines (not headings). This list is **authoritative**.
+* `sections_table`: ordered objects `{id, title, required, format}` from the top table.
+* `section_ids_from_table`: ordered list of section IDs from that table.
+* `rule_ids_exact`: **ordered** list of rule IDs detected from rule *lines* (not headings). This list is **authoritative**.
 
 **Rules:**
 
 * Emit **all** rule objects for every ID in `rule_ids_exact`, in order.
-* If a rule ID appears **more than once** in `rule_ids_exact`, suffix the **second and subsequent** occurrences with `-DUP-1`, `-DUP-2`, etc.
-* Do **not** emit any rule ID that is not in `rule_ids_exact`, except synthesized `AUTO` IDs when a rule line lacks an ID (see 4).
+* If a rule ID appears **more than once** in `rule_ids_exact`, suffix the second and subsequent occurrences with `-DUP-1`, `-DUP-2`, etc.
+* Do **not** emit any rule ID that is not in `rule_ids_exact`, except synthesized `AUTO` IDs when a rule line lacks an ID (see §4).
 * Use `sections_table` to set each section’s `id`, `title`, `required`, and `format` **verbatim**.
 
 ---
@@ -88,24 +89,23 @@ You will receive a **machine-readable hints block** (JSON) that includes:
 
 * If the Markdown has YAML front matter, parse it into `frontMatter`.
 * For absent fields, set `null` or `[]` per schema.
-* Do not invent values.
+* Do **not** invent values.
 
 ### 2) Section table → sections
 
-* Use the **section/table** at the top (if present) to derive:
+* Use the **section table** at the top (if present) to derive:
 
   * `sections[i].title`
-  * `sections[i].required` (map **Yes → "required"**, **No → "optional"**; if explicitly forbidden → **"forbidden"**)
+  * `sections[i].required` (map **Yes → "required"**, **No → "optional"**, **Forbidden → "forbidden"**)
   * `sections[i].format` (copy **verbatim**; if absent → `null`)
   * `sections[i].id` (copy **verbatim** from the table ID column)
-
-* **Ordering**: sections appear in **table order**; if no table, use **first appearance** order.
+* **Ordering**: sections appear in **table order**; if no table, use **first-appearance** order.
 
 ### 3) IDs and comments (precise)
 
 * Keep IDs in JSON; remove only the HTML comment markers from visible strings.
 * Do **not** parse IDs inside fenced code blocks as metadata.
-* For section headings that carry inline `<!-- SECTION-ID -->` comments, treat those as **section IDs**, not rule IDs.
+* Treat inline `<!-- SECTION-ID -->` on headings as **section IDs**, not rule IDs.
 
 ### 4) Rule objects (one rule line → one rule)
 
@@ -114,68 +114,62 @@ You will receive a **machine-readable hints block** (JSON) that includes:
 
   * `"<SECTION-ID>-AUTO-" + zero_padded(index_in_section)` (e.g., `PROC-EXPECT-AUTO-01`)
   * Add a marker to `validation.missingRuleIds` as `"SECTION:<SECTION-ID> ITEM:<index>"`.
-
 * Preserve the **order** of rule lines.
 
-### 5) Group semantics (container vs. rule)
+### 5) Rule group semantics
 
-* **Section `group`**:
-  **"STRUCT"** if the section has container constraints (presence/position/heading/cardinality/format), else **"BEHAV"**.
-
-* **Rule `group`**: precedence by ID token:
+* **Rule `group`** from ID token (precedence):
 
   1. contains `FORBID` → `"FORBID"`
   2. contains `STRUCT` → `"STRUCT"`
   3. contains `BEHAV` → `"BEHAV"`
-  4. otherwise `"BEHAV"` and add: `"Unknown group token in rule ID <ID> (set to BEHAV)"`.
+  4. otherwise `"BEHAV"` and add:
+     `"Unknown group token in rule ID <ID> (set to BEHAV)"` → `validation.groupViolations`.
 
 ### 6) Duplicate IDs (use the hints list counts)
 
-* Only create `-DUP-n` IDs when the **same base ID** appears multiple times in `rule_ids_exact`.
-* The **first** occurrence: base ID.
-* The **second** → `-DUP-1`; third → `-DUP-2`, etc.
+* Only create `-DUP-n` when the **same base ID** repeats in `rule_ids_exact`.
+* First occurrence: base ID; second → `-DUP-1`; third → `-DUP-2`, etc.
 * Record the base ID once in `validation.duplicateRuleIds`.
 
 ### 7) Forbidden rules
 
-* Any rule with `FORBID` in the ID goes under top-level `"forbidden"`, grouped by the nearest section `id` (or parent if defined).
-* Keep the rule’s `"group": "FORBID"`.
-* If an entire section is forbidden, set `required: "forbidden"` and list bullets under `"forbidden"`.
+* Any rule with `FORBID` in the ID goes under top-level `"forbidden"`, grouped by the nearest section `id` (or explicit parent if defined).
+* Keep `"group": "FORBID"`.
+* If an entire section is forbidden, set `required: "forbidden"` and still list bullets under `"forbidden"`.
 
 ### 8) String normalization (no paraphrasing)
 
 * For `title`, `description`, and non-code example text:
 
-  * Trim edges; collapse internal runs of whitespace to one space.
+  * Trim edges; collapse runs of whitespace to one space.
   * Preserve punctuation and case.
-
 * Preserve **code** (inline & fenced) **verbatim**.
 
 ### 9) Description vs. Examples (strict separation)
 
 For each **rule object**, use `{ id, group, description, examples }`:
 
-* **description**: one concise, normative sentence **without** example or contrastive lead-ins:
-  *“for example”, “e.g.”, “instead of … use …”, “rather than …”* must **not** appear in `description`.
+* **description**: one concise, normative sentence **without** example/contrastive lead-ins:
+  “for example”, “e.g.”, “instead of … use …”, “rather than …” must **not** appear in `description`.
 
 * **examples**: array of **0–2** short strings (**≤160 chars** each):
 
-  * Extract explicit example lines/blocks under the same section (including under an “Examples” label).
+  * Extract explicit example lines/blocks under the same section (including “Examples” labels).
   * Convert *“instead of X, use Y”* or *“use Y rather than X”* into:
 
     * `"Bad: X"`
     * `"Good: Y"`
-
   * Convert table/callout/code examples into short strings; keep inline/backtick code verbatim.
-  * **Do not fabricate numbering** in examples. If the source shows a leading numeral, you may keep it; otherwise, emit plain strings.
+  * **Do not fabricate numbering** in examples (keep numerals only if present in source).
   * If no examples exist, set `"examples": []`.
 
-* **No duplication**: `description` must not restate or summarize example text.
+* **No duplication**: do not restate examples in `description`.
 
 ### 10) Required/format fields
 
-* `required`: **"required"**, **"optional"**, or **"forbidden"** as mapped from the table.
-* `format`: copy **verbatim** from the table; or `null` when absent.
+* `required`: `"required" | "optional" | "forbidden"` from the table mapping.
+* `format`: copy **verbatim**; or `null` when absent.
 
 ### 11) Canonical ordering and key order
 
@@ -186,22 +180,18 @@ For each **rule object**, use `{ id, group, description, examples }`:
 
 ### 12) Validation metadata (fixed messages)
 
-Populate arrays (can be empty). Use **fixed strings** only:
-
 * `missingRuleIds`: `"SECTION:<SECTION-ID> ITEM:<index>"`
 * `duplicateRuleIds`: base duplicate ID (once).
 * `groupViolations`:
 
   * `"Unknown group token in rule ID <ID> (set to BEHAV)"`
-  * `"Section <SECTION-ID> marked BEHAV but contains container constraints"`
-
 * `forbiddenViolations`: concrete findings (e.g., `"Found forbidden heading level H4 in section <SECTION-ID>"`)
 * `notes`: source locations/flags (e.g., `"SOURCE:<input>:<line>"`, `"NO_SECTION_TABLE"`, `"NO_FRONT_MATTER"`)
 
 ### 13) No dynamic or invented data
 
 * Do **not** include timestamps, UUIDs, environment info, or undocumented fields.
-* Unknown values → `null` (or `[]`) as per schema.
+* Unknown values → `null` (or `[]`) per schema.
 
 ### 14) Output contract
 
@@ -213,7 +203,8 @@ Populate arrays (can be empty). Use **fixed strings** only:
 
 ## Acceptance Checklist (self-verify before returning)
 
-* [ ] All section IDs exactly match the table (`sections_table`) with correct `title`, `required`, `format`.
+* [ ] `sections[*]` contains **no `group` field**.
+* [ ] All section IDs match the table (`sections_table`) with correct `title`, `required`, `format`.
 * [ ] Every ID in `rule_ids_exact` produced as a rule object (order preserved).
 * [ ] `-DUP-n` suffixes **only** when the same ID repeats in `rule_ids_exact`.
 * [ ] No rule IDs invented (except synthesized `AUTO` for missing IDs).
