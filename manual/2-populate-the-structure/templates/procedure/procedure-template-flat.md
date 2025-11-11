@@ -252,7 +252,7 @@ gh workflow run build --repo org/repo
 
 ### Step screenshot (optional) <!-- group: PROC-TASK-IMG -->
 
-See the [writing rules] for screenshots (../../3-validating-design/writing-rules/README.md). <!-- PROC-BEHAV-TASK-SHOT-REFER-STYLEGUIDE -->
+See the [writing rules] (../../3-validating-design/writing-rules/README.md) for screenshots. <!-- PROC-BEHAV-TASK-SHOT-REFER-STYLEGUIDE -->
 
 ## FAQ / Troubleshooting (optional) <!-- group: PROC-EXTRA -->
 
