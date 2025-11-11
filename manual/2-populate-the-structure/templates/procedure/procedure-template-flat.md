@@ -226,7 +226,6 @@ For an example of a task, check out the [procedure example](./procedure-example-
 - Write ordered lists with `1.` for every item (1, 1, 1 …). <!-- PROC-STRUCT-TASK-STEPS-OL-ONE -->
 ========
 - Author ordered lists with `1.` for every item (1, 1, 1 …). <!-- PROC-STRUCT-TASK-STEPS-OL-ONE -->
->>>>>>>> 73-procedure-for-md-to-json-templates-converstion:prompts/conversion/markdown-to-json/templates/procedure-template-flat.md
 - Aim for 2–7 steps. Split if longer. <!-- PROC-BEHAV-TASK-STEPS-COUNT-2-7 -->
 - Avoid one-step tasks. <!-- PROC-BEHAV-TASK-STEPS-NO-ONE -->
 - When adding paragraphs, images, or code under a step, insert a blank line and indent so they are children of that step. <!-- PROC-STRUCT-TASK-STEPS-NESTING -->
