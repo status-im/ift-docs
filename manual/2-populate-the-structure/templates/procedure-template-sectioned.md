@@ -176,7 +176,7 @@ For an example of a procedure introduction, check out the [procedure example](./
 
 **Examples:**
 
-Check out the [procedure example](./procedure-example.md).
+Check out the [procedure example](./procedure-example-sectioned.md).
 
 ## Task
 
