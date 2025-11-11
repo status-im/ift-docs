@@ -35,7 +35,7 @@ product: # [storage, blockchain, connect]
 topics: []
 steps_layout: # [flat]
 authors: # GitHub username
-owner: ift
+owner: logos
 doc_version: # increased by one after every update
 slug:
 ---
