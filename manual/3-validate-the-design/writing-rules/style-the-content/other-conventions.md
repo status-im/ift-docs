@@ -4,10 +4,10 @@
 - Use verbs instead of nouns wherever possible. Rephrase the sentence if necessary. Verbs bring dynamics and help keep the reader engaged.
 - It's OK to repeat important information throughout the text.
 - Use gender-neutral language. Don't use _he_ and _she,_ _him_ or _her_, _he/she_ or similar. Instead, use _they_ and neutral nouns like _user_, _administrator_, or _content creator_. Use the plural form wherever possible.
-- Use the same word for the same concept consistently. Avoid using synonyms to refer to the same idea or feature.
+- Use the same term for the same concept consistently. Avoid using synonyms to refer to the same idea or feature.
 - Use _log in to_ and _sign in to_, not _log into_ or _sign into_.
 - Treat the word _data_ as a plural noun. For example, "Your Status profile data are temporarily stored on the Waku network".
-- Don't use _we recommend..._ or _Status recommends..._. Recommendations create doubts in the reader's mind. Instead, explain to users what to do and, if necessary, the consequences of doing or not doing it.
+- Don't use _we recommend..._ or _Logos recommends..._. Recommendations create doubts in the reader's mind. Instead, explain to users what to do and, if necessary, the consequences of doing or not doing it.
 - Don't use _please_ in technical documentation. Readers look for assertiveness when reading instructions.
 - Don't try to be funny, express emotions with exclamation marks, or ask readers rhetorical questions. Users are not interested in reading prose but in getting things done.
 

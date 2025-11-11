@@ -9,9 +9,10 @@
     | Incorrect   | Upload a file    |
     | Incorrect   | Uploading a file using Codex   |
 
-- Adhere to the capitalization convention described in this article.
-- Your article's title determines the Markdown file name:
-    - Use the article's title in all-lowercase letters for the Markdown file name.
+- Adhere to the [capitalization convention](./capitalization.md).
+- Don't use colons (:) in titles.
+- The title of your article determines the Markdown file name:
+    - Use the title of the article in all-lowercase letters for the Markdown file name.
     - Use a dash symbol ("-") to replace spaces.
     - Don't exclude articles, prepositions, or any other word in the Markdown file name.
     - If the name includes apostrophes, remove them from the Markdown file name. If the apostrophe is part of the possesive form with an extra *s* letter, separate the letter in the name (example: `transfer-you-community-s-ownership`).

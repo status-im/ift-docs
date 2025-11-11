@@ -1,5 +1,5 @@
 # Icons and emojis
 
-- Use icons in the UI in procedural steps to guide the user's actions.
-- Don't overuse icons. A document with many icons is harder to follow and scan.
-- Write the icon first, and then the icon's name in bold typeface. If the icon shows a label in the UI, use the UI label.
+- When referring to user interface elements with an icon, use the same icon to guide the user's actions. This rule applies to text in procedural steps or outside of procedural steps.
+- Write the icon first, and then the name of the icon in bold typeface. If the icon displays a label in the UI, use that label.
+- Except for callout types, don't use emojis in your document.

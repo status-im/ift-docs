@@ -1,6 +1,6 @@
 # Sentences and paragraphs
 
-- Write sentences of a maximum of 25 words and paragraphs of no more than 50-60 words. Rewrite the content and break sentences and paragraphs as necessary.
+- Write sentences of a maximum of 25 words and paragraphs of no more than 100 words. Rewrite the content and break sentences and paragraphs as necessary.
 - Include *the* and *that* to clarify your sentence.
 
     | Usage      | Example                                         |

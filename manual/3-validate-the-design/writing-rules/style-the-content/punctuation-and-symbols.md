@@ -5,7 +5,7 @@
     - Use commas to separate main clauses.
     - Use a comma before *such as*.
     - Use a comma after *for example*.
-    - Use the Oxford comma for *and* and *or* conjunctions where the meaning of your sentence would otherwise be unclear. In other cases, avoid placing the extra comma.
+    - Use the Oxford comma for *and* and *or* conjunctions.
     - In procedural steps, don't write a comma in sentences such as *click on cancel, and then...*
 - Use these guidelines for periods:
     - Use a period at the end of a sentence, including sentences ending on a [URL](./links.mdx).

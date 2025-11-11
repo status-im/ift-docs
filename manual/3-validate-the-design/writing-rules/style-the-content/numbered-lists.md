@@ -2,7 +2,7 @@
 
 - When reading instructions, users understand numbered lists as actions to complete orderly. Because of this, limit the numbered lists to procedural instructions in procedure topics.
 - If you must use a numbered list outside of a procedure, use the same rules described for bullet lists.
-- Use "1." for all items in a numbered list. This ensures the list renders correctly and simplifies reordering.
+- Use "1." for all items in a Markdown numbered list. This ensures the Markdown list renders correctly and simplifies reordering.
 
     | Usage     | Example |
     |:----------|:--------|

@@ -4,7 +4,7 @@ UI elements are screen components the user can interact with. A checkbox, a menu
 
 ### General guidelines
 
-- Don't write the UI control's type (button, drop-down menu, radio button, etc.), except when it isn't clear you're referring to the UI control. The exceptions to this rule are *pop-up menu* and *check the [...] box.*
+- Don't write the type of the UI control (button, drop-down menu, radio button, etc.), except when it isn't clear you're referring to the UI control. The exceptions to this rule are *pop-up menu* and *check the [...] box.*
 
     | Usage       | Example                                                          |
     |:------------|:-----------------------------------------------------------------|
@@ -34,8 +34,8 @@ UI elements are screen components the user can interact with. A checkbox, a menu
 
     | Usage      | Example                                             |
     |:-----------|:----------------------------------------------------|
-    | **Correct**   | From the **Settings**, change your profile picture.      |
-    | Incorrect     | Change your profile picture in the Settings.             |
+    | **Correct**   | From the **Settings** option, change your profile picture.      |
+    | Incorrect     | Change your profile picture in the Settings option.             |
     | **Correct**   | In **Available tokens**, tap **Change token**.           |
     | Incorrect     | Tap **Change token** in the **Available tokens** menu.   |
 
@@ -94,16 +94,15 @@ When you describe a UI interaction, use these action verbs:
 | Action | Style convention (desktop, web, and mobile) |
 |:---|:---|
 | Go to a menu or screen | Use *go to*. |
-| Click a URL | For URLs, the verb depends on the user's intent:</br>- To complete another action (for example, to download something), use *see*.</br>- To review the information on a different article or website, use *check out*. |
-| Select a single UI element | *click* (desktop and web) or *tap* (mobile). |
+| Click a URL | Use *check out*. |
+| Select a single UI element | Select. |
 | Select one or more user-preferred options from a list | *choose* </br>Example: *Choose a name and highlight colour for your group chat*. |
-| Select one or more specific option from a list / select text | *select* </br>Example: *Select any channel with a lock icon from the channel list*. |
+| Select one or more specific option from a list / select text | *select* </br>Example: *Select the channel with a lock icon from the channel list*. |
 | Action on checkboxes | *check* the [UI label] box (to enable) / *uncheck* the [UI label] box (to disable). |
 | Action on switches | *turn on*/*turn off* |
-| Go to previous screen | Use *return*. |
-| Swipe element | Use *swipe* [left or right] for desktop, web, and mobile. |
+| Go to previous screen | Use *return to*. |
+| Swipe element | Use *swipe* [left or right]. |
 | Long press | *long press* for mobile interactions, when required. |
 | Right click | *right click* for desktop and web interactions, when required. |
-| Start session | *log in* (verb) or *login* (noun) for desktop, web, and mobile. |
-| End session | *log out* (verb) or *logout* (noun) for desktop, web, and mobile. |
-
+| Start session | *log in* (verb) or *login* (noun). |
+| End session | *log out* (verb) or *logout* (noun). |

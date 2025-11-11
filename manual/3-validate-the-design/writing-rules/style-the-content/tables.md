@@ -28,9 +28,9 @@ You can also use tables to compare the available options across different elemen
     | Feature B  |   ✅    |        |     |
     | Feature C  |         |   ✅   | ✅  |
 
-> ☝️ **Tip:**
+> ✨ **Tip:**
 >
-> You can use links in tables except if the table is part of a procedure step.
+> You can use links in tables except if the table is part of a procedural step.
 
 Use the following guidelines when using periods in a table for punctuation:
 

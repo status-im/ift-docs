@@ -11,7 +11,7 @@
     | Incorrect   | [...] you and your trusted contact's shared picture.    |
 
 - Use a single straight quotation mark (') apostrophe. Don't use curly quotation marks (also known as smart quotes.)
-- If you have to use a passive form with a proper name ending with the possessive *s*, add the apostrophe at the end without an extra *s* letter.
+- If you must use a passive form with a proper name ending with the possessive *s*, add the apostrophe at the end without an extra *s* letter.
 
     | Usage     | Example |
     |:----------|:--------|

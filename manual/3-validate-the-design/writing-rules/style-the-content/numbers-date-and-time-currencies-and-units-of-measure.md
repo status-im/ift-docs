@@ -1,6 +1,6 @@
 # Numbers, date and time, currencies, and units of measure
 
-- In body text, spell out whole numbers from zero through nine and use numerals for 10 or greater.
+- In body text, always use numerals (for example, 2, 5, 21). Don't spell out whole numbers (two, five, twenty-one).
 - For decimals, always begin with a zero before the decimal point and use a dot (.) as the decimal separator. Do not spell out decimals.
 
     | Usage     | Example |
@@ -11,7 +11,7 @@
 
 - When writing in English, use a space as the thousand separator and a period (.) as the decimal separator to improve readability. For languages other than English, use the commonly accepted rule in the country or a comma if a common practice is unknown or controversial.
 
-> ℹ️ **Note:** 
+> 📒 **Note:** 
 >
 > There isn't a common notation for thousand and decimal separators and notation varies among different countries. In the United States, the decimal separator is a period (.) and the thousands separator is a comma (,). In Germany, the decimal separator is a comma (,) and the thousands separator is a period (.). In Sweden, the thousands separator is a space.
 

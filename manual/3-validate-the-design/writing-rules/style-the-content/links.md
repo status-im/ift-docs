@@ -1,8 +1,8 @@
 # Links
 
-Use links to other articles in the IFT documentation, but don't abuse links. For example, don't make the topic look like a Wikipedia article with a link in every sentence.
+Use links to other articles in the Logos documentation, but don't abuse links. For example, avoid making the topic resemble a Wikipedia article with a link in every sentence.
 
-- Limit the links for sources outside the IFT documentation.
+- Limit the links for sources outside the Logos documentation.
 - Don't use links in procedural steps, except when you link to a subtask in the same article.
 - In general, write the link without using the URL. If you must use the URL, omit the `https://` and the `www` parts of the URL (if the website allows this).
 - Don't hide the linked content using the words _here_ or _this_. Instead, write out the content you link.
@@ -20,7 +20,7 @@ Use links to other articles in the IFT documentation, but don't abuse links. For
     | **Correct** | For more details, check out **Understand Status tokens**. |
     | Incorrect   | To learn more about tokens, check out **this** article. |
 
-- For links outside of the IFT documentation site, use the ↗ symbol at the end of the link description.
+- For links outside of the Logos documentation site, use the ↗ arrow symbol at the end of the link description. If the arrow symbol is at the end of a sentence, write a period after the symbol. 
 
     | Usage       | Example                       |
     |:------------|:------------------------------|

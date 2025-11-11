@@ -17,6 +17,6 @@ Modal verbs are auxiliary verbs that modify the meaning of the main verb in a se
     | **can**              | Use to express the possibility for the user to do something, such as introducing a new concept or functionality.<br>Example: You can create multiple wallets for different purposes. |
     | **should**           | If possible, use the imperative form of the verb instead.                                                                                       |
     | **have to**          | Use *must* instead.                                                                                                                             |
-    | **must**             | Use very selectively and only when it is strictly necessary for the user to do something to avoid data or funds loss, data corruption, or unintended information disclosure. |
+    | **must**             | Use very selectively and only when it is strictly necessary for the user to do something to avoid data loss, data corruption, or unintended information disclosure. |
     | **could, would, might** | Don't use.                                                                                                                                   |
     

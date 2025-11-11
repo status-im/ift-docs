@@ -10,11 +10,12 @@
     | Incorrect  | You need a machine with 4 GB of memory, a 2 TB SSD, and a 64-bit Ubuntu Linux operating system.  |
 
 - Use a colon (:) before the bullet list items.
-- Use periods at the end of each sentence in a bullet list for [punctuation](./05-punctuation-and-symbols.md). Using periods on a bullet list can be tricky. Use the following guidelines:
+- Use periods at the end of each sentence in a bullet list for [punctuation](./punctuation-and-symbols.md). Using periods on a bullet list can be tricky. Use the following guidelines:
     - When the list items are complete sentences, use a period at the end of each sentence.
     - Don't use a period when the list items are not complete sentences or sentences with three words or less.
     - In a list with elements of more and less than three words mixed, don't use a period.
     - If one item in a column is a complete sentence, all items in that column should end with a period, even if they are a single word.
+<!--
 - Don't use colons after each item on a list; type the item definition on a new line. Here are some examples of using punctuation on a list:
 
     | Usage      | Example                                                                 |
@@ -22,7 +23,8 @@
     | **Correct** | - **Dependency graph**<br>  A repository graph that shows the packages and projects that the repository depends on.<br>- **Dependents graph**<br>  A repository graph that shows the packages, projects, and repositories that depend on a public repository. |
     | Incorrect  | - **Dependency graph**:<br>  A repository graph that shows the packages and projects that the repository depends on.<br>- **Dependents graph**:<br>  A repository graph that shows the packages, projects, and repositories that depend on a public repository. |
     | Incorrect  | - **Dependency graph**: A repository graph that shows the packages and projects that the repository depends on.<br>- **Dependents graph**: A repository graph that shows the packages, projects, and repositories that depend on a public repository. |
+-->
 
-> ☝️ **Tip:**
+> ✨ **Tip:**
 >
 > When you need to describe each element on a list and you have more than three elements, consider using a table instead.
