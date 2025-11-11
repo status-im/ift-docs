@@ -66,5 +66,9 @@ Choose flat structure for simple procedures with a limited number of steps, and 
 | Resource | Description | When to use it |
 | :------- | :---------- | :------------- |
 | [Procedure blueprint]() | A visual representation of the procedure structure and flow. | Use it in task analysis to organize H1 and H2 Markdown headings |
-| [Procedure template]() | A Markdown template with the procedure structure and basic rules. | Use it to create new procedure documents. |
-| [Procedure JSON schema]() | A JSON schema that defines the structure and rules for procedure documents. | Use it to create new procedure documents with the help of an LLM. |
+| [Markdown procedure template (flat)](./procedure-template-flat.md) | A Markdown template with the flat procedure structure and basic rules. | Use it to create new procedure documents. |
+| [JSON procedure template (flat)](./procedure-template-flat.json) | A JSON template with the flat procedure structure and basic rules. | Use it to create new procedure documents with the help of an LLM. |
+| [Markdown procedure template (sectioned)](./procedure-template-sectioned.md) | A Markdown template with the sectioned procedure structure and basic rules. | Use it to create new procedure documents. |
+| [JSON procedure template (sectioned)](./procedure-template-sectioned.json) | A JSON template with the sectioned procedure structure and basic rules. | Use it to create new procedure documents with the help of an LLM. |
+| [Procedure example (flat)](./procedure-example-flat.md) | A Markdown example based on the flat procedure template. | Use it as a reference to create new procedure documents. |
+| [Procedure example (sectioned)](./procedure-example-sectioned.md) | A Markdown example based on the sectioned procedure template. | Use it as a reference to create new procedure documents. |
