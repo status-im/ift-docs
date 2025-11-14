@@ -67,7 +67,7 @@ Convert a OneDoc Markdown procedure template into machine-readable JSON using a 
 
 5. **Verify repository files are present**
 
-   Change to the working directory at prompts/conversion/markdown-to-json and ensure `md2json-prompt-templates.md` and `transform.py` are in the directory.
+   Change to the working directory at prompts/conversion/markdown-to-json/templates and ensure `md2json-prompt-templates.md` and `transform.py` are in the directory.
 
 ---
 
@@ -89,6 +89,7 @@ Choose **one** backend option and set the environment variables.
      # export TOP_P=1 OpenAI GPT-5 doesn't support custom top_p
      export SEED=1234
      # Optional: export OPENAI_BASE_URL=https://api.openai.com/v1
+     export RULES_SIDECAR=1
      ```
 
    * Windows (PowerShell):
@@ -101,6 +102,7 @@ Choose **one** backend option and set the environment variables.
      # $env:TOP_P="1" OpenAI GPT-5 doesn't support custom top_p
      $env:SEED="1234"
      # Optional: $env:OPENAI_BASE_URL="https://api.openai.com/v1"
+     $env:RULES_SIDECAR="1"
      ```
 
 2. **Pin the model**
@@ -121,6 +123,7 @@ Choose **one** backend option and set the environment variables.
      # export TOP_P=1 OpenAI GPT-5 doesn't support custom top_p
      export SEED=1234
      # Optional: export OPENROUTER_BASE_URL=https://openrouter.ai/api/v1
+     export RULES_SIDECAR=1
      ```
 
    - Windows (PowerShell):
@@ -133,6 +136,7 @@ Choose **one** backend option and set the environment variables.
      # $env:TOP_P="1" OpenAI GPT-5 doesn't support custom top_p
      $env:SEED="1234"
      # Optional: $env:OPENROUTER_BASE_URL="https://openrouter.ai/api/v1"
+     $env:RULES_SIDECAR="1"
      ```
 
 2. **Allow temperature/top_p defaults**
@@ -149,7 +153,7 @@ Choose **one** backend option and set the environment variables.
 
 1. **Place your Markdown input**
 
-   Put the file (for example, `procedure-template.md`) in the same folder as `transform.py`.
+   Put the file (for example, `procedure-template-flat.md`) in the same folder as `transform.py`.
 
 2. **Change to the working folder**
 
@@ -157,29 +161,21 @@ Choose **one** backend option and set the environment variables.
    cd prompts/conversion/markdown-to-json/templates
    ```
 
-3. **Rename prompt file**
-
-   Make a copy of the prompt template and rename it to `prompt.md`. For example:
+3. **Run the transformer**
 
    ```bash
-   cp md2json-prompt-templates.md prompt.md
-   ```
-
-4. **Run the transformer**
-
-   ```bash
-   python3 transform.py <TEMPLATE_FILE_NAME>.md out.json
+   python3 transform.py <template-name>.md out.json --prompt <prompt-name>.md
    ```
 
    If your virtual Python environment and script are in different directories, use absolute paths. For example:
 
    ```bash
-   /home/user/.venv/bin/python /logos-docs/prompts/conversion/markdown-to-json/templates/transform.py procedure-template.md out.json
+   /home/user/.venv/bin/python3 /logos-docs/prompts/conversion/markdown-to-json/templates/transform.py <template-name>.md out.json --prompt <prompt-name>.md
    ```
 
    > **Note:** Depending on the model, the script task may take several minutes to complete.
 
-5. **Confirm success**
+4. **Confirm success**
    The script prints:
 
    ```
@@ -194,29 +190,27 @@ Choose **one** backend option and set the environment variables.
 
 1. **Validate JSON syntax**
 
-   - Using Python:
-
      ```bash
      python3 -m json.tool out.json > /dev/null && echo "JSON OK"
      ```
 
      This should complete without errors.
 
-   - Using `jq` (optional):
-
-     ```bash
-     jq type out.json
-     ```
-
 2. **Review validation fields**
 
-   Open `out.json` and inspect:
+   Open `out.json` and, under the `validation` key, inspect:
 
    - `validation.missingRuleIds`
    - `validation.duplicateRuleIds`
    - `validation.groupViolations`
    - `validation.forbiddenViolations`
-   - `validation.notes` (look for `CHECKLIST_FAIL:` or source flags)
+   - `validation.notes`
+
+   Open `out.json.rules-check.json` and inspect the end of the file for:
+
+   - `missing_in_json`: rule IDs not found in the JSON output.
+   - `extra_in_json`: rule IDs found in the JSON output but not in the Markdown.
+   - `description_leaks_examples`: rules where the description might be out of the `examples` key.
 
 3. **Save JSON output**
 
