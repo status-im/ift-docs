@@ -4,64 +4,39 @@
 </p>
 -->
 
-# Logos Documentation (🚧 This is a work in progress)
+# Build with Logos
 
-**Unified, docs-as-code workflow for the Logos projects (https://free.technology/logos)**.
+## What is Logos
 
-<!-- Write in Markdown → merge a PR → GitBook publishes your product docs automatically.-->
+Logos is a modular stack that combines a blockchain for trustless agreements, decentralized storage, and an anonymous communication layer. Logos consolidates previously separate efforts (Nomos, Codex, and Waku) under one public identity to reduce cognitive load and provide a coherent developer experience.
 
-<!-- Todo
-[![CI](https://github.com/logos/onedoc/actions/workflows/ci.yml/badge.svg)](actions/workflows/ci.yml)
--->
+To learn more about Logos, visit the [Logos main site](https://logos.co/).
 
-[![Project board](https://img.shields.io/badge/Project-Board-blue)](https://github.com/orgs/status-im/projects/155/views/1)
+## Documentation status and timeline
 
-<!--
+We are consolidating and updating previously fragmented materials into a single, coherent developer experience and source of truth, featuring consistent navigation and terminology. This process is ongoing, and we appreciate your patience as we work to provide comprehensive and up-to-date documentation.
 
-## Table of contents
+We are also unifying public naming in our documentation to reflect Logos as a single technical stack: Nomos → Logos Blockchain, Codex → Logos Storage, and Waku → Logos Messaging. This consolidation makes the architecture easier to navigate by aligning documentation, examples, and terminology under one scheme. Legacy names may still appear in repositories and specifications, but going forward the Logos-first names will be used across our docs.
 
-- [About](#about)
-- [Live docs](#live-docs)
-- [Project status](#project-status)
-- [Weekly update](#weekly-update)
-- [How to contribute](#how-to-contribute)
-- [Contact](#contact)
+Our aim is to provide a predictable onboarding path for operators and developers, where they can find what they need and trust what they read.
 
--->
+### What to expect next
 
-## About
- 
-All documentation lives in **one monorepo** (this repo); each project has its own folder and its own GitBook Space.
+Starting in 2026, we will release documentation in phases aligned with the project milestones.
 
-<!--
+We will provide operator guides for those who want to run and support the Logos Blockchain, and developer guides for contributors building decentralized applications on the Logos stack (blockchain, storage, messaging). We will update this page as sections go live and contribution paths open, and timelines may adjust as the system evolves.
 
-## Live docs
+### How to follow progress and contribute
 
-- **Status docs:** <https://docs.free.technology/status/>  
-- **Waku docs:** <https://docs.free.technology/waku/>  
-- **Logos docs:** <https://docs.free.technology/logos/>  
-*(full list in `/docs/LIVE_LINKS.md`)*
--->
+We will publish milestones and changelogs on this page as sections go live. If you are a developer interested in early testing or contributing documentation, watch this space for contribution pathways as they become available.
 
-## How to contribute
+## Existing resources
 
-> 🚧 This is a work in progress
+While we work on consolidating our documentation, you can find existing technical resources here:
 
-<!--
-1. Fork or clone this repo.
-2. Work in your product folder (`/status`, `/waku`, …).  
-3. Open a pull-request; the CI linter and docs preview will guide you.
+- [Logos Blockchain (formerly, Nomos)](https://nomos-tech.notion.site/project)
+- [Logos Messaging (formerly, Waku)](https://docs.waku.org/)
 
-For style, naming and review rules see the **[Style Guide](docs/STYLE_GUIDE.md)**.
-
--->
-## Contact
-
-> 🚧 This is a work in progress
-
-<!--
-Questions or ideas? Join us on **Discord → `#onedoc`**  
-Invite link: <https://discord.gg/logos-onedoc>
--->
-
-Licensed under MIT.
+> Note
+>
+> Codex’s previous documentation has been phased out. The new Logos Storage documentation will be published here when ready. To stay updated, join the [Codex Discord community](https://discord.gg/pSDRYRbGHV).
