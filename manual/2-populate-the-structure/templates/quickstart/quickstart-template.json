@@ -8,13 +8,12 @@
     "topics": [],
     "steps_layout": null,
     "authors": [],
-    "owner": "ift",
+    "owner": "logos",
     "slug": null
   },
   "sections": [
     {
       "id": "QST-TITLE",
-      "group": "STRUCT",
       "title": "Title",
       "required": "required",
       "format": "H1",
@@ -28,7 +27,7 @@
         {
           "id": "QST-BEHAV-TITLE-IMPERATIVE",
           "group": "BEHAV",
-          "description": "The title consists of the phrase \"Quickstart for\" and the name of the project or feature. Do not add other text.",
+          "description": "The title consists of the phrase \"Quickstart for\" and the name of the project or feature.",
           "examples": []
         }
       ],
@@ -36,19 +35,24 @@
     },
     {
       "id": "QST-SUBTITLE",
-      "group": "STRUCT",
       "title": "Subtitle",
       "required": "required",
-      "format": "Single bold sentence",
+      "format": "H4 (single sentence)",
       "rules": [
         {
           "id": "QST-STRUCT-SUBTITLE-H4",
           "group": "STRUCT",
           "description": "Use a Markdown H4 for the subtitle placed right under the H1.",
           "examples": [
-            "*Get hands-on with Waku's key capabilities.*",
-            "*Quickly add payments to your project with Stripe.*"
+            "Title: Quickstart for Waku; Subtitle: Get hands-on with Waku's key capabilities.",
+            "Title: Quickstart for Stripe; Subtitle: Quickly add payments to your project with Stripe."
           ]
+        },
+        {
+          "id": "QST-BEHAV-SUBTITLE-SINGLE-SENTENCE",
+          "group": "BEHAV",
+          "description": "Single sentence with no links, list items, or formatting.",
+          "examples": []
         },
         {
           "id": "QST-BEHAV-SUBTITLE-NO-PERIOD",
@@ -71,7 +75,7 @@
         {
           "id": "QST-BEHAV-SUBTITLE-ADDS-VALUE",
           "group": "BEHAV",
-          "description": "Adds new value beyond the title. It should not repeat the title or be a rephrased version of it.",
+          "description": "Adds new value beyond the title.",
           "examples": []
         }
       ],
@@ -79,7 +83,6 @@
     },
     {
       "id": "QST-ACCESS",
-      "group": "STRUCT",
       "title": "Access callouts",
       "required": "optional",
       "format": "Note-type callout",
@@ -140,7 +143,6 @@
     },
     {
       "id": "QST-CALLOUTS",
-      "group": "STRUCT",
       "title": "Callouts",
       "required": "optional",
       "format": "Tip, Note, Important, Caution",
@@ -154,13 +156,13 @@
         {
           "id": "QST-STRUCT-CALLOUTS-PER-SECTION-ONE",
           "group": "STRUCT",
-          "description": "One callout maximum per section.",
+          "description": "One callout maximum per section",
           "examples": []
         },
         {
           "id": "QST-BEHAV-CALLOUTS-CONCISE",
           "group": "BEHAV",
-          "description": "Keep each callout concise (≤ 2 short sentences). If the content needs a list or multiple paragraphs, move it into the body under a heading.",
+          "description": "Keep each callout concise (≤ 2 short sentences).",
           "examples": []
         },
         {
@@ -176,15 +178,15 @@
           "examples": []
         },
         {
-          "id": "PROC-BEHAV-CALLOUTS-NO-STEPS",
+          "id": "QST-BEHAV-CALLOUTS-NO-STEPS",
           "group": "BEHAV",
-          "description": "Do not include full procedural steps or long prerequisite checklists inside callouts. Put steps in the main flow; keep prerequisite lists in \"Before you start.\"",
+          "description": "Do not include full procedural steps or long prerequisite checklists inside callouts.",
           "examples": []
         },
         {
-          "id": "PROC-BEHAV-CALLOUTS-TYPES-REFER-STYLEGUIDE",
+          "id": "QST-BEHAV-CALLOUTS-TYPES-REFER-STYLEGUIDE",
           "group": "BEHAV",
-          "description": "For the allowed callout types and when to use them, see the [writing rules](../../3-validating-design/writing-rules/README.md).",
+          "description": "For the allowed callout types and when to use them, see the writing rules.",
           "examples": []
         }
       ],
@@ -192,7 +194,6 @@
     },
     {
       "id": "QST-OVERVIEW",
-      "group": "BEHAV",
       "title": "Overview",
       "required": "required",
       "format": "Paragraph",
@@ -212,7 +213,7 @@
         {
           "id": "QST-BEHAV-OVERVIEW-MORE-INFO",
           "group": "BEHAV",
-          "description": "Avoid lengthy discussions of the product or feature. Link to a [concept](./concept-help-me-to-understand.md) article if you need to provide more information.",
+          "description": "Avoid lengthy discussions of the product or feature.",
           "examples": []
         },
         {
@@ -226,7 +227,6 @@
     },
     {
       "id": "QST-BEFORE-START",
-      "group": "STRUCT",
       "title": "\"Before you start\"",
       "required": "optional",
       "format": "Bullet list",
@@ -236,7 +236,7 @@
           "group": "STRUCT",
           "description": "Use the \"Before you start\" H2 heading for this section.",
           "examples": [
-            "A basic understanding of Ethereum concepts",
+            "A basic understanding of [Ethereum](https://ethereum.org/en/developers/docs/intro-to-ethereum/) ↗ concepts",
             "Knowledge of how to work with Python virtual environments"
           ]
         },
@@ -255,7 +255,7 @@
         {
           "id": "QST-BEHAV-BEFORE-START-NOUN",
           "group": "BEHAV",
-          "description": "Use noun phrases. Don't include verbs such as \"learn\" or \"prepare\".",
+          "description": "Use noun phrases (For example, \"familiarity with Golang\").",
           "examples": []
         },
         {
@@ -267,7 +267,7 @@
         {
           "id": "QST-BEHAV-BEFORE-START-NO-STEPS",
           "group": "BEHAV",
-          "description": "Don't include the procedure for setting up or installing prerequisites. If you must explain the procedure, link to the corresponding document or resource.",
+          "description": "Don't include the procedure for setting up or installing prerequisites.",
           "examples": []
         }
       ],
@@ -275,7 +275,6 @@
     },
     {
       "id": "QST-TASK-TITLE",
-      "group": "STRUCT",
       "title": "Task title",
       "required": "required",
       "format": "H2",
@@ -289,11 +288,11 @@
         {
           "id": "QST-BEHAV-TASK-SETUP",
           "group": "BEHAV",
-          "description": "The first task is usually about setting up or installing the product or feature. However, if setup requires more than seven steps, create a separate installation guide and direct readers to it in the [Before you start](#before-you-start-section) section.",
+          "description": "The first task is usually about setting up or installing the product or feature.",
           "examples": []
         },
         {
-          "id": "QST-BEHAV-TASK-CORE-FEATURES",
+          "id": "QST-BEHAV-TASK-FEATURES",
           "group": "BEHAV",
           "description": "For the other task(s), focus on the core functionalities of the product or feature.",
           "examples": []
@@ -322,7 +321,7 @@
         {
           "id": "QST-BEHAV-TASK-TITLE-IMPERATIVE",
           "group": "BEHAV",
-          "description": "Start with an imperative verb; avoid the -ing form.",
+          "description": "Start with an imperative verb; avoid the *-ing* form.",
           "examples": []
         },
         {
@@ -354,7 +353,6 @@
     },
     {
       "id": "QST-TASK-INTRO",
-      "group": "BEHAV",
       "title": "Task intro",
       "required": "optional",
       "format": "Paragraph",
@@ -382,7 +380,6 @@
     },
     {
       "id": "QST-TASK-CALLOUTS",
-      "group": "STRUCT",
       "title": "Task callouts",
       "required": "optional",
       "format": "Callout",
@@ -410,7 +407,6 @@
     },
     {
       "id": "QST-TASK-STEP",
-      "group": "STRUCT",
       "title": "Task actions",
       "required": "required",
       "format": "Numbered list",
@@ -424,7 +420,7 @@
         {
           "id": "QST-BEHAV-TASK-STEP-VERB",
           "group": "BEHAV",
-          "description": "Start each step with an imperative verb; avoid -ing forms.",
+          "description": "Start each step with an imperative verb; avoid *-ing* forms.",
           "examples": []
         },
         {
@@ -436,7 +432,7 @@
         {
           "id": "QST-BEHAV-TASK-STEP-RANGE",
           "group": "BEHAV",
-          "description": "Aim for 2–7 steps. Split if longer.",
+          "description": "Aim for 2–7 steps.",
           "examples": []
         },
         {
@@ -486,10 +482,9 @@
     },
     {
       "id": "QST-TASK-CLARIFIERS",
-      "group": "STRUCT",
       "title": "Clarifiers",
       "required": "optional",
-      "format": "Unordered bullets (depth 1) (2)",
+      "format": "Unordered bullets (depth 1) (1)",
       "rules": [
         {
           "id": "QST-STRUCT-TASK-CLARIFIERS-NOSUBSTEPS",
@@ -514,17 +509,17 @@
     },
     {
       "id": "QST-TASK-CODE",
-      "group": "BEHAV",
       "title": "Code",
       "required": "optional",
-      "format": "Fenced code block",
+      "format": "Fenced code block under the step (2)",
       "rules": [
         {
           "id": "QST-BEHAV-TASK-CODE-REFER-STYLEGUIDE",
           "group": "BEHAV",
           "description": "Follow the code rules in the Style Guide.",
           "examples": [
-            "`gh workflow run build --repo org/repo`"
+            "1. Do this thing...",
+            "gh workflow run build --repo org/repo"
           ]
         }
       ],
@@ -532,10 +527,9 @@
     },
     {
       "id": "QST-TASK-IMG",
-      "group": "BEHAV",
       "title": "Screenshot",
       "required": "optional",
-      "format": "Image",
+      "format": "Image under the step (2)",
       "rules": [
         {
           "id": "QST-BEHAV-IMG-REFER-STYLEGUIDE",
@@ -547,27 +541,8 @@
       "examples": []
     },
     {
-      "id": "QST-STRUCT-FORBID-H4-H6",
-      "group": "STRUCT",
-      "title": "H4-H6 headings",
-      "required": "forbidden",
-      "format": "-",
-      "rules": [],
-      "examples": []
-    },
-    {
-      "id": "QST-STRUCT-NEXT-H2-TEXT",
-      "group": "STRUCT",
-      "title": "\"Next steps\" title",
-      "required": "optional",
-      "format": "H2",
-      "rules": [],
-      "examples": []
-    },
-    {
       "id": "QST-NEXT",
-      "group": "STRUCT",
-      "title": "\"Next steps\" list",
+      "title": "\"Next steps\"",
       "required": "optional",
       "format": "Bullet list",
       "rules": [
@@ -594,7 +569,16 @@
           "group": "BEHAV",
           "description": "Consider a logical connection from the current quickstart that can act as a basis for users' next learning.",
           "examples": []
-        },
+        }
+      ],
+      "examples": []
+    },
+    {
+      "id": "QST-EXTRA",
+      "title": "Extra guidelines",
+      "required": "required",
+      "format": "-",
+      "rules": [
         {
           "id": "QST-BEHAV-EXTRA-LENGTH",
           "group": "BEHAV",
@@ -603,15 +587,23 @@
         }
       ],
       "examples": []
+    },
+    {
+      "id": "QST-FORBID",
+      "title": "Forbidden content",
+      "required": "forbidden",
+      "format": "-",
+      "rules": [],
+      "examples": []
     }
   ],
   "forbidden": [
     {
-      "id": "QST-EXTRA",
+      "id": "QST-FORBID",
       "rules": [
         {
           "id": "QST-STRUCT-FORBID-H4-H6",
-          "group": "FORBID",
+          "group": "STRUCT",
           "description": "Do not use H4-H6 headings."
         }
       ]
