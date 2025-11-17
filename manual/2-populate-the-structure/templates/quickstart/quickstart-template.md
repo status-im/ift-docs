@@ -1,7 +1,7 @@
 | Section                       | Format                              | Required  | ID                               |
 |:------------------------------|:------------------------------------|:----------|:---------------------------------|
 | Title                         | H1                                  | Yes       | `QST-TITLE`                      |
-| Subtitle                      | Single bold sentence                | Yes       | `QST-SUBTITLE`                   |
+| Subtitle                      | H4 (single sentence)                | Yes       | `QST-SUBTITLE`                   |
 | Access callouts               | Note-type callout                   | No        | `QST-ACCESS`                     |
 | Callouts                      | Tip, Note, Important, Caution       | No        | `QST-CALLOUTS`                   |
 | Overview                      | Paragraph                           | Yes       | `QST-OVERVIEW`                   |
@@ -10,20 +10,24 @@
 | Task intro                    | Paragraph                           | No        | `QST-TASK-INTRO`                 |
 | Task callouts                 | Callout                             | No        | `QST-TASK-CALLOUTS`              |
 | Task actions                  | Numbered list                       | Yes       | `QST-TASK-STEP`                  |
-| Clarifiers                    | Unordered bullets (depth 1) (2)     | No        | `QST-TASK-CLARIFIERS`            |
-| Code                          | Fenced code block                   | No        | `QST-TASK-CODE`                  |
-| Screenshot                    | Image                               | No        | `QST-TASK-IMG`                   |
-| H4-H6 headings                | -                                   | Forbidden | `QST-STRUCT-FORBID-H4-H6`        |
+| Clarifiers                    | Unordered bullets (depth 1) (1)     | No        | `QST-TASK-CLARIFIERS`            |
+| Code                          | Fenced code block under the step (2)| No        | `QST-TASK-CODE`                  |
+| Screenshot                    | Image under the step (2)            | No        | `QST-TASK-IMG`                   |
 | "Next steps"                  | Bullet list                         | No        | `QST-NEXT`                       |
+| Extra guidelines              | -                                   | Yes       | `QST-EXTRA`                      |
+| Forbidden content             | -                                   | Forbidden | `QST-FORBID`                     |
+
+(1) Use a short bullet list for clarifiers or alternatives. Do not create numbered sub-steps.  
+(2) Nest code and images inside the list item they clarify (indent so they are children of the preceding step).
 
 ## Front matter
 ---
 title:
 doc_type: # [procedure, concept, reference, quickstart, api]
-product: # [storage, blockchain, communication]
+product: # [storage, blockchain, messaging]
 topics: []
 authors: # GitHub username
-owner: ift
+owner: logos
 doc_version: # increased by one after every update
 slug:
 ---
@@ -36,16 +40,16 @@ slug:
 ## Subtitle <!-- group: QST-SUBTITLE -->
 
 - Use a Markdown H4 for the subtitle placed right under the H1. <!-- QST-STRUCT-SUBTITLE-H4 -->
-- Single sentence with no links, list items, or formatting. Ends with a period. <!-- -BEHAV-SUBTITLE-SINGLE-SENTENCE -->
+- Single sentence with no links, list items, or formatting. Ends with a period. <!-- QST-BEHAV-SUBTITLE-SINGLE-SENTENCE -->
 - Do not end with a period. <!-- QST-BEHAV-SUBTITLE-NO-PERIOD -->
 - Stay under 120 characters (approx. 20 words). <!-- QST-BEHAV-SUBTITLE-LENGTH-120 -->
 - Use imperative verbs to describe the topic's purpose or benefit: *Explore*, *Get started*, *Try*, and so on. <!-- QST-BEHAV-SUBTITLE-IMPERATIVE -->
 - Adds new value beyond the title. It should not repeat the title or be a rephrased version of it. <!-- QST-BEHAV-SUBTITLE-ADDS-VALUE -->
 
-**Examples:**
+Examples:
 
-- *Get hands-on with Waku's key capabilities.*
-- *Quickly add payments to your project with Stripe.*
+- **Title**: *Quickstart for Waku* / **Subtitle**: *Get hands-on with Waku's key capabilities.*
+- **Title**: *Quickstart for Stripe* / **Subtitle**: *Quickly add payments to your project with Stripe.*
 
 ## Access callouts <!-- group: QST-ACCESS -->
 
@@ -60,7 +64,7 @@ This note-type callout is exclusively to alert readers about what roles, permiss
 - Do not include knowledge, skills, or required tools. <!-- QST-BEHAV-ACCESS-SCOPE-ONLY -->
 - Omit the callout entirely if no permission/product constraints exist. <!-- QST-STRUCT-ACCESS-OMIT-IF-EMPTY -->
 
-**Examples:**
+Examples:
 
   > **Note**
   >
@@ -74,8 +78,8 @@ This note-type callout is exclusively to alert readers about what roles, permiss
 - Keep each callout concise (≤ 2 short sentences). If the content needs a list or multiple paragraphs, move it into the body under a heading. <!-- QST-BEHAV-CALLOUTS-CONCISE -->
 - Ensure the callout content is directly relevant to the nearby task or decision point. <!-- QST-BEHAV-CALLOUTS-RELEVANT -->
 - Use the appropriate type: `Tip`, `Note`, `Important`, or `Caution`. <!-- QST-BEHAVE-CALLOUTS-TYPE -->
-- Do **not** include full procedural steps or long prerequisite checklists inside callouts. Put steps in the main flow; keep prerequisite lists in "Before you start." <!-- PROC-BEHAV-CALLOUTS-NO-STEPS -->
-- For the allowed callout types and when to use them, see the [writing rules](../../3-validating-design/writing-rules/README.md). <!-- PROC-BEHAV-CALLOUTS-TYPES-REFER-STYLEGUIDE -->
+- Do **not** include full procedural steps or long prerequisite checklists inside callouts. Put steps in the main flow; keep prerequisite lists in "Before you start." <!-- QST-BEHAV-CALLOUTS-NO-STEPS -->
+- For the allowed callout types and when to use them, see the [writing rules](../../3-validating-design/writing-rules/README.md). <!-- QST-BEHAV-CALLOUTS-TYPES-REFER-STYLEGUIDE -->
 
 ## Overview <!-- group: QST-OVERVIEW -->
 
@@ -93,22 +97,22 @@ This note-type callout is exclusively to alert readers about what roles, permiss
 - Provide [links](../../20-style-the-content/10-links.md) to related content such as installation instructions or articles that provide required knowledge. <!-- QST-BEHAV-BEFORE-START-LINK -->
 - Don't include the procedure for setting up or installing prerequisites. If you must explain the procedure, link to the corresponding document or resource. <!-- QST-BEHAV-BEFORE-START-NO-STEPS -->
 
-> ⚙️ **Example:**
->
-> Before you begin, make sure you have:
->
-> - A basic understanding of [Ethereum](https://ethereum.org/en/developers/docs/intro-to-ethereum/) ↗ concepts
-> - Knowledge of how to work with Python virtual environments
-> - A machine running Ubuntu Linux with the following minimum requirements:
->   - 4 GB memory
->   - 2 TB SSD
->   - Linux 64-bit
+Example:
+
+Before you begin, make sure you have:
+
+- A basic understanding of [Ethereum](https://ethereum.org/en/developers/docs/intro-to-ethereum/) ↗ concepts
+- Knowledge of how to work with Python virtual environments
+- A machine running Ubuntu Linux with the following minimum requirements:
+  - 4 GB memory
+  - 2 TB SSD
+  - Linux 64-bit
 
 ## Task guidelines <!-- group: QST-TASK -->
 
 - Choose two or three tasks that are essential, quick to complete, and provide immediate value to the user. <!-- QST-STRUCT-TASK-COUNT -->
     - The first task is usually about setting up or installing the product or feature. However, if setup requires more than seven steps, create a separate installation guide and direct readers to it in the [Before you start](#before-you-start-section) section. <!-- QST-BEHAV-TASK-SETUP -->
-    - For the other task(s), focus on the core functionalities of the product or feature. <!-- QST-BEHAV-TASK-CORE-FEATURES -->
+    - For the other task(s), focus on the core functionalities of the product or feature. <!-- QST-BEHAV-TASK-FEATURES -->
 
 ### Task title <!-- group: QST-TASK-TITLE -->
 
@@ -120,12 +124,12 @@ This note-type callout is exclusively to alert readers about what roles, permiss
 - Avoid empty verbs (*make*, *manage*, *put*). <!-- QST-BEHAV-TASK-TITLE-NO-EMPTY-VERBS -->
 - Avoid one- or two-word titles. <!-- QST-BEHAV-TASK-TITLE-NO-ONE-TWO-WORD -->
 - Don't use punctuation marks in titles (colons, semicolons, dashes). <!-- QST-BEHAV-TASK-TITLE-NO-PUNCT -->
-B
-> ⚙️ **Example:**
->
-> - *Run a Waku node*
-> - *Connect to the Codex network*
-> - *Configure system admin access*
+
+Examples:
+
+- *Run a Waku node*
+- *Connect to the Codex network*
+- *Configure system admin access*
 
 ### Task introduction (optional) <!-- group: QST-TASK-INTRO -->
 
@@ -163,7 +167,7 @@ B
 
 Follow the code rules in the Style Guide. <!-- QST-BEHAV-TASK-CODE-REFER-STYLEGUIDE -->
 
-**Example:**
+Example:
 
     1. Do this thing...
 
@@ -182,7 +186,10 @@ Follow the Screenshots rules in the Style Guide. <!-- QST-BEHAV-IMG-REFER-STYLEG
 - Write at most three bullet points. <!-- QST-STRUCT-NEXT-3POINTS -->
 - Consider a logical connection from the current quickstart that can act as a basis for users' next learning. <!-- QST-BEHAV-NEXT-LOGIC -->
 
-## Extra content guidelines <!-- group: QST-EXTRA -->
+## Extra guidelines <!-- group: QST-EXTRA -->
 
 - The entire quickstart should be about 1 200 words long. <!-- QST-BEHAV-EXTRA-LENGTH -->
-- Do not use H4-H6 headings. <!-- QST-STRUCT-FORBID-H4-H6 -->
+
+## Forbidden content <!-- group: QST-FORBID -->
+
+- Do not use H4-H6 headings. <!-- QST-FORBID-STRUCT-H4-H6 -->
