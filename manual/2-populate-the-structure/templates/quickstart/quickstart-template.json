@@ -176,7 +176,7 @@
         {
           "id": "QST-BEHAV-CALLOUTS-CONCISE",
           "group": "BEHAV",
-          "description": "Keep each callout concise (≤ 2 short sentences). If the content needs a list or multiple paragraphs, move it into the body under a heading.",
+          "description": "Keep each callout concise (≤ 2 short sentences).",
           "examples": []
         },
         {
@@ -194,13 +194,13 @@
         {
           "id": "QST-BEHAV-CALLOUTS-NO-STEPS",
           "group": "BEHAV",
-          "description": "Do not include full procedural steps or long prerequisite checklists inside callouts. Put steps in the main flow; keep prerequisite lists in \"Before you start.\"",
+          "description": "Do not include full procedural steps or long prerequisite checklists inside callouts.",
           "examples": []
         },
         {
           "id": "QST-BEHAV-CALLOUTS-TYPES-REFER-WRITING-RULES",
           "group": "BEHAV",
-          "description": "For the allowed callout types and when to use them, see the [writing rules](../../3-validating-design/writing-rules/README.md).",
+          "description": "For the allowed callout types and when to use them, see the writing rules.",
           "examples": []
         }
       ],
@@ -233,7 +233,7 @@
         {
           "id": "QST-BEHAV-OVERVIEW-MORE-INFO",
           "group": "BEHAV",
-          "description": "Avoid lengthy discussions of the product or feature. Link to a [concept](./concept-help-me-to-understand.md) article if you need to provide more information.",
+          "description": "Avoid lengthy discussions of the product or feature.",
           "examples": []
         },
         {
@@ -293,7 +293,7 @@
         {
           "id": "QST-BEHAV-BEFORE-START-NO-STEPS",
           "group": "BEHAV",
-          "description": "Don't include the procedure for setting up or installing prerequisites. If you must explain the procedure, link to the corresponding document or resource.",
+          "description": "Don't include the procedure for setting up or installing prerequisites.",
           "examples": []
         }
       ],
@@ -498,7 +498,7 @@
         {
           "id": "QST-BEHAV-TASK-STEP-RANGE",
           "group": "BEHAV",
-          "description": "Aim for 2–7 steps. Split if longer.",
+          "description": "Aim for 2–7 steps.",
           "examples": []
         },
         {
@@ -676,6 +676,14 @@
           "examples": []
         }
       ],
+      "examples": []
+    },
+    {
+      "id": "QST-FORBID",
+      "title": "Forbidden content",
+      "required": "forbidden",
+      "format": "-",
+      "rules": [],
       "examples": []
     }
   ],
