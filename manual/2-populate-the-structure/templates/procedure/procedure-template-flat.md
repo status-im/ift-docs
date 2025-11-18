@@ -1,5 +1,19 @@
 # Procedure template: flat layout
 
+---
+title:
+doc_type: # procedure
+product: # [storage | blockchain | messaging]
+topics: []
+steps_layout: # flat
+authors: # GitHub username
+owner: logos
+doc_version: # increased by one after every update
+slug:
+---
+
+## Template overview
+
 | Section                 | Format                             | Required  | ID                  |
 |:------------------------|:-----------------------------------|:----------|:--------------------|
 | Title                   | H1                                 | Yes       | `PROC-TITLE`        |
@@ -25,20 +39,6 @@
 (1) Use checkboxes only for unordered or long-running tasks. Numbered lists are the default for procedures.  
 (2) Use a short bullet list for clarifiers or alternatives. Do not create numbered sub-steps.  
 (3) Nest code and images inside the list item they clarify (indent so they are children of the preceding step).
-
-## Front matter
-
----
-title:
-doc_type: # [procedure, concept, reference, quickstart, api]
-product: # [storage, blockchain, connect]
-topics: []
-steps_layout: # [flat]
-authors: # GitHub username
-owner: logos
-doc_version: # increased by one after every update
-slug:
----
 
 ## Title <!-- group: PROC-TITLE -->
 
@@ -67,8 +67,8 @@ Examples:
 - Use a Markdown H4 for the subtitle placed right under the H1. <!-- PROC-STRUCT-SUBTITLE-H4 -->
 - One sentence only; no links, lists, or inline formatting. <!-- PROC-BEHAV-SUBTITLE-SINGLE-SENTENCE -->
 - Do not end with a period. <!-- PROC-BEHAV-SUBTITLE-NO-PERIOD -->
-- Stay under 120 characters (approx. 20 words). <!-- PROC-BEHAV-SUBTITLE-LENGTH-120 -->
-- Use an imperative/base-form verb that states the purpose or benefit (for example: *Get started*, *Explore*, *Try*). <!-- PROC-BEHAV-SUBTITLE-IMPERATIVE -->
+- Stay under 20 words. <!-- PROC-BEHAV-SUBTITLE-LENGTH-20 -->
+- Use a base-form verb that states the purpose or benefit (for example: *Get started*, *Explore*, *Try*). <!-- PROC-BEHAV-SUBTITLE-IMPERATIVE -->
 - Add new value beyond the title; don’t repeat or rephrase the H1. <!-- PROC-BEHAV-SUBTITLE-ADDS-VALUE -->
 
 Examples:
@@ -94,7 +94,7 @@ This note-type callout is exclusively to alert readers about what roles, permiss
   > **Note**
   >
   > - **Permissions**: Node operators, Site operators
-  > - **Product**: Waku v1.4.0 or later
+  > - **Product**: Logos Storage v1.4.0 or later
 
 ## Callouts <!-- PROC-CALLOUTS -->
 
@@ -122,14 +122,11 @@ Every procedure requires an introduction that provides context and helps readers
 - [Impact (optional)](#impact-optional)
 - [Prerequisites (optional)](#prerequisites-optional)
 
-**Examples:**
-
-For an example of a procedure introduction, check out the [procedure example](./procedure-example.md).
+- Include the intro components in this order: Overview, Decisions (optional), Limits (optional), Impact (optional), Prerequisites (optional). <!-- PROC-STRUCT-INTRO-ORDER -->
 
 ### Overview <!-- group: PROC-OVERVIEW -->
 
 - Write a 50–100 word paragraph explaining what this procedure covers, why it matters, and when to use it. <!-- PROC-BEHAV-OVERVIEW-LENGTH-50-100 -->
-- Add context that the heading doesn’t provide; do not restate the heading. <!-- PROC-BEHAV-OVERVIEW-NO-REPEAT -->
 - State where it applies and who the intended audience is. <!-- PROC-BEHAV-OVERVIEW-AUDIENCE-SCOPE -->
 - (Optional) Give one concrete real-world scenario in a single sentence. <!-- PROC-BEHAV-OVERVIEW-EXAMPLE-ONE -->
 - Use at most one short alert only if it prevents confusion; otherwise keep this section free of callouts. <!-- PROC-BEHAV-OVERVIEW-ALERT-SPARING -->
@@ -172,7 +169,7 @@ For an example of a procedure introduction, check out the [procedure example](./
 - Write one complete sentence per bullet (two short sentences max), and end sentences with a period. <!-- PROC-BEHAV-EXPECT-SENTENCE-1-2 -->
 - Use parallel wording in each bullet (same grammatical shape), focused on outcomes users will have after completing the procedure (for example, "You can ..."). <!-- PROC-BEHAV-EXPECT-PARALLEL-OUTCOME -->
 - Order items from most important to least important. <!-- PROC-BEHAV-EXPECT-PRIORITY -->
-- Avoid links unless you must point to headings in the same page. <!-- PROC-BEHAV-EXPECT-LINKS-INTERNAL -->
+- Allow only same-page heading links; no external links. <!-- PROC-BEHAV-EXPECT-LINKS-INTERNAL -->
 
 **Examples:**
 
@@ -240,7 +237,7 @@ For an example of a task, check out the [procedure example](./procedure-example-
 
 ### Step code (optional) <!-- group: PROC-TASK-CODE -->
 
-Follow the code rules in the Style Guide. <!-- PROC-BEHAV-TASK-CODE-REFER-STYLEGUIDE -->
+- Follow the code rules in the Style Guide. <!-- PROC-BEHAV-TASK-CODE-REFER-STYLEGUIDE -->
 
 **Example:**
 
@@ -250,9 +247,9 @@ Follow the code rules in the Style Guide. <!-- PROC-BEHAV-TASK-CODE-REFER-STYLEG
 gh workflow run build --repo org/repo
 ```
 
-### Step screenshot (optional) <!-- group: PROC-TASK-IMG -->
+### Step screenshot (optional) <!-- group: PROC-TASK-SHOT -->
 
-See the [writing rules] (../../3-validating-design/writing-rules/README.md) for screenshots. <!-- PROC-BEHAV-TASK-SHOT-REFER-STYLEGUIDE -->
+- Follow the screenshot rules in the Style Guide. <!-- PROC-BEHAV-TASK-SHOT-REFER-STYLEGUIDE -->
 
 ## FAQ / Troubleshooting (optional) <!-- group: PROC-EXTRA -->
 
