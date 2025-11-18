@@ -2,10 +2,10 @@
 
 ---
 title:
-doc_type: # procedure
+doc_type: procedure
 product: # [storage | blockchain | messaging]
 topics: []
-steps_layout: # flat
+steps_layout: flat
 authors: # GitHub username
 owner: logos
 doc_version: # increased by one after every update
@@ -34,7 +34,7 @@ slug:
 | Step code               | Fenced code block under the step (3)| No       | `PROC-TASK-CODE`    |
 | Step screenshot         | Image under the step (3)           | No        | `PROC-TASK-IMG`     |
 | FAQ / Troubleshooting   | Paragraph, list, H3                | No        | `PROC-EXTRA`        |
-| Forbidden content       | -                                  | Forbidden | `PROC-FORBID`       |
+| Forbidden content       |                                    | Forbidden | `PROC-FORBID`       |
 
 (1) Use checkboxes only for unordered or long-running tasks. Numbered lists are the default for procedures.  
 (2) Use a short bullet list for clarifiers or alternatives. Do not create numbered sub-steps.  
@@ -122,10 +122,13 @@ Every procedure requires an introduction that provides context and helps readers
 - [Impact (optional)](#impact-optional)
 - [Prerequisites (optional)](#prerequisites-optional)
 
+- Do not add a visible subheading. <!-- PROC-STRUCT-INTRO-NO-HEADING -->
 - Include the intro components in this order: Overview, Decisions (optional), Limits (optional), Impact (optional), Prerequisites (optional). <!-- PROC-STRUCT-INTRO-ORDER -->
+- The following child blocks render without their own headings: Overview, Decisions, Limits, Impact, Prerequisites. <!-- PROC-STRUCT-INTRO-CHILDREN-NO-HEADINGS -->
 
 ### Overview <!-- group: PROC-OVERVIEW -->
 
+- Render inline under the Intro section; do not add a visible subheading. <!-- PROC-STRUCT-OVERVIEW-NO-HEADING -->
 - Write a 50–100 word paragraph explaining what this procedure covers, why it matters, and when to use it. <!-- PROC-BEHAV-OVERVIEW-LENGTH-50-100 -->
 - State where it applies and who the intended audience is. <!-- PROC-BEHAV-OVERVIEW-AUDIENCE-SCOPE -->
 - (Optional) Give one concrete real-world scenario in a single sentence. <!-- PROC-BEHAV-OVERVIEW-EXAMPLE-ONE -->
@@ -133,6 +136,7 @@ Every procedure requires an introduction that provides context and helps readers
 
 ### Decisions (optional) <!-- group: PROC-DECISIONS -->
 
+- Render inline under the Intro section; do not add a visible subheading. <!-- PROC-STRUCT-DECISIONS-NO-HEADING -->
 - Summarize decisions the reader must make before starting (for example, CLI vs. GUI). <!-- PROC-BEHAV-DECISIONS-PURPOSE -->
 - Use a list for simple choices; use a compact table for multi-factor comparisons. <!-- PROC-BEHAV-DECISIONS-FORM -->
 - Focus on actionable factors: performance, complexity, cost, prerequisites, and limitations. <!-- PROC-BEHAV-DECISIONS-FACTORS -->
@@ -142,6 +146,7 @@ Every procedure requires an introduction that provides context and helps readers
 
 ### Limits (optional) <!-- group: PROC-LIMITS -->
 
+- Render inline under the Intro section; do not add a visible subheading. <!-- PROC-STRUCT-LIMITS-NO-HEADING -->
 - Describe constraints as a short paragraph; use a list/table only if it improves scanning. <!-- PROC-BEHAV-LIMITS-FORMAT -->
 - Cover quotas, rate limits, timeouts, eventual consistency, and destructive side effects. <!-- PROC-BEHAV-LIMITS-COVERAGE -->
 - If a constraint is critical to success or safety, surface it with a single concise callout (see Callouts). <!-- PROC-BEHAV-LIMITS-ALERT-CRITICAL -->
@@ -150,6 +155,7 @@ Every procedure requires an introduction that provides context and helps readers
 
 ### Impact (optional) <!-- group: PROC-IMPACT -->
 
+- Render inline under the Intro section; do not add a visible subheading. <!-- PROC-STRUCT-IMPACT-NO-HEADING -->
 - A paragraph, list, or table. <!-- PROC-BEHAV-IMPACT-FORMAT -->
 - Highlight side effects and risks (for example, data exposure, downtime, irreversible actions). <!-- PROC-BEHAV-IMPACT-RISKS -->
 - Note required privileges or safer alternatives when relevant. <!-- PROC-BEHAV-IMPACT-PRIVS-ALTS -->
@@ -157,6 +163,7 @@ Every procedure requires an introduction that provides context and helps readers
 
 ### Prerequisites (optional) <!-- group: PROC-PREREQ -->
 
+- Render inline under the Intro section; do not add a visible subheading. <!-- PROC-STRUCT-PREREQUISITES-NO-HEADING -->
 - List only the technical setup needed to run the procedure (software, versions, tools, configuration). <!-- PROC-BEHAV-PREREQ-SCOPE -->
 - Don't include roles, permissions, or product variants here; put those in the [access callout](#access-callout-optional). <!-- PROC-BEHAV-PREREQ-NO-ROLES -->
 - Prefer a single bullet list of noun phrases; keep it brief and link to install/setup instructions as needed. <!-- PROC-BEHAV-PREREQ-LIST-NOUNS -->
@@ -171,10 +178,6 @@ Every procedure requires an introduction that provides context and helps readers
 - Order items from most important to least important. <!-- PROC-BEHAV-EXPECT-PRIORITY -->
 - Allow only same-page heading links; no external links. <!-- PROC-BEHAV-EXPECT-LINKS-INTERNAL -->
 
-**Examples:**
-
-Check out the [procedure example](./procedure-example-flat.md).
-
 ## Task
 
 Every procedure requires at least one task. Each task includes these mandatory and optional sections:
@@ -186,10 +189,6 @@ Every procedure requires at least one task. Each task includes these mandatory a
 - [Step clarifiers (optional)](#step-clarifiers-optional)
 - [Step code (optional)](#step-code-optional)
 - [Step screenshot (optional)](#step-screenshot-optional)
-
-**Examples:**
-
-For an example of a task, check out the [procedure example](./procedure-example-flat.md).
 
 ### Task title <!-- group: PROC-TASK-TITLE -->
 
