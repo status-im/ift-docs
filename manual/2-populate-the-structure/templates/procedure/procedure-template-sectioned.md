@@ -235,7 +235,7 @@ Every procedure requires at least one task. Each task includes these mandatory a
   > Example: <!-- EXAMPLE: QST-BEHAV-TASK-STEP-LOC-FIRST -->
   >
   > | Incorrect (action first)                     | Correct (location first)                          |
-  > |:---------------------------------------------|:--------------------------------------------------|
+  > |:---|:---|
   > | Click **Save** in the **File** menu.         | In the **File** menu, click **Save**.             |
   > | Select **Run** from the **Debug** configuration. | From the **Debug** configuration, select **Run**. |
 
