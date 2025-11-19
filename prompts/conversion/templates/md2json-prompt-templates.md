@@ -83,14 +83,22 @@ Convert the attached OneDoc **Markdown procedure template** into a **machine-rea
   - `sections[i].id` (from the section’s HTML comment ID if present; otherwise derive a stable ID from the table’s ID column if it holds IDs; else synthesize as in Rule 6)
 - **Ordering**: sections appear in **table order**; if no table, use **first appearance** order in the document.
 
+
+
+#### 2a) Concept template specifics (H2/H3 containers)
+
+- Concept templates may define container sections like `H2 section` (`CONC-H2-SECTION`) and `H3 section` (`CONC-H3-SECTION`). Treat these as normal sections with their own rules.
+- If an older concept table splits H2/H3 into “title” and “content” rows (e.g., `CONC-H2_TITLE`, `CONC-H2_CONTENT`) but the body defines a single `H2 section` with ID `CONC-H2-SECTION`, then **prefer the body heading with its ID** and do **not** invent separate title/content sections.
+- Use the table primarily for **ordering** and for the **required/format** fields. For section IDs, prefer the **heading’s HTML comment**; if absent, fallback to the table’s ID column.
+- Result: one `H2 section` and one `H3 section` entry in JSON, each with its rule bullets collected from their corresponding body sections.
 ### 3) IDs and comments (precise)
 
 - **Goal**: keep the ID in JSON, remove only the **HTML comment** from human-visible strings.
 - Use this regex for lines that carry an ID comment:
 
-  ```
-  ^(?P<body>.*?)\s*<!--\s*(?P<id>[A-Z0-9\-:]+)\s*-->\s*$
-  ```
+```
+^(?P<body>.*?)\s*<!--\s*(?:group:\s*)?(?P<id>[A-Z0-9\-:]+)\s*-->\s*$
+```
 
 - Assign `id = <captured id>`.
 - For `title`/`description`, use `body` **verbatim** (apply whitespace normalization below).
@@ -124,6 +132,8 @@ Convert the attached OneDoc **Markdown procedure template** into a **machine-rea
        `"Unknown group token in rule ID <ID> (set to BEHAV)"`
 
 - A section can host both STRUCT and BEHAV rules; the section’s `group` does **not** constrain the rule list.
+
+- **Rendering note:** A section’s JSON `title` is a **label**, not a guaranteed visible heading. Only render a visible heading if there’s an explicit STRUCT rule permitting or requiring it (for example, `*-RENDER-HEADING`). If a section has a STRUCT rule like `*-NO-HEADING`, or parent-level guidance that children render inline, do **not** output a visible heading; integrate the content under the parent.
 
 ### 6) Duplicate IDs
 
