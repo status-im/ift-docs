@@ -228,7 +228,22 @@ Every procedure requires at least one task. Each task includes these mandatory a
 - Use inline code for commands, filenames, paths, and output. <!-- PROC-BEHAV-TASK-STEPS-CODE-INLINE -->
 - Don’t use external links in steps; only same-page anchors. <!-- PROC-BEHAV-TASK-STEPS-LINKS-INTERNAL -->
 - For UI paths, put location before action. <!-- PROC-BEHAV-TASK-STEPS-LOCATION-FIRST -->
+
+  > Example: <!-- EXAMPLE: QST-BEHAV-TASK-STEP-LOC-FIRST -->
+  >
+  > | Incorrect (action first)                     | Correct (location first)                          |
+  > |:---------------------------------------------|:--------------------------------------------------|
+  > | Click **Save** in the **File** menu.         | In the **File** menu, click **Save**.             |
+  > | Select **Run** from the **Debug** configuration. | From the **Debug** configuration, select **Run**. |
+
 - For conditions, write the result first, then the condition. <!-- PROC-BEHAV-TASK-STEPS-RESULT-THEN-CONDITION -->
+
+  > Example: <!-- EXAMPLE: QST-BEHAV-TASK-STEP-RESULT-THEN-CONDITION -->
+  >
+  > | Incorrect (condition first) | Correct (result first) |
+  > |---|---|
+  > | If the Network Status is Disconnected, an error message will display. | An error message will display if the Network Status is Disconnected. |
+  > | Only use the `$API_KEY` if you are calling the external service. | Use the `$API_KEY` only if you are calling the external service. |
 
 ### Step clarifiers (optional) <!-- group: PROC-TASK-CLAR -->
 
