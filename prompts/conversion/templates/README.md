@@ -7,19 +7,21 @@ Convert a OneDoc Markdown procedure template into machine-readable JSON using a 
 **Outputs**
 
 - A single JSON file that follows the shared schema.
-- A `.raw.txt` file (only when the model returns non-JSON), for debugging.
-
-**Files in this folder**
-
-- `md2json-prompt-templates.md`:  deterministic prompt (do not edit without bumping the version).
-- `transform.py`:  API runner script.
-- `<your-template>.md`:  the Markdown template to convert.
 
 ---
 
 ## Part A:  Set up the environment
 
-1. **Install Python 3.10+**
+1. **Verify repository files are present**
+
+   Change to the working directory at prompts/conversion/markdown-to-json/templates and ensure the following files are present:
+
+   - `md2json-prompt-templates.md`: deterministic prompt.
+   - `transform.py`: API runner script.
+   - `requirements.txt`: Python dependencies.
+
+
+2. **Install Python 3.10+**
 
    Verify:
 
@@ -29,7 +31,7 @@ Convert a OneDoc Markdown procedure template into machine-readable JSON using a 
 
    If not installed, download from [python.org](https://www.python.org/downloads/) or use a package manager.
 
-2. **Create a virtual environment**
+3. **Create a virtual environment**
 
    ```bash
    python3 -m venv .venv
@@ -43,7 +45,7 @@ Convert a OneDoc Markdown procedure template into machine-readable JSON using a 
 
    > **Note:** Name the virtual environment folder `.venv`; it's included in `.gitignore`.
 
-3. **Activate the virtual environment**
+4. **Activate the virtual environment**
 
    * macOS/Linux:
 
@@ -59,15 +61,11 @@ Convert a OneDoc Markdown procedure template into machine-readable JSON using a 
 
    > **Note:** To activate the Python virtual environment in Visual Studio Code, open the Command Palette (`Ctrl+Shift+P` or `Cmd+Shift+P`), type `Python: Select Interpreter`, and choose the interpreter from the `.venv` folder. If the option to choose the interpreter does not appear, install the Microsoft Python extension for Visual Studio Code.
 
-4. **Install dependencies**
+5. **Install dependencies**
 
    ```bash
-   pip install requests
+   pip install -r requirements.txt
    ```
-
-5. **Verify repository files are present**
-
-   Change to the working directory at prompts/conversion/markdown-to-json/templates and ensure `md2json-prompt-templates.md` and `transform.py` are in the directory.
 
 ---
 
@@ -84,7 +82,7 @@ Choose **one** backend option and set the environment variables.
      ```bash
      export LLM_BACKEND=openai
      export OPENAI_API_KEY=<YOUR_KEY>
-     export MODEL=gpt-5
+     export MODEL=gpt-5.1-2025-11-13
      # export TEMPERATURE=0 OpenAI GPT-5 doesn't support custom temperature
      # export TOP_P=1 OpenAI GPT-5 doesn't support custom top_p
      export SEED=1234
@@ -97,7 +95,7 @@ Choose **one** backend option and set the environment variables.
      ```powershell
      $env:LLM_BACKEND="openai"
      $env:OPENAI_API_KEY="<YOUR_KEY>"
-     $env:MODEL="gpt-5"
+     $env:MODEL="gpt-5.1-2025-11-13"
      # $env:TEMPERATURE="0" OpenAI GPT-5 doesn't support custom temperature
      # $env:TOP_P="1" OpenAI GPT-5 doesn't support custom top_p
      $env:SEED="1234"
@@ -107,7 +105,7 @@ Choose **one** backend option and set the environment variables.
 
 2. **Pin the model**
 
-   Use a single, agreed model string (for example, `gpt-5`) across all tests.
+   Use a single, agreed model string (for example, `gpt-5.1-2025-11-13`) across all conversions.
 
 ### Option 2:  OpenRouter
 
@@ -118,7 +116,7 @@ Choose **one** backend option and set the environment variables.
      ```bash
      export LLM_BACKEND=openrouter
      export OPENROUTER_API_KEY=<YOUR_KEY>
-     export MODEL=openai/gpt-5
+     export MODEL=openai/gpt-5.1
      # export TEMPERATURE=0  OpenAI GPT-5 doesn't support custom temperature
      # export TOP_P=1 OpenAI GPT-5 doesn't support custom top_p
      export SEED=1234
@@ -131,8 +129,8 @@ Choose **one** backend option and set the environment variables.
      ```powershell
      $env:LLM_BACKEND="openrouter"
      $env:OPENROUTER_API_KEY="<YOUR_KEY>"
-     # $env:MODEL="openai/gpt-5" OpenAI GPT-5 doesn't support custom temperature
-     $env:TEMPERATURE="0"
+     $env:MODEL="openai/gpt-5.1"
+     # $env:TEMPERATURE="0" OpenAI GPT-5 doesn't support custom temperature
      # $env:TOP_P="1" OpenAI GPT-5 doesn't support custom top_p
      $env:SEED="1234"
      # Optional: $env:OPENROUTER_BASE_URL="https://openrouter.ai/api/v1"
@@ -141,17 +139,17 @@ Choose **one** backend option and set the environment variables.
 
 2. **Allow temperature/top_p defaults**
 
-   For GPT-5 or other model variants that do not support custom sampling parameters, do not set `TEMPERATURE` or `TOP_P`. If the model supports them, set `TEMPERATURE=0`, `TOP_P=1`, and `ALLOW_SAMPLING_PARAMS=1`.
+   For GPT-5+ or other model variants that do not support custom sampling parameters, do not set `TEMPERATURE` or `TOP_P`. If the model supports them, set `TEMPERATURE=0`, `TOP_P=1`, and `ALLOW_SAMPLING_PARAMS=1`.
 
 3. **Pin the model**
 
-   Use a single, agreed model string (for example, `gpt-5`) across all tests.
+   Use a single, agreed model string (for example, `openai/gpt-5.1`) across all tests.
 
 ---
 
 ## Part C:  Convert Markdown to JSON
 
-1. **Place your Markdown input**
+1. **Place your Markdown template input**
 
    Put the file (for example, `procedure-template-flat.md`) in the same folder as `transform.py`.
 
@@ -173,7 +171,7 @@ Choose **one** backend option and set the environment variables.
    /home/user/.venv/bin/python3 /logos-docs/prompts/conversion/markdown-to-json/templates/transform.py <template-name>.md out.json --prompt <prompt-name>.md
    ```
 
-   > **Note:** Depending on the model, the script task may take several minutes to complete.
+   > **Note:** Depending on the model and model provider status, the script task may take several minutes to complete.
 
 4. **Confirm success**
    The script prints:
@@ -205,16 +203,11 @@ Choose **one** backend option and set the environment variables.
    - `validation.groupViolations`
    - `validation.forbiddenViolations`
    - `validation.notes`
-
-   Open `out.json.rules-check.json` and inspect the end of the file for:
-
-   - `missing_in_json`: rule IDs not found in the JSON output.
-   - `extra_in_json`: rule IDs found in the JSON output but not in the Markdown.
-   - `description_leaks_examples`: rules where the description might be out of the `examples` key.
+   - `validation.unknownRuleIds`
 
 3. **Save JSON output**
 
-   Rename the output file. Use the same name as the original Markdown file but with `.json` extension. For example:
+   Rename the output JSON file. Use the same name as the original Markdown file but with `.json` extension. For example:
 
    ```bash
    mv out.json procedure-template.json
@@ -222,35 +215,7 @@ Choose **one** backend option and set the environment variables.
 
 ---
 
-## Part E:  Commit the results
-
-1. **Clean up previous outputs**
-
-   ```bash
-   rm out.json prompt.md *.raw.txt
-   ```
-
-2. **Add files to git**
-
-   ```bash
-   git add procedure-template.json
-   ```
-
-2. **Commit with a clear message**
-
-   ```bash
-   git commit -S -m "Convert procedure-template.md to JSON using deterministic prompt"
-   ```
-
-3. **Push changes**
-
-   ```bash
-   git push
-   ```
-
----
-
-## Part F:  Troubleshoot common issues
+## Part E:  Troubleshoot common issues
 
 1. **401/403 errors (authorization)**
 
