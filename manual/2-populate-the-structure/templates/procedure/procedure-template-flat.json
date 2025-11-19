@@ -22,7 +22,16 @@
           "id": "PROC-STRUCT-TITLE-H1",
           "group": "STRUCT",
           "description": "Use Markdown H1 headings.",
-          "examples": []
+          "examples": [
+            "| Usage   | Example                                 |",
+            "|:--------|:----------------------------------------|",
+            "| **Use** | Create a codespace from a template      |",
+            "| Avoid   | Creating a codespace from a template    |",
+            "| **Use** | Use source control in your codespace    |",
+            "| Avoid   | Use source control                      |",
+            "| **Use** | Collaborate with others in a codespace  |",
+            "| Avoid   | Set up a live share session             |"
+          ]
         },
         {
           "id": "PROC-BEHAV-TITLE-LENGTH-50-80",
@@ -71,9 +80,7 @@
           "examples": []
         }
       ],
-      "examples": [
-        "| Usage   | Example                                 |\n\t|:--------|:----------------------------------------|\n\t| **Use** | Create a codespace from a template      |\n\t| Avoid   | Creating a codespace from a template    |\n\t| **Use** | Use source control in your codespace    |\n\t| Avoid   | Use source control                      |\n\t| **Use** | Collaborate with others in a codespace  |\n\t| Avoid   | Set up a live share session             |"
-      ]
+      "examples": []
     },
     {
       "id": "PROC-SUBTITLE",
@@ -119,12 +126,13 @@
           "id": "PROC-BEHAV-SUBTITLE-ADDS-VALUE",
           "group": "BEHAV",
           "description": "Add new value beyond the title; don’t repeat or rephrase the H1.",
-          "examples": []
+          "examples": [
+            "- **Title**: *Quickstart for GitHub Actions* / **Subtitle**: *Try out the core features of GitHub Actions in minutes*",
+            "- **Title**: *Create a pull request* / **Subtitle**: *Create a pull request to propose and collaborate on changes to a repository*"
+          ]
         }
       ],
-      "examples": [
-        "- **Title**: *Quickstart for GitHub Actions* / **Subtitle**: *Try out the core features of GitHub Actions in minutes*\n- **Title**: *Create a pull request* / **Subtitle**: *Create a pull request to propose and collaborate on changes to a repository*"
-      ]
+      "examples": []
     },
     {
       "id": "PROC-ACCESS",
@@ -178,12 +186,15 @@
           "id": "PROC-STRUCT-ACCESS-OMIT-IF-EMPTY",
           "group": "STRUCT",
           "description": "Omit the callout entirely if no permission/product constraints exist.",
-          "examples": []
+          "examples": [
+            "> **Note**",
+            ">",
+            "> - **Permissions**: Node operators, Site operators",
+            "> - **Product**: Logos Storage v1.4.0 or later"
+          ]
         }
       ],
-      "examples": [
-        "> **Note**\n  >\n  > - **Permissions**: Node operators, Site operators\n  > - **Product**: Logos Storage v1.4.0 or later"
-      ]
+      "examples": []
     },
     {
       "id": "PROC-CALLOUTS",
@@ -231,16 +242,18 @@
           "id": "PROC-BEHAV-CALLOUTS-TYPES-REFER-STYLEGUIDE",
           "group": "BEHAV",
           "description": "For the allowed callout types and when to use them, see the [writing rules](../../3-validating-design/writing-rules/README.md).",
-          "examples": []
+          "examples": [
+            "> **Note:**",
+            ">",
+            "> Keep container resources within the documented limits to avoid throttling."
+          ]
         }
       ],
-      "examples": [
-        "> **Note:**\n>\n> Keep container resources within the documented limits to avoid throttling."
-      ]
+      "examples": []
     },
     {
-      "id": "PROC-OVERVIEW",
-      "title": "Overview",
+      "id": "PROC-INTRO",
+      "title": "Intro",
       "required": "required",
       "format": "Paragraph",
       "rules": [
@@ -261,7 +274,16 @@
           "group": "STRUCT",
           "description": "The following child blocks render without their own headings: Overview, Decisions, Limits, Impact, Prerequisites.",
           "examples": []
-        },
+        }
+      ],
+      "examples": []
+    },
+    {
+      "id": "PROC-OVERVIEW",
+      "title": "Overview",
+      "required": "required",
+      "format": "Paragraph",
+      "rules": [
         {
           "id": "PROC-STRUCT-OVERVIEW-NO-HEADING",
           "group": "STRUCT",
@@ -747,15 +769,19 @@
           "id": "PROC-BEHAV-TASK-CODE-REFER-STYLEGUIDE",
           "group": "BEHAV",
           "description": "Follow the code rules in the Style Guide.",
-          "examples": []
+          "examples": [
+            "1. Do this thing...",
+            "",
+            "```bash",
+            "gh workflow run build --repo org/repo",
+            "```"
+          ]
         }
       ],
-      "examples": [
-        "1. Do this thing...\n\n```bash\ngh workflow run build --repo org/repo\n```"
-      ]
+      "examples": []
     },
     {
-      "id": "PROC-TASK-IMG",
+      "id": "PROC-TASK-SHOT",
       "title": "Step screenshot (optional)",
       "required": "optional",
       "format": "Image under the step (3)",
@@ -842,12 +868,29 @@
       "examples": []
     }
   ],
-  "forbidden": [],
+  "forbidden": [
+    {
+      "id": "PROC-FORBID",
+      "rules": [
+        {
+          "id": "PROC-STRUCT-FORBID-H4-H6",
+          "group": "FORBID",
+          "description": "Do not use H4–H6 headings."
+        },
+        {
+          "id": "PROC-BEHAV-FORBID-NO-FURTHER-READING",
+          "group": "FORBID",
+          "description": "Do not include a \"Further reading\" section or links to other related topics at the end of the document."
+        }
+      ]
+    }
+  ],
   "validation": {
     "missingRuleIds": [],
     "duplicateRuleIds": [],
     "groupViolations": [],
     "forbiddenViolations": [],
-    "notes": []
+    "notes": [],
+    "unknownRuleIds": []
   }
 }
