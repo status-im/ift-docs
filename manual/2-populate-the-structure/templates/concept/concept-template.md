@@ -1,34 +1,32 @@
 # Concept template <!-- This is an informative header; remove it before merging your content. -->
 
-| Section                | Format                        | Required   | ID              |
-|:-----------------------|:------------------------------|:-----------|:----------------|
-| Title                  | H1                            | Yes        | `CONC-TITLE`    |
-| Subtitle               | H4                            | Yes        | `CONC-SUBTITLE` |
-| Access callout         | Note-type callout             | No         | `CONC-PROC`     |
-| Callouts               | Tip, Note, Important, Caution | No         | `CONC-CALLOUTS` |
-| Overview               | Paragraph                     | Yes        | `CONC-OVERVIEW` |
-| Diagram                | Mermaid or image              | No         | `CONC-DIAGRAM`  |
-| Use case example       | Paragraph, list               | No         | `CONC-USE-CASE` |
-| Comparison             | Paragraph, list, table        | No         | `CONC-COMPARISON` |
-| "The basics" heading   | List                          | Yes        | `CONC-BASICS`   |
-| H2 section title       | H2                            | Yes        | `CONC-H2_TITLE` |
-| H2 section content     | Paragraph, others             | Yes        | `CONC-H2_CONTENT` |
-| H3 section title       | H3                            | No         | `CONC-H3_TITLE` |
-| H3 section content     | Paragraph, others             | No         | `CONC-H3_CONTENT` |
-| Forbidden content      | -                             | Forbidden  | `CONC-FORBID`   |
-
-## Front matter
-
 ---
 title:
-doc_type: # [concept]
-product: # [storage, blockchain, communication]
+doc_type: concept
+product: # [storage | blockchain | messaging]
 topics: []
 authors: # GitHub username
 owner: logos
 doc_version: # increased by one after every update
 slug:
 ---
+
+## Template overview
+
+| Section                | Format                        | Required   | ID              |
+|:-----------------------|:------------------------------|:-----------|:----------------|
+| Title                  | H1                            | Yes        | `CONC-TITLE`    |
+| Subtitle               | H4                            | Yes        | `CONC-SUBTITLE` |
+| Access callout         | Note-type callout             | No         | `CONC-ACCESS`     |
+| Callouts               | Tip, Note, Important, Caution | No         | `CONC-CALLOUTS` |
+| Overview               | Paragraph                     | Yes        | `CONC-OVERVIEW` |
+| Diagram                | Mermaid or image              | No         | `CONC-DIAGRAM`  |
+| Use case example       | Paragraph, list               | No         | `CONC-USE-CASE` |
+| Comparison             | Paragraph, list, table        | No         | `CONC-COMPARISON` |
+| "The basics" heading   | List                          | Yes        | `CONC-BASICS`   |
+| H2 section             | H2 + body (container)         | Yes        | `CONC-H2-SECTION`  |
+| H3 section             | H3 + body (container)         | No         | `CONC-H3-SECTION`  |
+| Forbidden content      | -                             | Forbidden  | `CONC-FORBID`   |
 
 ## Title <!-- group: CONC-TITLE -->
 
