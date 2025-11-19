@@ -72,7 +72,14 @@
         }
       ],
       "examples": [
-        "| Usage   | Example                                 |\n\t|:--------|:----------------------------------------|\n\t| **Use** | Create a codespace from a template      |\n\t| Avoid   | Creating a codespace from a template    |\n\t| **Use** | Use source control in your codespace    |\n\t| Avoid   | Use source control                      |\n\t| **Use** | Collaborate with others in a codespace  |\n\t| Avoid   | Set up a live share session             |"
+        "| Usage | Example |",
+        "|:--------|:----------------------------------------|",
+        "| **Use** | Create a codespace from a template |",
+        "| Avoid | Creating a codespace from a template |",
+        "| **Use** | Use source control in your codespace |",
+        "| Avoid | Use source control |",
+        "| **Use** | Collaborate with others in a codespace |",
+        "| Avoid | Set up a live share session |"
       ]
     },
     {
@@ -114,16 +121,11 @@
             "*Explore*",
             "*Try*"
           ]
-        },
-        {
-          "id": "PROC-BEHAV-SUBTITLE-A:DDS-VALUE",
-          "group": "BEHAV",
-          "description": "Add new value beyond the title; don’t repeat or rephrase the H1.",
-          "examples": []
         }
       ],
       "examples": [
-        "- **Title**: *Quickstart for GitHub Actions* / **Subtitle**: *Try out the core features of GitHub Actions in minutes*\n- **Title**: *Create a pull request* / **Subtitle**: *Create a pull request to propose and collaborate on changes to a repository*"
+        "- **Title**: *Quickstart for GitHub Actions* / **Subtitle**: *Try out the core features of GitHub Actions in minutes*",
+        "- **Title**: *Create a pull request* / **Subtitle**: *Create a pull request to propose and collaborate on changes to a repository*"
       ]
     },
     {
@@ -182,7 +184,10 @@
         }
       ],
       "examples": [
-        "> **Note**\n  >\n  > - **Permissions**: Node operators, Site operators\n  > - **Product**: Waku v1.4.0 or later"
+        "> **Note**",
+        ">",
+        "> - **Permissions**: Node operators, Site operators",
+        "> - **Product**: Waku v1.4.0 or later"
       ]
     },
     {
@@ -235,7 +240,9 @@
         }
       ],
       "examples": [
-        "> **Note:**\n>\n> Keep container resources within the documented limits to avoid throttling."
+        "> **Note:**",
+        ">",
+        "> Keep container resources within the documented limits to avoid throttling."
       ]
     },
     {
@@ -303,7 +310,7 @@
     },
     {
       "id": "PROC-DECISIONS",
-      "title": "Decisions (optional)",
+      "title": "Decisions",
       "required": "optional",
       "format": "Paragraph, list, table",
       "rules": [
@@ -354,7 +361,7 @@
     },
     {
       "id": "PROC-LIMITS",
-      "title": "Limits (optional)",
+      "title": "Limits",
       "required": "optional",
       "format": "Paragraph, list, table",
       "rules": [
@@ -399,7 +406,7 @@
     },
     {
       "id": "PROC-IMPACT",
-      "title": "Impact (optional)",
+      "title": "Impact",
       "required": "optional",
       "format": "Paragraph, list, table",
       "rules": [
@@ -442,7 +449,7 @@
     },
     {
       "id": "PROC-PREREQ",
-      "title": "Prerequisites (optional)",
+      "title": "Prerequisites",
       "required": "optional",
       "format": "Paragraph, list",
       "rules": [
@@ -769,7 +776,11 @@
         }
       ],
       "examples": [
-        "1. Do this thing...\n\n```bash\ngh workflow run build --repo org/repo\n```"
+        "1. Do this thing...",
+        "",
+        "```bash",
+        "gh workflow run build --repo org/repo",
+        "```"
       ]
     },
     {
@@ -842,7 +853,7 @@
       "id": "PROC-FORBID",
       "title": "Forbidden content",
       "required": "forbidden",
-      "format": "",
+      "format": null,
       "rules": [
         {
           "id": "PROC-STRUCT-FORBID-H4-H6",
@@ -860,14 +871,29 @@
       "examples": []
     }
   ],
-  "forbidden": [],
+  "forbidden": [
+    {
+      "id": "PROC-FORBID",
+      "rules": [
+        {
+          "id": "PROC-STRUCT-FORBID-H4-H6",
+          "group": "FORBID",
+          "description": "Do not use H4–H6 headings."
+        },
+        {
+          "id": "PROC-BEHAV-FORBID-NO-FURTHER-READING",
+          "group": "FORBID",
+          "description": "Do not include a \"Further reading\" section or links to other related topics at the end of the document."
+        }
+      ]
+    }
+  ],
   "validation": {
     "missingRuleIds": [],
     "duplicateRuleIds": [],
     "groupViolations": [],
     "forbiddenViolations": [],
-    "notes": [
-      "NO_SECTION_TABLE"
-    ]
+    "notes": [],
+    "unknownRuleIds": []
   }
 }
