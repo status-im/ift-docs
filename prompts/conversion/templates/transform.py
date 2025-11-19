@@ -1,478 +1,339 @@
-# transform.py (v5) -- Transforms a Markdown document into JSON using an LLM
-
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
-Deterministic Markdown → JSON transformer (generic, rule-aware)
----------------------------------------------------------------
-- Runs a deterministic prompt against an LLM and writes JSON to file.
-- Provides an authoritative HINTS block so the model preserves IDs,
-  section order, and required/format fields across ANY Markdown doc type.
-- Writes sidecars for reproducibility and parity validation.
-- Explicitly flags if any section objects contain a 'group' key (schema violation).
-
-Backends:
-  - OpenAI API: set LLM_BACKEND=openai and OPENAI_API_KEY
-  - OpenRouter: set LLM_BACKEND=openrouter and OPENROUTER_API_KEY
-
-Required env:
-  - MODEL (e.g., "gpt-4o", "gpt-5-2025-08-07", or "openai/gpt-4o" on OpenRouter)
-
-Optional env:
-  - SEED (default: 1234)
-  - ALLOW_SAMPLING_PARAMS=1 to include sampling params (disabled for GPT-5 by default)
-  - TEMPERATURE / TOP_P / PRESENCE_PENALTY / FREQUENCY_PENALTY (floats)
-  - OPENAI_BASE_URL, OPENROUTER_BASE_URL
-  - MAX_TOKENS (int) — caps model output tokens
-  - PROMPT_PATH — alternate prompt location (overrides --prompt)
-  - HINTS_MODE — "append" (default) | "none"
-  - RULES_SIDECAR=1 — write <out>.rules-check.json
-  - META_SIDECAR=1  — write <out>.meta.json
-
+OneDoc Markdown → JSON template transformer (LLM-assisted)
+- Universal and template-agnostic
+- Keeps existing behaviors; only adds safe guards to prevent container 'group' leakage
 Usage:
-  python transform.py input.md output.json [--prompt path/to/prompt.md]
+  python3 transform.py INPUT.md OUTPUT.json [--prompt PROMPT.md]
+Env:
+  LLM_BACKEND=openai|openrouter (default: openai)
+  MODEL=<model name>            (required)
+  OPENAI_API_KEY                (for LLM_BACKEND=openai)
+  OPENROUTER_API_KEY            (for LLM_BACKEND=openrouter)
+  # Optional token limits (not set by default):
+  MAX_COMPLETION_TOKENS=4096    (OpenAI new param)
+  MAX_TOKENS=4096               (legacy param; avoided by default)
+  OPENROUTER_MAX_TOKENS=4096    (OpenRouter 'max_tokens')
 """
-import os
-import sys
-import re
-import json
-import time
-import hashlib
-import argparse
-from typing import Dict, List, Set, Tuple
-import requests
+import os, sys, json, re
 
-# ---------- Regexes ----------
-BACKTICK_ID = re.compile(r'`([A-Z0-9]+(?:-[A-Z0-9]+)+)`')
-COMMENT_GROUP = re.compile(r'<!--\s*group:\s*([A-Z0-9]+(?:-[A-Z0-9]+)+)\s*-->')
-COMMENT_ID = re.compile(r'<!--\s*([A-Z0-9]+(?:-[A-Z0-9]+)+)\s*-->')
-FRONTMATTER = re.compile(r"^---\n(.*?)\n---", re.DOTALL | re.MULTILINE)
-HEADING = re.compile(r'^\s*(#{1,6})\s+(.*?)\s*$')
-
-# ---------- IO helpers ----------
-def read_text(path: str) -> str:
-    with open(path, "r", encoding="utf-8") as f:
+# ---------- IO ----------
+def load_text(path: str) -> str:
+    with open(path, 'r', encoding='utf-8') as f:
         return f.read()
 
-def write_text(path: str, text: str) -> None:
-    with open(path, "w", encoding="utf-8") as f:
-        f.write(text)
+def write_text(path: str, content: str) -> None:
+    with open(path, 'w', encoding='utf-8') as f:
+        f.write(content)
 
-def sha256(text: str) -> str:
-    return hashlib.sha256(text.encode("utf-8")).hexdigest()
-
-def strip_json_fence(s: str) -> str:
-    s2 = s.strip()
-    if s2.startswith("```"):
-        i = s2.find("\n")
-        j = s2.rfind("```")
-        if i != -1 and j != -1 and j > i:
-            return s2[i+1:j].strip()
-    return s2
-
-# ---------- Markdown parsing (hints) ----------
-def parse_frontmatter_keys(md: str) -> List[str]:
-    m = FRONTMATTER.search(md)
-    if not m:
-        return []
-    block = m.group(1)
-    keys: List[str] = []
-    for line in block.splitlines():
-        ls = line.strip()
-        if not ls or ls.startswith("#"):
-            continue
-        if ":" in ls:
-            k = ls.split(":", 1)[0].strip()
-            if k:
-                keys.append(k)
-    return keys
-
-def parse_section_table(md: str) -> List[Dict[str, str]]:
-    """
-    Returns ordered list:
-      [{"id": "PROC-TITLE", "title": "Title", "required": "Yes|No|Forbidden", "format": "H1"}, ...]
-    """
-    lines = md.splitlines()
-    table_lines: List[str] = []
-    in_table = False
-    for line in lines:
-        if line.strip().startswith("|"):
-            table_lines.append(line.rstrip())
-            in_table = True
-            continue
-        if in_table:
-            if not line.strip().startswith("|"):
-                break
-            table_lines.append(line.rstrip())
-    # Remove alignment rows like | --- |
-    rows = [r for r in table_lines if not re.match(r'^\|\s*:?-', r)]
-    if not rows:
-        return []
-    def split_row(r: str) -> List[str]:
-        return [c.strip() for c in r.strip("|").split("|")]
-    header = split_row(rows[0])
-    data = [split_row(r) for r in rows[1:]]
-    result: List[Dict[str, str]] = []
-    for cols in data:
-        if len(cols) < 4:
-            continue
-        title, fmt, req, id_cell = cols[:4]
-        m = BACKTICK_ID.search(id_cell)
-        sid = m.group(1) if m else id_cell.strip()
-        result.append({
-            "id": sid,
-            "title": title,
-            "required": req,
-            "format": fmt or ""
-        })
-    return result
-
-def extract_rule_ids_exact(md: str) -> List[str]:
-    """
-    Returns ordered list of rule IDs from rule lines (NOT headings).
-    Duplicates preserved (for -DUP-n expectation).
-    """
-    ids: List[str] = []
-    for m in COMMENT_ID.finditer(md):
-        token = m.group(1)
-        # locate the full source line containing the comment
-        line_start = md.rfind("\n", 0, m.start())
-        line_end = md.find("\n", m.end())
-        if line_start == -1:
-            line_start = 0
+# ---------- CLI ----------
+def parse_args(argv):
+    if len(argv) < 3:
+        print("Usage: python3 transform.py INPUT.md OUTPUT.json [--prompt PROMPT.md]", file=sys.stderr)
+        sys.exit(2)
+    input_md = argv[1]
+    output_json = argv[2]
+    prompt_path = None
+    i = 3
+    while i < len(argv):
+        if argv[i] == "--prompt" and i + 1 < len(argv):
+            prompt_path = argv[i+1]
+            i += 2
         else:
-            line_start += 1
-        if line_end == -1:
-            line_end = len(md)
-        line = md[line_start:line_end]
-        if "group:" in line:
-            continue  # skip group markers
-        if HEADING.match(line):
-            continue  # skip section headings
-        ids.append(token)
-    return ids
+            print(f"Unknown argument: {argv[i]}", file=sys.stderr)
+            sys.exit(2)
+    return input_md, output_json, prompt_path
 
-def map_groups_to_headings(md: str) -> Dict[str, str]:
+def discover_prompt_path(script_dir: str, cli_prompt: str | None) -> str:
+    if cli_prompt:
+        if not os.path.exists(cli_prompt):
+            print(f"--prompt file not found: {cli_prompt}", file=sys.stderr); sys.exit(2)
+        return cli_prompt
+    env_prompt = os.environ.get("PROMPT_PATH", "").strip()
+    if env_prompt:
+        if not os.path.exists(env_prompt):
+            print(f"PROMPT_PATH not found: {env_prompt}", file=sys.stderr); sys.exit(2)
+        return env_prompt
+    for cand in ("md2json-prompt-templates.md", "prompt.md"):
+        p = os.path.join(script_dir, cand)
+        if os.path.exists(p):
+            return p
+    print("Prompt file not found. Tried --prompt, PROMPT_PATH, md2json-prompt-templates.md, prompt.md", file=sys.stderr)
+    sys.exit(2)
+
+# ---------- Inventory extraction (template-agnostic) ----------
+_INV_GROUP = re.compile(r'<!--\s*group:\s*([A-Z0-9][A-Z0-9_-]*)\s*-->', re.IGNORECASE)
+_INV_RULE  = re.compile(r'<!--\s*([A-Z0-9][A-Z0-9_-]*)\s*-->', re.IGNORECASE)
+
+def _extract_id_inventory(md_text: str):
     """
-    Returns {"PROC-OVERVIEW": "Overview", ...} using the nearest preceding heading text
-    for each <!-- group: TOKEN -->.
+    Build inventory of section container IDs and their rule IDs (order-preserving).
+    Returns: (sections_map: dict[str, list[str]], all_rule_ids: set[str])
     """
-    lines = md.splitlines()
-    last_heading_text = ""
-    heading_by_line: Dict[int, str] = {}
-    for i, line in enumerate(lines):
-        hm = HEADING.match(line)
-        if hm:
-            text = re.sub(r"\s*<!--.*?-->\s*", "", hm.group(2)).strip()
-            last_heading_text = text
-        heading_by_line[i] = last_heading_text
-    groups: Dict[str, str] = {}
-    for i, line in enumerate(lines):
-        for g in COMMENT_GROUP.findall(line):
-            groups[g] = heading_by_line.get(i, "") or ""
-    return groups
+    sections = {}
+    allowed = set()
+    current = None
+    for line in md_text.splitlines():
+        g = _INV_GROUP.search(line)
+        if g:
+            current = g.group(1).strip()
+            sections.setdefault(current, [])
+            continue
+        r = _INV_RULE.search(line)
+        if r:
+            rid = r.group(1).strip()
+            if rid.upper().startswith("GROUP:"):
+                continue
+            if current:
+                sections.setdefault(current, [])
+                sections[current].append(rid)
+            allowed.add(rid)
+    return sections, allowed
 
-# ---------- HTTP + payload ----------
-def build_messages(prompt: str, markdown: str, hints: Dict) -> List[Dict]:
-    system_msg = {
-        "role": "system",
-        "content": (
-            "You convert Markdown into JSON strictly per the provided instructions. "
-            "Be mechanical and deterministic. Do not invent fields. Preserve every UPPERCASE rule id verbatim."
-        ),
-    }
-    user_prompt = {"role": "user", "content": prompt}
-    user_md = {
-        "role": "user",
-        "content": "Here is the Markdown document to convert:\n\n```markdown\n" + markdown + "\n```",
-    }
-    msgs = [system_msg, user_prompt, user_md]
-    if os.environ.get("HINTS_MODE", "append") != "none" and hints:
-        msgs.append({
-            "role": "user",
-            "content": (
-                "Authoritative hints for determinism (use; do not echo):\n\n"
-                "```json\n" + json.dumps(hints, ensure_ascii=False, indent=2) + "\n```"
-            ),
-        })
-    return msgs
+def _render_inventory_block(sections: dict, allowed: set) -> str:
+    if not sections:
+        return ""
+    parts = []
+    parts.append("### Canonical Rule-ID Inventory (extracted from this Markdown)\n")
+    parts.append("Only use the following rule IDs exactly as written. Do **not** invent or rename IDs.\n")
+    for sid, rules in sections.items():
+        parts.append(f"Section {sid}:")
+        if not rules:
+            parts.append("- (no explicit rule IDs found)")
+        else:
+            for rid in rules:
+                parts.append(f"- {rid}")
+        parts.append("")
+    parts.append("If you output a rule not in this list, add it to `validation.unknownRuleIds` (do not synthesize a new ID).")
+    return "\n".join(parts)
 
-def build_payload(model: str, messages: List[Dict]) -> Dict:
-    payload = {
-        "model": model,
-        "response_format": {"type": "json_object"},
-        "messages": messages,
-        "seed": int(os.environ.get("SEED", "1234")),
-    }
-    allow_sampling = os.environ.get("ALLOW_SAMPLING_PARAMS", "0") == "1"
-    is_gpt5 = "gpt-5" in model
-    if allow_sampling and not is_gpt5:
-        if "TEMPERATURE" in os.environ:
-            payload["temperature"] = float(os.environ["TEMPERATURE"])
-        if "TOP_P" in os.environ:
-            payload["top_p"] = float(os.environ["TOP_P"])
-        if "PRESENCE_PENALTY" in os.environ:
-            payload["presence_penalty"] = float(os.environ["PRESENCE_PENALTY"])
-        if "FREQUENCY_PENALTY" in os.environ:
-            payload["frequency_penalty"] = float(os.environ["FREQUENCY_PENALTY"])
-    if "MAX_TOKENS" in os.environ:
+# ---------- Post-processing helpers ----------
+_EX_TAIL = re.compile(r'\((?:for example|e\.g\.)\s*:\s*([^)]+)\)\s*\.?$', re.IGNORECASE)
+
+def _split_examples(txt: str):
+    parts = re.split(r'\s*,\s*|\s+or\s+|\s+and\s+', (txt or "").strip())
+    return [p.strip().strip('"').strip("'") for p in parts if p.strip()]
+
+def _move_examples_from_description(rule: dict) -> None:
+    desc = (rule.get("description") or "").strip()
+    moved = []
+    m = _EX_TAIL.search(desc)
+    if m:
+        moved.extend(_split_examples(m.group(1)))
+        desc = desc[:m.start()].rstrip()
+    m2 = re.search(r'(?i)\bfor\s+example\b[: ,]+(.+)$', desc)
+    if m2 and ("," in m2.group(1) or re.search(r'\b(or|and)\b', m2.group(1))):
+        moved.extend(_split_examples(m2.group(1)))
+        desc = desc[:m2.start()].rstrip()
+    rule["description"] = re.sub(r'\s{2,}', ' ', desc).strip()
+    if moved:
+        ex = rule.get("examples") or []
+        for item in moved:
+            if item and item not in ex:
+                ex.append(item)
+        rule["examples"] = ex
+
+def _derive_group_from_id(rule_id: str):
+    if not rule_id: return None
+    if "FORBID" in rule_id: return "FORBID"
+    if "STRUCT" in rule_id: return "STRUCT"
+    if "BEHAV" in rule_id:  return "BEHAV"
+    return None
+
+def _extract_doc_type(md_text: str) -> str:
+    # explicit: doc_type: concept
+    m = re.search(r'^\s*doc_type\s*:\s*["\']?\s*([A-Za-z0-9_-]+)\s*["\']?\s*$', md_text, flags=re.MULTILINE)
+    if m: return m.group(1).strip()
+    # hinted: doc_type: # [concept]
+    m2 = re.search(r'^\s*doc_type\s*:\s*#\s*\[([A-Za-z0-9_-]+)\]\s*$', md_text, flags=re.MULTILINE)
+    if m2: return m2.group(1).strip()
+    return ""
+
+def _strip_container_groups(obj: dict) -> dict:
+    """
+    Remove 'group' from section containers and forbidden containers universally.
+    Does not touch rule-level 'group'.
+    """
+    try:
+        for s in obj.get("sections") or []:
+            if isinstance(s, dict):
+                s.pop("group", None)
+        for fb in obj.get("forbidden") or []:
+            if isinstance(fb, dict):
+                fb.pop("group", None)
+    except Exception:
+        pass
+    return obj
+
+def _postprocess(obj: dict, markdown_source: str) -> dict:
+    # (1) Fill doc_type
+    fm = obj.get("frontMatter") or {}
+    if fm.get("doc_type") in (None, "", "null"):
+        dt = _extract_doc_type(markdown_source)
+        if dt:
+            fm["doc_type"] = dt
+            obj["frontMatter"] = fm
+
+    # (2) Rules: normalize group + move examples; containers: drop group
+    for s in obj.get("sections") or []:
+        # never keep container group
+        s.pop("group", None)
+        for r in s.get("rules") or []:
+            g = _derive_group_from_id(r.get("id") or "")
+            if g:
+                r["group"] = g
+            _move_examples_from_description(r)
+
+    for fb in obj.get("forbidden") or []:
+        # Some models might emit a dict bucket for forbidden; ensure no container group leaks
+        if isinstance(fb, dict):
+            fb.pop("group", None)
+            for r in fb.get("rules") or []:
+                g = _derive_group_from_id(r.get("id") or "")
+                if g:
+                    r["group"] = g
+                _move_examples_from_description(r)
+
+    # (3) Validation cleanup and notes
+    v = obj.get("validation") or {}
+    msgs = []
+    for msg in (v.get("groupViolations") or []):
+        if re.match(r'^Section\s+(\S+)\s+marked BEHAV but contains container constraints$', msg or ""):
+            continue
+        m = re.match(r'^Unknown group token in rule ID\s+(.+?)\s+\(set to BEHAV\)$', msg or "")
+        if m and _derive_group_from_id(m.group(1)):
+            continue
+        msgs.append(msg)
+    v["groupViolations"] = msgs
+
+    # Drop NO_SECTION_TABLE if Markdown actually has the overview table header
+    if re.search(r'^\|\s*Section\s*\|', markdown_source, flags=re.MULTILINE):
+        v["notes"] = [n for n in (v.get("notes") or []) if n != "NO_SECTION_TABLE"]
+
+    # (4) Unknown rule IDs report (inventory-based, generic)
+    try:
+        inv_sections, inv_allowed = _extract_id_inventory(markdown_source)
+    except Exception:
+        inv_sections, inv_allowed = ({}, set())
+    if inv_allowed:
+        unknown = []
+        for s in obj.get('sections') or []:
+            for r in (s.get('rules') or []):
+                rid = r.get('id')
+                if rid and rid not in inv_allowed:
+                    unknown.append(rid)
+        v['unknownRuleIds'] = sorted(list(dict.fromkeys(unknown)))
+    obj["validation"] = v
+
+    # (5) Final defensive strip
+    obj = _strip_container_groups(obj)
+    return obj
+
+# ---------- Backends ----------
+def _call_openai(model: str, messages: list[str|dict]) -> str:
+    try:
+        from openai import OpenAI
+    except Exception as e:
+        raise RuntimeError("OpenAI SDK not available; set LLM_BACKEND=openrouter or install openai>=1.x") from e
+    if not os.environ.get("OPENAI_API_KEY"):
+        raise RuntimeError("Missing OPENAI_API_KEY")
+    client = OpenAI()
+    base_kwargs = dict(model=model, messages=messages, temperature=0, top_p=1,
+                       seed=int(os.environ.get("SEED", "1234")))
+    # Optional token limits (opt-in)
+    mct = os.environ.get("MAX_COMPLETION_TOKENS")
+    mt  = os.environ.get("MAX_TOKENS")
+    def _create(kwargs):
+        return client.chat.completions.create(**kwargs).choices[0].message.content
+    if mct:
         try:
-            payload["max_tokens"] = int(os.environ["MAX_TOKENS"])
-        except ValueError:
+            kw = dict(base_kwargs); kw["max_completion_tokens"] = int(mct); return _create(kw)
+        except Exception as e:
+            if "max_completion_tokens" not in str(e): raise
+    if mt:
+        try:
+            kw = dict(base_kwargs); kw["max_tokens"] = int(mt); return _create(kw)
+        except Exception as e:
+            if "max_tokens" not in str(e): raise
+    return _create(base_kwargs)
+
+def _call_openrouter(model: str, messages: list[str|dict]) -> str:
+    import requests
+    base = os.environ.get("OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1")
+    api_key = os.environ.get("OPENROUTER_API_KEY")
+    if not api_key:
+        raise RuntimeError("Missing OPENROUTER_API_KEY")
+    headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
+    body = {"model": model, "messages": messages, "temperature": 0, "top_p": 1,
+            "seed": int(os.environ.get("SEED", "1234"))}
+    if os.environ.get("OPENROUTER_MAX_TOKENS"):
+        try:
+            body["max_tokens"] = int(os.environ["OPENROUTER_MAX_TOKENS"])
+        except Exception:
             pass
-    return payload
-
-def detect_backend():
-    backend = os.environ.get("LLM_BACKEND", "openai").lower()
-    model = os.environ.get("MODEL")
-    if not model:
-        print("Missing MODEL environment variable.", file=sys.stderr)
-        sys.exit(2)
-    if backend == "openai":
-        api_key = os.environ.get("OPENAI_API_KEY")
-        if not api_key:
-            print("Missing OPENAI_API_KEY", file=sys.stderr)
-            sys.exit(2)
-        base = os.environ.get("OPENAI_BASE_URL", "https://api.openai.com/v1")
-        url = base.rstrip("/") + "/chat/completions"
-        headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
-    elif backend == "openrouter":
-        api_key = os.environ.get("OPENROUTER_API_KEY")
-        if not api_key:
-            print("Missing OPENROUTER_API_KEY", file=sys.stderr)
-            sys.exit(2)
-        base = os.environ.get("OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1")
-        url = base.rstrip("/") + "/chat/completions"
-        headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
-    else:
-        print("LLM_BACKEND must be 'openai' or 'openrouter'", file=sys.stderr)
-        sys.exit(2)
-    return model, url, headers
-
-def post_chat(url: str, headers: Dict, payload: Dict) -> requests.Response:
-    return requests.post(url, headers=headers, json=payload, timeout=600)
-
-def retryable_post(url: str, headers: Dict, payload: Dict, attempts: int = 3) -> requests.Response:
-    last = None
-    for i in range(attempts):
-        resp = post_chat(url, headers, payload)
-        if resp.status_code == 200:
-            return resp
-        if resp.status_code == 400 and "unsupported_value" in resp.text:
-            for k in ("temperature", "top_p", "presence_penalty", "frequency_penalty"):
-                payload.pop(k, None)
-            last = resp
-            continue
-        if resp.status_code >= 500 or resp.status_code in (408, 429):
-            time.sleep(1.5 * (i + 1))
-            last = resp
-            continue
-        last = resp
-        break
-    return last if last is not None else resp
-
-# ---------- Sidecars (parity + metadata) ----------
-def _collect_json_ids(obj: Dict) -> Tuple[List[str], List[str]]:
-    sections = []
-    rules = []
-    for s in obj.get("sections", []) or []:
-        sid = s.get("id")
-        if isinstance(sid, str):
-            sections.append(sid)
-        for r in s.get("rules", []) or []:
-            rid = r.get("id")
-            if isinstance(rid, str):
-                rules.append(rid)
-    for blk in obj.get("forbidden", []) or []:
-        for r in blk.get("rules", []) or []:
-            rid = r.get("id")
-            if isinstance(rid, str):
-                rules.append(rid)
-    return sections, rules
-
-def _expected_rule_ids_with_dups(rule_ids_exact: List[str]) -> List[str]:
-    counts: Dict[str, int] = {}
-    out: List[str] = []
-    for rid in rule_ids_exact:
-        c = counts.get(rid, 0)
-        if c == 0:
-            out.append(rid)
-        else:
-            out.append(f"{rid}-DUP-{c}")
-        counts[rid] = c + 1
-    return out
-
-def _examples_quality(obj: Dict) -> Dict[str, List[str]]:
-    leaks = []
-    too_many = []
-    too_long = []
-    ex_pat = re.compile(r"\b(for example|e\.g\.|instead of|rather than)\b", re.IGNORECASE)
-    for s in obj.get("sections", []) or []:
-        # flag schema violation: section-level 'group'
-        if isinstance(s, dict) and "group" in s:
-            leaks.append(f"SECTION_HAS_GROUP:{s.get('id')}")
-        for r in s.get("rules", []) or []:
-            rid = r.get("id", "")
-            desc = r.get("description", "") or ""
-            exs = r.get("examples", []) or []
-            if ex_pat.search(desc):
-                too_many.append(f"DESC_LEAKS:{rid}")
-            if isinstance(exs, list) and len(exs) > 2:
-                too_many.append(f"EX_GT2:{rid}")
-            for x in exs:
-                if isinstance(x, str) and len(x) > 160:
-                    too_long.append(rid)
-    return {
-        "schema_section_has_group": [x.replace("SECTION_HAS_GROUP:", "") for x in leaks if x.startswith("SECTION_HAS_GROUP:")],
-        "description_leaks_examples": [x.replace("DESC_LEAKS:", "") for x in too_many if x.startswith("DESC_LEAKS:")],
-        "examples_count_gt2": [x.replace("EX_GT2:", "") for x in too_many if x.startswith("EX_GT2:")],
-        "examples_item_gt160chars": too_long,
-    }
-
-def _sections_table_mismatches(obj: Dict, sections_table: List[Dict[str, str]]) -> List[Dict]:
-    want_by_id = {s["id"]: s for s in sections_table}
-    got_by_id = {s.get("id"): s for s in obj.get("sections", []) or []}
-    mismatches = []
-    for sid, want in want_by_id.items():
-        got = got_by_id.get(sid)
-        if not got:
-            mismatches.append({"type": "section_missing_in_json", "id": sid})
-            continue
-        # title
-        if (got.get("title") or "") != (want["title"] or ""):
-            mismatches.append({"type": "title_mismatch", "id": sid, "want": want["title"], "got": got.get("title")})
-        # required mapping (Yes/No/Forbidden → required/optional/forbidden)
-        got_req = got.get("required")
-        got_req_norm = {"required": "Yes", "optional": "No", "forbidden": "Forbidden"}.get(got_req, got_req)
-        if got_req_norm != want["required"]:
-            mismatches.append({"type": "required_mismatch", "id": sid, "want": want["required"], "got": got_req})
-        # format
-        if (got.get("format") or "") != (want.get("format") or ""):
-            mismatches.append({"type": "format_mismatch", "id": sid, "want": want.get("format", ""), "got": got.get("format", "")})
-    return mismatches
-
-def write_rules_sidecar(base_out: str, md: str, obj: Dict) -> None:
-    sections_table = parse_section_table(md)
-    section_ids_from_table = [s["id"] for s in sections_table]
-    rule_ids_exact = extract_rule_ids_exact(md)
-
-    json_section_ids, json_rule_ids = _collect_json_ids(obj)
-    expected_rule_ids = _expected_rule_ids_with_dups(rule_ids_exact)
-
-    missing_sections = sorted(set(section_ids_from_table) - set(json_section_ids))
-    extra_sections = sorted(set(json_section_ids) - set(section_ids_from_table))
-
-    missing_rules = [rid for rid in expected_rule_ids if rid not in json_rule_ids]
-    extra_rules = [rid for rid in json_rule_ids if rid not in expected_rule_ids]
-
-    quality = _examples_quality(obj)
-    sections_mismatches = _sections_table_mismatches(obj, sections_table)
-
-    report = {
-        "sections": {
-            "expected_from_table": section_ids_from_table,
-            "json_section_ids": json_section_ids,
-            "missing_in_json": missing_sections,
-            "extra_in_json": extra_sections,
-            "table_mismatches": sections_mismatches,
-        },
-        "rules": {
-            "expected_from_rule_ids_exact": expected_rule_ids,
-            "json_rule_ids": json_rule_ids,
-            "missing_in_json": missing_rules,
-            "extra_in_json": extra_rules,
-        },
-        "quality": quality,
-    }
-    write_text(base_out + ".rules-check.json", json.dumps(report, ensure_ascii=False, indent=2))
-
-def write_meta_sidecar(base_out: str, meta: Dict) -> None:
-    write_text(base_out + ".meta.json", json.dumps(meta, ensure_ascii=False, indent=2))
+    resp = requests.post(f"{base}/chat/completions", headers=headers, json=body, timeout=600)
+    resp.raise_for_status()
+    data = resp.json()
+    return data["choices"][0]["message"]["content"]
 
 # ---------- Main ----------
 def main():
-    ap = argparse.ArgumentParser(description="Deterministic Markdown→JSON transformer (generic, rule-aware)")
-    ap.add_argument("input_md", help="Path to input Markdown file")
-    ap.add_argument("output_json", help="Path to output JSON file")
-    ap.add_argument("--prompt", dest="prompt_path", help="Path to prompt.md (defaults to ./prompt.md)")
-    args = ap.parse_args()
+    input_md, output_json, cli_prompt = parse_args(sys.argv)
+    if not os.path.exists(input_md):
+        print(f"Input Markdown not found: {input_md}\nCWD: {os.getcwd()}", file=sys.stderr); sys.exit(2)
 
-    prompt_path = os.environ.get("PROMPT_PATH") or args.prompt_path or os.path.join(os.path.dirname(__file__), "prompt.md")
-    if not os.path.exists(prompt_path):
-        print(f"Missing prompt file: {prompt_path}", file=sys.stderr)
-        sys.exit(2)
+    script_dir = os.path.dirname(__file__)
+    prompt_path = discover_prompt_path(script_dir, cli_prompt)
 
-    prompt = read_text(prompt_path)
-    markdown = read_text(args.input_md)
-    md_hash = sha256(markdown)
+    prompt = load_text(prompt_path)
+    markdown = load_text(input_md)
 
-    # Hints
-    fm_keys = parse_frontmatter_keys(markdown)
-    sections_table = parse_section_table(markdown)
-    section_ids_from_table = [s["id"] for s in sections_table]
-    rule_ids_exact = extract_rule_ids_exact(markdown)
-    group_headings = map_groups_to_headings(markdown)
+    # Build messages
+    inv_sections, inv_allowed = _extract_id_inventory(markdown)
+    inventory_block = _render_inventory_block(inv_sections, inv_allowed)
+    system_msg = {"role": "system", "content": "Convert Markdown into JSON strictly per the provided instructions. Be mechanical and deterministic."}
+    user_prompt_msg = {"role": "user", "content": prompt}
+    user_md_msg = {"role": "user", "content": "Here is the Markdown template to convert:\n\n```markdown\n" + markdown + "\n```"}
+    inventory_msg = {"role": "user", "content": inventory_block} if inventory_block else None
+    messages = [m for m in [system_msg, user_prompt_msg, user_md_msg, inventory_msg] if m]
 
-    hints = {
-        "md_sha256": md_hash,
-        "front_matter_keys": fm_keys,
-        "sections_table": sections_table,
-        "section_ids_from_table": section_ids_from_table,
-        "rule_ids_exact": rule_ids_exact,
-        "group_headings": group_headings,
-        "notes": [
-            "Use rule_ids_exact as the authoritative list of rule IDs to emit.",
-            "Only emit -DUP-n for the second+ occurrences of the same base ID in rule_ids_exact.",
-            "Do not emit any rule ID not present in rule_ids_exact, except synthesized AUTO IDs for missing rule lines."
-        ],
-    }
+    backend = os.environ.get("LLM_BACKEND", "openai").lower()
+    model = os.environ.get("MODEL")
+    if not model:
+        print("Missing MODEL environment variable.", file=sys.stderr); sys.exit(2)
 
-    # Build and send request
-    model, url, headers = detect_backend()
-    messages = build_messages(prompt, markdown, hints)
-    payload = build_payload(model, messages)
-    resp = retryable_post(url, headers, payload, attempts=3)
-    if not resp or resp.status_code != 200:
-        status = resp.status_code if resp else "no_response"
-        body = (resp.text[:1400] if resp and hasattr(resp, "text") else "")
-        print("API error:", status, body, file=sys.stderr)
-        sys.exit(1)
-
-    data = resp.json()
+    # Call LLM
     try:
-        content = data["choices"][0]["message"]["content"]
-    except Exception:
-        print("Unexpected API response:", json.dumps(data)[:1400], file=sys.stderr)
-        sys.exit(1)
+        if backend == "openrouter":
+            content = _call_openrouter(model, messages)
+        else:
+            content = _call_openai(model, messages)
+    except Exception as e:
+        print(f"LLM call failed: {e}", file=sys.stderr); sys.exit(3)
 
-    content_json = strip_json_fence(content)
+    # Extract JSON block
+    m = re.search(r'```json\s*(\{.*?\})\s*```', content, flags=re.DOTALL)
+    if not m:
+        write_text(output_json + ".raw.txt", content)
+        print(f"LLM did not return JSON. See {output_json}.raw.txt", file=sys.stderr)
+        sys.exit(3)
+    content_str = m.group(1)
+
+    # Parse JSON
     try:
-        obj = json.loads(content_json)
-    except json.JSONDecodeError as e:
-        raw_path = args.output_json + ".raw.txt"
-        write_text(raw_path, content)
-        print("Model did not return valid JSON. Raw saved to:", raw_path, file=sys.stderr)
-        print("Decode error:", e, file=sys.stderr)
-        sys.exit(1)
+        obj = json.loads(content_str)
+    except Exception as e:
+        write_text(output_json + ".bad.json", content_str)
+        print(f"Could not parse JSON block. Wrote {output_json}.bad.json\n{e}", file=sys.stderr)
+        sys.exit(3)
 
-    # Write main JSON
-    write_text(args.output_json, json.dumps(obj, ensure_ascii=False, indent=2))
-    print("Wrote:", args.output_json)
+    # Post-process (includes final group strip)
+    obj = _postprocess(obj, markdown)
 
-    # Sidecars
-    base = args.output_json
-    if os.environ.get("RULES_SIDECAR", "1") == "1":
-        write_rules_sidecar(base, markdown, obj)
-    if os.environ.get("META_SIDECAR", "1") == "1":
-        meta = {
-            "model": model,
-            "backend": os.environ.get("LLM_BACKEND", "openai"),
-            "seed": int(os.environ.get("SEED", "1234")),
-            "prompt_path": os.path.abspath(prompt_path),
-            "input_md_path": os.path.abspath(args.input_md),
-            "output_json_path": os.path.abspath(args.output_json),
-            "md_sha256": md_hash,
-        }
-        write_meta_sidecar(base, meta)
+    # Write JSON
+    write_text(output_json, json.dumps(obj, ensure_ascii=False, indent=2))
+    print(f"Wrote: {output_json}")
 
 if __name__ == "__main__":
     main()
