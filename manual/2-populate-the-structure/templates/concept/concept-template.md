@@ -1,4 +1,4 @@
-# Concept template <!-- This is an informative header; remove it before merging your content. -->
+# Concept template
 
 ---
 title:
@@ -19,6 +19,7 @@ slug:
 | Subtitle               | H4                            | Yes        | `CONC-SUBTITLE` |
 | Access callout         | Note-type callout             | No         | `CONC-ACCESS`     |
 | Callouts               | Tip, Note, Important, Caution | No         | `CONC-CALLOUTS` |
+| Intro                  |                               | Yes        | `CONC-INTRO`        |
 | Overview               | Paragraph                     | Yes        | `CONC-OVERVIEW` |
 | Diagram                | Mermaid or image              | No         | `CONC-DIAGRAM`  |
 | Use case example       | Paragraph, list               | No         | `CONC-USE-CASE` |
@@ -26,7 +27,8 @@ slug:
 | "The basics" heading   | List                          | Yes        | `CONC-BASICS`   |
 | H2 section             | H2 + body (container)         | Yes        | `CONC-H2-SECTION`  |
 | H3 section             | H3 + body (container)         | No         | `CONC-H3-SECTION`  |
-| Forbidden content      | -                             | Forbidden  | `CONC-FORBID`   |
+| Extra guidelines       |                               | Yes        | `CONC-EXTRA`      |
+| Forbidden content      |                               | Forbidden  | `CONC-FORBID`   |
 
 ## Title <!-- group: CONC-TITLE -->
 
@@ -54,9 +56,9 @@ Examples:
 
 - Use a Markdown H4 for the subtitle placed right under the H1 title. <!-- CONC-STRUCT-SUBTITLE-H4 -->
 - One sentence only; no links, lists, or inline formatting. <!-- CONC-BEHAV-SUBTITLE-SINGLE-SENTENCE -->
-- Do not end with a period. <!-- CONC-BEHAV-SUBTITLE-NO-PERIOD -->
+- Ends with a period. <!-- CONC-BEHAV-SUBTITLE-END-PERIOD -->
 - Stay under 20 words. <!-- CONC-BEHAV-SUBTITLE-LENGTH-20 -->
-- Use an base-form verb that states the purpose or benefit (for example: *Learn*, *Explore*, *Discover*, *Understand*). <!-- CONC-BEHAV-SUBTITLE-IMPERATIVE -->
+- Use a base-form verb that states the purpose or benefit (for example: *Learn*, *Explore*, *Discover*, *Understand*). <!-- CONC-BEHAV-SUBTITLE-IMPERATIVE -->
 - Add new value beyond the title; don’t repeat or rephrase the H1. <!-- CONC-BEHAV-SUBTITLE-ADDS-VALUE -->
 
 Examples:
@@ -77,7 +79,7 @@ This note-type callout is exclusively to alert readers about what roles, permiss
 - Do not include knowledge, skills, or required tools. <!-- CONC-BEHAV-ACCESS-SCOPE-ONLY -->
 - Omit the callout entirely if no permission/product constraints exist. <!-- CONC-STRUCT-ACCESS-OMIT-IF-EMPTY -->
 
-**Example:**
+Example:
 
   > **Note**
   >
@@ -91,15 +93,15 @@ This note-type callout is exclusively to alert readers about what roles, permiss
 - Keep each callout concise (≤ 2 short sentences). If the content needs a list or multiple paragraphs, move it into the body under a heading. <!-- CONC-BEHAV-CALLOUTS-CONCISE -->
 - Ensure the callout content is directly relevant to the nearby text. <!-- CONC-BEHAV-CALLOUTS-RELEVANT -->
 - Use the appropriate type: `Tip`, `Note`, `Important`, or `Caution`. <!-- CONC-BEHAV-CALLOUTS-TYPE -->
-- For the allowed callout types and when to use them, see the [writing rules](../../3-validating-design/writing-rules/README.md). <!-- CONC-BEHAV-CALLOUTS-TYPES-REFER-STYLEGUIDE -->
+- For the allowed callout types and when to use them, see the [writing rules](../../3-validating-design/writing-rules/README.md). <!-- CONC-BEHAV-CALLOUTS-TYPES-REFER-WRITING-RULES -->
 
-**Example:**
+Example:
 
 > **Note:**
 >
 > Keep container resources within the documented limits to avoid throttling.
 
-## Intro
+## Intro <!-- group: CONC-INTRO -->
 
 Every concept requires an introduction that provides context and helps readers understand feature goals, benefits, and use cases. The introduction includes these sections, each one represented by a paragraph, list, or table:
 
@@ -130,7 +132,7 @@ Every concept requires an introduction that provides context and helps readers u
 - Provide a concrete, real-world scenario for the product feature. <!-- CONC-BEHAV-USE-CASE-REAL-WORLD -->
 - Use a bullet list format to present multiple use cases clearly. <!-- CONC-STRUCT-USE-CASE-LIST -->
 
-> ⚙️ **Example:**
+> Example:
 >
 > *For example, you can configure custom environment variables so they are set every time you open a codespace, and you can ensure that temporary files are retained when the codespace stops.*
 
@@ -143,7 +145,7 @@ Every concept requires an introduction that provides context and helps readers u
 - Highlight trade‑offs clearly. For example, "Option A is faster but less secure" or "Option B adds encryption overhead". <!-- CONC-BEHAV-COMPARISON-TRADEOFFS -->
 - Provide real-world guidance. For example, "Choose A if you need X, choose B if you care about Y". <!-- CONC-BEHAV-COMPARISON-GUIDANCE -->
 
-> ⚙️ **Example:**
+> Example:
 >
 > | Feature             | Relay                                       | RLN Relay                                   |
 > |:--------------------|:--------------------------------------------|:--------------------------------------------|
@@ -161,7 +163,7 @@ Every concept requires an introduction that provides context and helps readers u
 - Order items from most important to least important. <!-- CONC-BEHAV-EXPECT-PRIORITY -->
 - Allow only same-page heading links; no external links. <!-- CONC-BEHAV-EXPECT-LINKS-INTERNAL -->
 
-> ⚙️ **Example:**
+> Example:
 >
 >- *Codespaces are fully managed, cloud-based development environments you can spin up in seconds.*
 >- *They run in containers that match your repository’s configuration, so every contributor gets the same setup.*  
@@ -181,13 +183,13 @@ Every concept requires an introduction that provides context and helps readers u
 
 - If present, the first visual after the key idea must be an image or screenshot. <!-- CONC-STRUCT-H2-SHOT-POSITION -->
 - Screenshot has non-empty alt text. <!-- CONC-STRUCT-H2-SHOT-ALT-TEXT -->
-- Follow the screenshot rules in the Style Guide. <!-- CONC-BEHAV-H2-SHOT-REFER-STYLEGUIDE -->
+- Follow the screenshot rules in the Writing Rules. <!-- CONC-BEHAV-H2-SHOT-REFER-WRITING-RULES -->
 
 ### Code (optional) <!-- CONC-H2-CODE -->
 
 - If present, use a fenced code block; take the first fenced block after screenshot/key idea. <!-- CONC-STRUCT-H2-CODE-POSITION -->
 - Snippet is short and illustrative, non-procedural. <!-- CONC-BEHAV-H2-CODE-SHORT-NONPROCEDURAL -->
-- Follow the code rules in the Style Guide. <!-- CONC-BEHAV-H2-CODE-REFER-STYLEGUIDE -->
+- Follow the code rules in the Writing Rules. <!-- CONC-BEHAV-H2-CODE-REFER-WRITING-RULES -->
 
 ## H3 section (optional) <!-- CONC-H3-SECTION -->
 
@@ -204,13 +206,18 @@ Every concept requires an introduction that provides context and helps readers u
 
 - If present, the first visual after the key idea must be an image or screenshot. <!-- CONC-STRUCT-H3-SHOT-POSITION -->
 - Screenshot has non-empty alt text. <!-- CONC-STRUCT-H3-SHOT-ALT-TEXT -->
-- Follow the screenshot rules in the Style Guide. <!-- CONC-BEHAV-H3-SHOT-REFER-STYLEGUIDE -->
+- Follow the screenshot rules in the Writing Rules. <!-- CONC-BEHAV-H3-SHOT-REFER-WRITING-RULES -->
 
 ### Code (optional) <!-- CONC-H3-CODE -->
 
 - If present, use a fenced code block; take the first fenced block after screenshot/key idea. <!-- CONC-STRUCT-H3-CODE-POSITION -->
 - Snippet is short and illustrative, non-procedural. <!-- CONC-BEHAV-H3-CODE-SHORT-NONPROCEDURAL -->
-- Follow the code rules in the Style Guide. <!-- CONC-BEHAV-H3-CODE-REFER-STYLEGUIDE -->
+- Follow the code rules in the Writing Rules. <!-- CONC-BEHAV-H3-CODE-REFER-WRITING-RULES -->
+
+## Extra guidelines <!-- group: CONC-EXTRA -->
+
+- This section is guidance only; do not render a visible heading or body. <!-- CONC-STRUCT-EXTRA-GUIDELINES-NO-RENDER -->
+- Keep the procedure word count between 400 and 900 words. <!-- CONC-BEHAV-EXTRA-LENGTH -->
 
 ## Forbidden content <!-- group: CONC-FORBID -->
 
