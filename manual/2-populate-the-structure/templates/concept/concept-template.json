@@ -9,7 +9,8 @@
     "steps_layout": null,
     "authors": "# GitHub username",
     "owner": "logos",
-    "slug": ""
+    "slug": "",
+    "doc_version": "# increased by one after every update"
   },
   "sections": [
     {
@@ -90,9 +91,9 @@
           "examples": []
         },
         {
-          "id": "CONC-BEHAV-SUBTITLE-NO-PERIOD",
+          "id": "CONC-BEHAV-SUBTITLE-END-PERIOD",
           "group": "BEHAV",
-          "description": "Do not end with a period.",
+          "description": "Ends with a period.",
           "examples": []
         },
         {
@@ -104,7 +105,7 @@
         {
           "id": "CONC-BEHAV-SUBTITLE-IMPERATIVE",
           "group": "BEHAV",
-          "description": "Use an base-form verb that states the purpose or benefit",
+          "description": "Use a base-form verb that states the purpose or benefit",
           "examples": [
             "*Learn*",
             "*Explore*",
@@ -120,7 +121,8 @@
         }
       ],
       "examples": [
-        "- **Title**: *About Logos Connect communication protocol* / **Subtitle**: *Understand Waku’s peer-to-peer protocol for private, censorship-resistant messaging*\n- **Title**: *Guide to Logos Storage API* / **Subtitle**: *Learn how Codex provides real-time blockchain data through a single API*"
+        "- **Title**: *About Logos Connect communication protocol* / **Subtitle**: *Understand Waku’s peer-to-peer protocol for private, censorship-resistant messaging*",
+        "- **Title**: *Guide to Logos Storage API* / **Subtitle**: *Learn how Codex provides real-time blockchain data through a single API*"
       ]
     },
     {
@@ -219,7 +221,7 @@
           "examples": []
         },
         {
-          "id": "CONC-BEHAV-CALLOUTS-TYPES-REFER-STYLEGUIDE",
+          "id": "CONC-BEHAV-CALLOUTS-TYPES-REFER-WRITING-RULES",
           "group": "BEHAV",
           "description": "For the allowed callout types and when to use them, see the [writing rules](../../3-validating-design/writing-rules/README.md).",
           "examples": []
@@ -233,7 +235,7 @@
       "id": "CONC-INTRO",
       "title": "Intro",
       "required": "required",
-      "format": null,
+      "format": "",
       "rules": [
         {
           "id": "CONC-STRUCT-INTRO-ORDER",
@@ -336,7 +338,7 @@
         }
       ],
       "examples": [
-        "> ⚙️ **Example:**\n>\n> *For example, you can configure custom environment variables so they are set every time you open a codespace, and you can ensure that temporary files are retained when the codespace stops.*"
+        "> Example:\n>\n> *For example, you can configure custom environment variables so they are set every time you open a codespace, and you can ensure that temporary files are retained when the codespace stops.*"
       ]
     },
     {
@@ -389,7 +391,7 @@
         }
       ],
       "examples": [
-        "> ⚙️ **Example:**\n>\n> | Feature             | Relay                                       | RLN Relay                                   |\n> |:--------------------|:--------------------------------------------|:--------------------------------------------|\n> | Spam protection     | None – all peers can flood messages         | Enforces per-peer rate limits, economic penalties |\n> | Privacy impact      | Neutral – standard Pub/Sub propagation      | Neutral – preserves Relay’s anonymity properties |\n> | Resource guarantees | Relies on network-level quotas, no enforcement | Stronger resilience due to rate limiting |"
+        "> Example:\n>\n> | Feature             | Relay                                       | RLN Relay                                   |\n> |:--------------------|:--------------------------------------------|:--------------------------------------------|\n> | Spam protection     | None – all peers can flood messages         | Enforces per-peer rate limits, economic penalties |\n> | Privacy impact      | Neutral – standard Pub/Sub propagation      | Neutral – preserves Relay’s anonymity properties |\n> | Resource guarantees | Relies on network-level quotas, no enforcement | Stronger resilience due to rate limiting |"
       ]
     },
     {
@@ -442,7 +444,7 @@
         }
       ],
       "examples": [
-        "> ⚙️ **Example:**\n>\n>- *Codespaces are fully managed, cloud-based development environments you can spin up in seconds.*\n>- *They run in containers that match your repository’s configuration, so every contributor gets the same setup.*  \n>- *You connect from your browser, VS Code, or the JetBrains Gateway. No local installation required.*"
+        "> Example:\n>\n>- *Codespaces are fully managed, cloud-based development environments you can spin up in seconds.*\n>- *They run in containers that match your repository’s configuration, so every contributor gets the same setup.*  \n>- *You connect from your browser, VS Code, or the JetBrains Gateway. No local installation required.*"
       ]
     },
     {
@@ -506,9 +508,9 @@
           "examples": []
         },
         {
-          "id": "CONC-BEHAV-H2-SHOT-REFER-STYLEGUIDE",
+          "id": "CONC-BEHAV-H2-SHOT-REFER-WRITING-RULES",
           "group": "BEHAV",
-          "description": "Follow the screenshot rules in the Style Guide.",
+          "description": "Follow the screenshot rules in the Writing Rules.",
           "examples": []
         }
       ],
@@ -533,9 +535,9 @@
           "examples": []
         },
         {
-          "id": "CONC-BEHAV-H2-CODE-REFER-STYLEGUIDE",
+          "id": "CONC-BEHAV-H2-CODE-REFER-WRITING-RULES",
           "group": "BEHAV",
-          "description": "Follow the code rules in the Style Guide.",
+          "description": "Follow the code rules in the Writing Rules.",
           "examples": []
         }
       ],
@@ -608,9 +610,9 @@
           "examples": []
         },
         {
-          "id": "CONC-BEHAV-H3-SHOT-REFER-STYLEGUIDE",
+          "id": "CONC-BEHAV-H3-SHOT-REFER-WRITING-RULES",
           "group": "BEHAV",
-          "description": "Follow the screenshot rules in the Style Guide.",
+          "description": "Follow the screenshot rules in the Writing Rules.",
           "examples": []
         }
       ],
@@ -635,9 +637,30 @@
           "examples": []
         },
         {
-          "id": "CONC-BEHAV-H3-CODE-REFER-STYLEGUIDE",
+          "id": "CONC-BEHAV-H3-CODE-REFER-WRITING-RULES",
           "group": "BEHAV",
-          "description": "Follow the code rules in the Style Guide.",
+          "description": "Follow the code rules in the Writing Rules.",
+          "examples": []
+        }
+      ],
+      "examples": []
+    },
+    {
+      "id": "CONC-EXTRA",
+      "title": "Extra guidelines",
+      "required": "required",
+      "format": "",
+      "rules": [
+        {
+          "id": "CONC-STRUCT-EXTRA-GUIDELINES-NO-RENDER",
+          "group": "STRUCT",
+          "description": "This section is guidance only; do not render a visible heading or body.",
+          "examples": []
+        },
+        {
+          "id": "CONC-BEHAV-EXTRA-LENGTH",
+          "group": "BEHAV",
+          "description": "Keep the procedure word count between 400 and 900 words.",
           "examples": []
         }
       ],
@@ -647,7 +670,7 @@
       "id": "CONC-FORBID",
       "title": "Forbidden content",
       "required": "forbidden",
-      "format": "-",
+      "format": "",
       "rules": [
         {
           "id": "CONC-STRUCT-FORBID-H4-H6",
@@ -665,29 +688,15 @@
       "examples": []
     }
   ],
-  "forbidden": [
-    {
-      "id": "CONC-FORBID",
-      "rules": [
-        {
-          "id": "CONC-STRUCT-FORBID-H4-H6",
-          "group": "FORBID",
-          "description": "Do not use H4–H6 headings."
-        },
-        {
-          "id": "CONC-BEHAV-FORBID-NO-FURTHER-READING",
-          "group": "FORBID",
-          "description": "Do not include a \"Further reading\" section or links to other related topics at the end of the document."
-        }
-      ]
-    }
-  ],
+  "forbidden": [],
   "validation": {
     "missingRuleIds": [],
     "duplicateRuleIds": [],
     "groupViolations": [],
     "forbiddenViolations": [],
-    "notes": [],
+    "notes": [
+      "NO_FRONT_MATTER"
+    ],
     "unknownRuleIds": []
   }
 }
