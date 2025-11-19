@@ -34,8 +34,8 @@ slug:
 | Step clarifiers         | Bullets under a step (depth 1) (2) | No        | `PROC-TASK-CLAR`    |
 | Step code               | Fenced code block under the step (3)| No       | `PROC-TASK-CODE`    |
 | Step screenshot         | Image under the step (3)           | No        | `PROC-TASK-IMG`     |
-| FAQ / Troubleshooting   | Paragraph, list, H3                | No        | `PROC-EXTRA`        |
-| Extra guidelines        |                                    | Yes       | `PROC-EXTRA`        |
+| FAQ / Troubleshooting   | Paragraph, list, H3                | No        | `PROC-ADDITIONS`    |
+| Extra guidelines        |                                    | Yes       | `PROC-EXTRA`    |
 | Forbidden content       |                                    | Forbidden | `PROC-FORBID`       |
 
 (1) Use checkboxes only for unordered or long-running tasks. Numbered lists are the default for procedures.  
@@ -252,15 +252,15 @@ Every procedure requires at least one task. Each task includes these mandatory a
 
 - Follow the screenshot rules in the Writing Rules. <!-- PROC-BEHAV-TASK-IMG-REFER-WRITING-RULES -->
 
-## FAQ / Troubleshooting (optional) <!-- group: PROC-EXTRA -->
+## FAQ / Troubleshooting (optional) <!-- group: PROC-ADDITIONS -->
 
-- Use an H2 Markdown heading for this section. <!-- PROC-STRUCT-EXTRA-H2 -->
-- Place this section after the final procedure section and before "Next steps" (if present). <!-- PROC-STRUCT-EXTRA-POSITION -->
-- Begin with "Troubleshooting {topic}" for error resolution or "Frequently asked questions" for question-based content. <!-- PROC-BEHAV-EXTRA-TITLE-PATTERN -->
-- Use paragraphs, lists, or H3 headings for the content. <!-- PROC-STRUCT-EXTRA-ALLOWED-BLOCKS-H3 -->
-- If you use H3 question headings, write them in sentence case and end with a question mark. <!-- PROC-BEHAV-EXTRA-H3-QUESTION-FORM -->
-- Use "Frequently asked questions" instead of "FAQ" alone. <!-- PROC-BEHAV-EXTRA-TERM-FAQ -->
-- For longer or complex cases, create a separate FAQ or Troubleshooting (concept) article and link to it. <!-- PROC-BEHAV-EXTRA-SPLIT-IF-LONG -->
+- Use an H2 Markdown heading for this section. <!-- PROC-STRUCT-ADDITIONS-H2 -->
+- Place this section after the final procedure section and before "Next steps" (if present). <!-- PROC-STRUCT-ADDITIONS-POSITION -->
+- Begin with "Troubleshooting {topic}" for error resolution or "Frequently asked questions" for question-based content. <!-- PROC-BEHAV-ADDITIONS-TITLE-PATTERN -->
+- Use paragraphs, lists, or H3 headings for the content. <!-- PROC-STRUCT-ADDITIONS-ALLOWED-BLOCKS-H3 -->
+- If you use H3 question headings, write them in sentence case and end with a question mark. <!-- PROC-BEHAV-ADDITIONS-H3-QUESTION-FORM -->
+- Use "Frequently asked questions" instead of "FAQ" alone. <!-- PROC-BEHAV-ADDITIONS-TERM-FAQ -->
+- For longer or complex cases, create a separate FAQ or Troubleshooting (concept) article and link to it. <!-- PROC-BEHAV-ADDITIONS-SPLIT-IF-LONG -->
 
 ## Extra guidelines <!-- group: PROC-EXTRA -->
 
