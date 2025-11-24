@@ -14,7 +14,7 @@ We are consolidating and updating previously fragmented materials into a single,
 
 We are also unifying public naming in our documentation to reflect Logos as a single technical stack: Nomos → Logos Blockchain, Codex → Logos Storage, and Waku → Logos Messaging. This consolidation makes the architecture easier to navigate by aligning documentation, examples, and terminology under one scheme. Legacy names may still appear in repositories and specifications, but going forward the Logos-first names will be used across our docs.
 
-Our aim is to provide a predictable onboarding path for operators and developers, where they can find what they need and trust what they read.
+Our aim is to provide a predictable onboardihttps://github.com/logos-co/logos-docs/pull/98/conflict?name=manual%252F3-validate-the-design%252Fwriting-rules%252Fstyle-the-content%252Fui-elements.md&ancestor_oid=e69de29bb2d1d6434b8b29ae775ad8c2e48c5391&base_oid=1875b6ce316b15996dbe16327817e5f04d82c983&head_oid=1e1136ab2e6e16cae8edfc0870bf85309c7c156dng path for operators and developers, where they can find what they need and trust what they read.
 
 ### What to expect next
 
