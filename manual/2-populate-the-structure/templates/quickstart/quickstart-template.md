@@ -205,7 +205,7 @@ Follow the code rules in the Writing Rules document. <!-- QST-BEHAV-TASK-CODE-RE
 
 ### Task screenshot (optional) <!-- group: QST-TASK-IMG -->
 
-- Follow the Screenshots rules in the Writing Rules document. <!-- QST-BEHAV-IMG-REFER-WRITING-RULES -->
+- Follow the screenshots rules in the writing rules document. <!-- QST-BEHAV-IMG-REFER-WRITING-RULES -->
 
 ## "Next steps" (optional) <!-- group: QST-NEXT -->
 
