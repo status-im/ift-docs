@@ -48,7 +48,7 @@ UI elements are screen components the user can interact with. A checkbox, a menu
 
     | Usage       | Example                                                                                |
     |:------------|:---------------------------------------------------------------------------------------|
-    | **Correct** | Check **I understand this is the only time I can see my recovery phrasse in the app**. |
+    | **Correct** | Check **I understand this is the only time I can see my recovery phrase in the app**. |
     | Incorrect   | Check **I understand this is ...**.                                                    |
 
 - Use a bold typeface to write UI controls in procedural steps (1, 2, 3, and so on). Don't use the bold typeface outside of the procedural steps.
