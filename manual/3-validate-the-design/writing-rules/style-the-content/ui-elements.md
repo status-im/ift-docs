@@ -81,8 +81,8 @@ UI elements are screen components the user can interact with. A checkbox, a menu
 
     | Usage       | Example                                                                |
     |:------------|:-----------------------------------------------------------------------|
-    | **Correct** | In the content area, right-click your message and and click **Edit**.  |
-    | Incorrect   | In the content panel, right-click your message and and click **Edit**. |
+    | **Correct** | In the content area, right-click your message and click **Edit**.  |
+    | Incorrect   | In the content panel, right-click your message and click **Edit**. |
     | **Correct** | From the navigation sidebar, click your profile picture.               |
     | Incorrect   | From the navigation section, click your profile picture.               |
     | Incorrect   | From the **navigation** sidebar, click your profile picture.           |
