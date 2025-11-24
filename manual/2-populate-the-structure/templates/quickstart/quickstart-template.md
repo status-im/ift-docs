@@ -193,7 +193,7 @@ Examples:
 
 ### Task code (optional) <!-- group: QST-TASK-CODE -->
 
-Follow the code rules in the Writing Rules document. <!-- QST-BEHAV-TASK-CODE-REFER-WRITING-RULES -->
+Follow the code rules in the writing rules document. <!-- QST-BEHAV-TASK-CODE-REFER-WRITING-RULES -->
 
 >Example:
 >
