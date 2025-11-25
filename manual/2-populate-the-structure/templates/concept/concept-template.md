@@ -1,242 +1,225 @@
-# Concept template <!-- This is an informative header; remove it before merging your content. -->
-
-| #   | Element                | Format                 | Required   |
-|:----|:---------------------- |:---------------------- |:---------- |
-| 1   | Title                  | H1                     | Yes        |
-| 2   | Subtitle               | H4                     | Yes        |
-| 3   | Admonition             | Information admonition | No         |
-| 4   | Introduction           | Paragraph              | Yes        |
-| 5   | Diagram or image       | Mermaid/image          | No         |
-| 6   | Use case example       | Paragraph, list        | No         |
-| 7   | Comparison             | Paragraph, list, table | No         |
-| 8   | "The basics" heading   | H2                     | Yes        |
-| 9   | "The basics" list      | Unordered list         | Yes        |
-| 10  | H2 section title       | H2                     | Yes        |
-| 11  | H2 section content     | Paragraph, others      | Yes        |
-| 12  | H3 section title       | H3                     | No         |
-| 13  | H3 section content     | Paragraph, others      | No         |
-| 14  | H4 section title       | H4                     | No         |
-| 15  | H4 section content     | Paragraph, others      | No         |
-| 16  | H5-H6 section          | -                      | Forbidden  |
-| 17  | Further reading        | -                      | Forbidden  |
-
--->
+# Concept template
 
 ---
-title: ''
-version: ''
+title:
+doc_type: concept
+product: # [storage | blockchain | messaging]
+topics: []
+authors: # GitHub username
+owner: logos
+doc_version: # increased by one after every update
+slug:
 ---
 
-# { Title }
+## Template overview
 
-<!--
-Guidelines:
+| Section                | Format                        | Required   | ID              |
+|:-----------------------|:------------------------------|:-----------|:----------------|
+| Title                  | H1                            | Yes        | `CONC-TITLE`    |
+| Subtitle               | H4                            | Yes        | `CONC-SUBTITLE` |
+| Access callout         | Note-type callout             | No         | `CONC-ACCESS`     |
+| Callouts               | Tip, Note, Important, Caution | No         | `CONC-CALLOUTS` |
+| Intro                  |                               | Yes        | `CONC-INTRO`        |
+| Overview               | Paragraph                     | Yes        | `CONC-OVERVIEW` |
+| Diagram                | Mermaid or image              | No         | `CONC-DIAGRAM`  |
+| Use case example       | Paragraph, list               | No         | `CONC-USE-CASE` |
+| Comparison             | Paragraph, list, table        | No         | `CONC-COMPARISON` |
+| "The basics" heading   | List                          | Yes        | `CONC-BASICS`   |
+| H2 section             | H2 + body (container)         | Yes        | `CONC-H2-SECTION`  |
+| H3 section             | H3 + body (container)         | No         | `CONC-H3-SECTION`  |
+| Extra guidelines       |                               | Yes        | `CONC-EXTRA`      |
+| Forbidden content      |                               | Forbidden  | `CONC-FORBID`   |
 
-- Concept titles should be descriptive and concise (no more than 60 characters), indicating the main idea of the concept.
-- Use cue words such as `Guide to`, `About`, `Understand`, `FAQ`, or `Introduction to`. Do not use active verbs like `Learn` or `How to`.
-- For verbs, use the base form over the gerund form. For example, use `Understand` instead of `Understanding`.
-- Start with `About` to signal background reading. Avoid gerunds that look like procedures.
-- Use the `FAQ:` prefix for question compilations. Don't phrase FAQs as tasks.
-- When none of the cue words fit, choose a concise noun phrase.
+## Title <!-- group: CONC-TITLE -->
 
-> ⚙️ **Examples:**
+- Use Markdown H1 headings. <!-- CONC-STRUCT-TITLE-H1 -->
+- Aim for 50 to 60 characters; 80 characters maximum. <!-- CONC-BEHAV-TITLE-LENGTH-50-80 -->
+- Use cue words such as `Guide to`, `About`, `Understand`, `FAQ`, or `Introduction to`. Do not use active verbs like `Learn` or `How to` <!-- CONC-BEHAV-TITLE-CUE-WORDS -->
+- Capitalize only the first word and any proper nouns (sentence-style capitalization). <!-- CONC-BEHAV-TITLE-SENTENCE-CASE -->
+- For verbs, use the base form over the gerund form. For example, use `Understand` instead of `Understanding`.. <!-- CONC-BEHAV-TITLE-NO-GERUND -->
+- Use the `FAQ:` prefix for question compilations. Don't name FAQ articles as tasks. <!-- CONC-BEHAV-FAQ-PREFIX-QUESTIONS -->
+- Avoid one- or two-word titles and empty verbs like *make*, *manage*, or *put*. <!-- CONC-BEHAV-TITLE-NO-EMPTY-VERBS -->
+- Don't use punctuation marks, such as colons, semicolons, or dashes except the `FAQ:` prefix. <!-- CONC-BEHAV-TITLE-NO-PUNCT -->
+
+Examples:
+
+	| Usage   | Example                                |
+	|:--------|:---------------------------------------|
+	| **Use** | Guide to RLN rate limiting             |
+	| Avoid   | Limiting RLN rate                      |
+	| **Use** | Understand Codex API limits            |
+	| Avoid   | Understanding Codex API limits         |
+	| **Use** | FAQ: Codex billing and usage           |
+	| Avoid   | Questions on Codex billing and usage   |
+
+## Subtitle <!-- group: CONC-SUBTITLE -->
+
+- Use a Markdown H4 for the subtitle placed right under the H1 title. <!-- CONC-STRUCT-SUBTITLE-H4 -->
+- One sentence only; no links, lists, or inline formatting. <!-- CONC-BEHAV-SUBTITLE-SINGLE-SENTENCE -->
+- Ends with a period. <!-- CONC-BEHAV-SUBTITLE-END-PERIOD -->
+- Stay under 20 words. <!-- CONC-BEHAV-SUBTITLE-LENGTH-20 -->
+- Use a base-form verb that states the purpose or benefit (for example: *Learn*, *Explore*, *Discover*, *Understand*). <!-- CONC-BEHAV-SUBTITLE-IMPERATIVE -->
+- Add new value beyond the title; don’t repeat or rephrase the H1. <!-- CONC-BEHAV-SUBTITLE-ADDS-VALUE -->
+
+Examples:
+
+- **Title**: *About Logos Connect communication protocol* / **Subtitle**: *Understand Waku’s peer-to-peer protocol for private, censorship-resistant messaging*
+- **Title**: *Guide to Logos Storage API* / **Subtitle**: *Learn how Codex provides real-time blockchain data through a single API*
+
+## Access callout (optional) <!-- group: CONC-ACCESS -->
+
+This note-type callout is exclusively to alert readers about what roles, permissions, or product versions are required to perform the procedure.
+
+- Place it after the title and subtitle, before the introduction. <!-- CONC-STRUCT-ACCESS-AFTER-SUBTITLE -->
+- Use the `Note` callout style. <!-- CONC-STRUCT-ACCESS-NOTE-STYLE -->
+- Use label-led, scannable content (no explanations). <!-- CONC-BEHAV-ACCESS-LABELED -->
+- Include permissions (software role or permission level). <!-- CONC-BEHAV-ACCESS-PERMISSIONS -->
+- Include product (product version or edition), if applicable. <!-- CONC-BEHAV-ACCESS-PRODUCT -->
+- If multiple permissions/products apply, use commas. <!-- CONC-BEHAV-ACCESS-LIST-IF-MANY -->
+- Do not include knowledge, skills, or required tools. <!-- CONC-BEHAV-ACCESS-SCOPE-ONLY -->
+- Omit the callout entirely if no permission/product constraints exist. <!-- CONC-STRUCT-ACCESS-OMIT-IF-EMPTY -->
+
+Example:
+
+  > **Note**
+  >
+  > - **Permissions**: Node operators, Site operators
+  > - **Product**: Logos Storage v1.4.0 or later
+
+## Callouts <!-- CONC-CALLOUTS -->
+
+- Use callouts sparingly and avoid placing them consecutively. <!-- CONC-STRUCT-CALLOUTS-NOT-CONSECUTIVE -->
+- One callout maximum per section <!-- CONC-STRUCT-CALLOUTS-PER-SECTION-ONE -->
+- Keep each callout concise (≤ 2 short sentences). If the content needs a list or multiple paragraphs, move it into the body under a heading. <!-- CONC-BEHAV-CALLOUTS-CONCISE -->
+- Ensure the callout content is directly relevant to the nearby text. <!-- CONC-BEHAV-CALLOUTS-RELEVANT -->
+- Use the appropriate type: `Tip`, `Note`, `Important`, or `Caution`. <!-- CONC-BEHAV-CALLOUTS-TYPE -->
+- For the allowed callout types and when to use them, see the [writing rules](../../3-validating-design/writing-rules/README.md). <!-- CONC-BEHAV-CALLOUTS-TYPES-REFER-WRITING-RULES -->
+
+Example:
+
+> **Note:**
 >
-> - `Guide to RLN rate limiting`
-> - `Understand Codex API limits`
-> - `About Waku GossipSub relay`
-> - `FAQ: Codex billing and usage`
+> Keep container resources within the documented limits to avoid throttling.
 
-> ℹ️ **Note:**
-> 
-> For more information and examples, check out the [concept title](../../docs-standards/10-structure-the-content/concept-help-me-to-understand.md#title) standards.
--->
+## Intro <!-- group: CONC-INTRO -->
 
-#### { Subtitle }
+Every concept requires an introduction that provides context and helps readers understand feature goals, benefits, and use cases. The introduction includes these sections, each one represented by a paragraph, list, or table:
 
-<!--
-Guidelines:
+- [Overview](#overview)
+- [Diagram (optional)](#diagram-optional)
+- [Use case example (optional)](#use-case-example-optional)
+- [Comparison (optional)](#comparison-optional)
 
-- Single sentence with no links, list items, or formatting. Ends with a period.
-- Use H4 format. Stay under 120 characters / 20 words.
-- Use imperative verbs to describe the topic's purpose or benefit: *Learn*, *Explore*, *Understand*, *Discover*, and so on.
-- Adds new value beyond the title. It should not repeat the title or be a rephrased version of it.
+- Include the intro components in this order: Overview, Diagram (optional), Use case example (optional), Comparison (optional). <!-- CONC-STRUCT-INTRO-ORDER -->
 
-> ⚙️ **Example:**
->
->- *Understand Waku’s peer-to-peer protocol for private, censorship-resistant messaging.*
->- *Learn how Codex provides real-time blockchain data through a single API.*
+### Overview <!-- group: CONC-OVERVIEW -->
 
-> ℹ️ **Note:**
->
-> For more information, check out the [concept subtitle](../../docs-standards/10-structure-the-content/01-document-types/concept.md#subtitle) standards.
--->
+- Write a 50–100 word paragraph explaining the concept, its purpose, and its relevance. <!-- CONC-BEHAV-OVERVIEW-LENGTH-50-100 -->
+- Provide context or background information to help readers understand the concept. <!-- CONC-BEHAV-OVERVIEW-CONTEXT -->
+- Explain the concept's main points using one paragraph per idea. <!-- CONC-STRUCT-OVERVIEW-PARAGRAPH-PER-IDEA -->
+- Link only when it helps disambiguate or deep-dive (aim ≤3 links). <!-- CONC-BEHAV-OVERVIEW-LINK-HEADERS -->
+- If the overview is long or complex, link to other supportive documents. <!-- CONC-BEHAV-OVERVIEW-LINK-DOCS -->
 
-(Optional){ Admonition }
+### Diagram (optional) <!-- group: CONC-DIAGRAM -->
 
-<!--
-This information-type admonition is exclusively to alert readers about who can use this feature and shouldn't be used for any other information. For example, a feature is only available to specific application role or using a specific tool or interface.
+- Use one diagram or image per idea. <!-- CONC-STRUCT-DIAGRAM-ONE-PER-IDEA -->
+- To show an architecture, flow, or process, use a Mermaid diagram. <!-- CONC-BEHAV-DIAGRAM-MERMAID -->
+- For UI or CLI outputs, when the interface itself is the concept, use a screenshot or image. <!-- CONC-BEHAV-DIAGRAM-SCREENSHOT -->
+- For simple relationships, use a Mermaid diagram. Even two boxes and an arrow is clearer than prose. <!-- CONC-BEHAV-DIAGRAM-SIMPLE-RELATIONSHIPS -->
 
-> ⚙️ **Example:**
->
-> *This feature is available to users with the **Admin** role in the application.*
+### Use case example (optional) <!-- group: CONC-USE-CASE -->
 
-> ℹ️ **Note:**
->
-> For more information, check out [Admonitions](../../docs-standards/20-style-the-content/12-admonitions.md)
--->
+- Provide a concrete, real-world scenario for the product feature. <!-- CONC-BEHAV-USE-CASE-REAL-WORLD -->
+- Use a bullet list format to present multiple use cases clearly. <!-- CONC-STRUCT-USE-CASE-LIST -->
 
-{ Introduction }
-
-<!--
-Guidelines:
-
-- Start with one or two lead sentences in a single paragraph that explains the concept, its purpose, and its relevance. This lead should be concise and engaging, ideally no more than 50 words.
-- After the lead, explain the concept's main points using one paragraph per idea.
-- If necessary, provide context or background information to help readers understand the concept.
-- Link to related topics or headers in the same document to support the reader's gathering of information.
-
-> ℹ️ **Note:**
->
-> For examples, check out [concept introduction](../../docs-standards/10-structure-the-content/concept-help-me-to-understand.md#introduction) standards and [concept example](./concept-example.md).
--->
-
-(Optional) { Diagram or image }
-
-<!--
-- Use one diagram or image per concept. If you need two, the concept needs splitting or the second visual belongs to alater H2 section.
-- To show an architecture, flow, or process, use a Mermaid diagram.
-- For UI or CLI outputs, when the interface itself is the concept, use a screenshot or image.
-- For simple relationships, use a Mermaid diagram. Even two boxes and an arrow is clearer than prose.
-
-> ℹ️ **Note:**
->
-> For more information, check out the [diagrams](../../30-work-with-media/03-diagrams.md#mermaid-diagrams) and [screenshots](../../30-work-with-media/02-screenshots.md) information.
--->
-
-(Optional) { Use case example }
-
-<!--
-Provide a concrete, real-world scenario for the product feature. It answers the reader's silent question, "How can I use this feature in my work?" Use a bullet list format to present multiple use cases clearly.
-
-> ⚙️ **Example:**
+> Example:
 >
 > *For example, you can configure custom environment variables so they are set every time you open a codespace, and you can ensure that temporary files are retained when the codespace stops.*
--->
 
-(Optional) { Comparison }
+### Comparison (optional) <!-- group: CONC-COMPARISON -->
 
-<!--
-Guidelines:
+- Use a paragraph or list for simple comparisons with ≤2 options. <!-- CONC-STRUCT-COMPARISON-PARAGRAPH-LIST -->
+- Use a table for complex comparisons with 3 or more options. <!-- CONC-STRUCT-COMPARISON-TABLE -->
+- Focus on key decision factors, such as performance, complexity, cost, prerequisites, and limitations. <!-- CONC-BEHAV-COMPARISON-KEY-FACTORS -->
+- Use direct language in short sentences so different options are easy to scan. <!-- CONC-BEHAV-COMPARISON-DIRECT-LANGUAGE -->
+- Highlight trade‑offs clearly. For example, "Option A is faster but less secure" or "Option B adds encryption overhead". <!-- CONC-BEHAV-COMPARISON-TRADEOFFS -->
+- Provide real-world guidance. For example, "Choose A if you need X, choose B if you care about Y". <!-- CONC-BEHAV-COMPARISON-GUIDANCE -->
 
-- Use a list for simple comparisons or a table for more complex ones.
-- Focus on key decision factors, such as performance, complexity, cost, prerequisites, and limitations.
-- Use direct language in short sentences so different options are easy to scan.
-- Highlight trade‑offs clearly. For example, "Option A is faster but less secure" or "Option B adds encryption overhead".
-- Provide real-world guidance. For example, "Choose A if you need X, choose B if you care about Y".
-
-> ⚙️ **Example:**
+> Example:
 >
-> | Feature             | Relay                                         | RLN Relay                                         |
-> |:--------------------|:----------------------------------------------|:--------------------------------------------------|
-> | Spam protection     | None – all peers can flood messages           | Enforces per-peer rate limits, economic penalties |
-> | Privacy impact      | Neutral – standard Pub/Sub propagation        | Neutral – preserves Relay’s anonymity properties  |
-> | Resource guarantees | Relies on network-level quotas, no enforcement| Stronger resilience due to rate limiting          |
+> | Feature             | Relay                                       | RLN Relay                                   |
+> |:--------------------|:--------------------------------------------|:--------------------------------------------|
+> | Spam protection     | None – all peers can flood messages         | Enforces per-peer rate limits, economic penalties |
+> | Privacy impact      | Neutral – standard Pub/Sub propagation      | Neutral – preserves Relay’s anonymity properties |
+> | Resource guarantees | Relies on network-level quotas, no enforcement | Stronger resilience due to rate limiting |
 
-> ℹ️ **Note:**
->
-> For more information, check out the [comparison section](../../docs-standards/10-structure-the-content/concept-help-me-to-understand.md#comparison) in the docs standards.
--->
+## "The basics" <!-- CONC-BASICS -->
 
-## `The basics` section
+- Use a Markdown H2 with the exact text "The basics". <!-- CONC-STRUCT-BASICS-H2-TEXT -->
+- Place this section after the introduction and before the next H2 section. <!-- CONC-STRUCT-BASICS-POSITION -->
+- Include exactly one unordered list with three items (no code blocks or callouts here). <!-- CONC-STRUCT-EXPECT-UL-THREE -->
+- Write one complete sentence per bullet (two short sentences max), and end sentences with a period. <!-- CONC-BEHAV-EXPECT-SENTENCE-1-2 -->
+- Use parallel wording in each bullet (same grammatical shape), focused on main ideas. <!-- CONC-BEHAV-EXPECT-PARALLEL-OUTCOME -->
+- Order items from most important to least important. <!-- CONC-BEHAV-EXPECT-PRIORITY -->
+- Allow only same-page heading links; no external links. <!-- CONC-BEHAV-EXPECT-LINKS-INTERNAL -->
 
-<!--
-Guidelines:
-
-- Use `The basics` H2 heading for this section.
-- Write a single unordered list with three bullet points that summarize the concept.
-- Order the points from most important to least important.
-- Aim for one sentence per bullet point, maximum two very short ones.
-
-> ⚙️ **Example:**
+> Example:
 >
 >- *Codespaces are fully managed, cloud-based development environments you can spin up in seconds.*
 >- *They run in containers that match your repository’s configuration, so every contributor gets the same setup.*  
 >- *You connect from your browser, VS Code, or the JetBrains Gateway. No local installation required.*
 
-> ℹ️ **Note:**
->
-> For more information, check out the [`The basics` section](../../docs-standards/10-structure-the-content/concept-help-me-to-understand.md#the-basics-section) in the docs standards.
--->
+## H2 section <!-- CONC-H2-SECTION -->
 
-## { Section H2 title }
+- One heading = one idea. Don't mix two ideas under the same heading. <!-- CONC-BEHAV-H2-SECTION-ONE-IDEA -->
+- Arrange H2 sections from general to specific, or from most important to least important. <!-- CONC-BEHAV-H2-SECTION-ORDER -->
+- Start with a paragraph before you add lists or tables. <!-- CONC-STRUCT-H2-SECTION-PARAGRAPH-FIRST -->
 
-<!--
-Headings guidelines:
+### Key idea description <!-- CONC-H2-KEY-IDEA -->
 
-- One heading = one idea. Don't mix two ideas under the same heading.
-- Arrange H2 sections from general to specific, or from most important to least important.
-- Start with a paragraph before you add lists or tables.
-- When possible, limit the document depth to H3.
-- Stop at H4. Deeper levels (H5, H6) are forbidden.
-- If you add an H3, at least one sibling H3 must follow or the split is unnecessary.
+- First paragraph = key idea description. <!-- CONC-STRUCT-H2-KEY-IDEA-PARAGRAPH-FIRST -->
 
-> ℹ️ **Note:**
->
-> For more information, check out the [Using headings to organize content](../../docs-standards/10-structure-the-content/concept-help-me-to-understand.md#using-headings-to-organize-content) in the docs standards.
--->
+### Screenshot (optional) <!-- CONC-H2-SHOT -->
 
-{ Key idea description }
+- If present, the first visual after the key idea must be an image or screenshot. <!-- CONC-STRUCT-H2-SHOT-POSITION -->
+- Screenshot has non-empty alt text. <!-- CONC-STRUCT-H2-SHOT-ALT-TEXT -->
+- Follow the screenshot rules in the Writing Rules. <!-- CONC-BEHAV-H2-SHOT-REFER-WRITING-RULES -->
 
-(Optional) { Screenshot }
+### Code (optional) <!-- CONC-H2-CODE -->
 
-<!--
-> ℹ️ **Note:**
->
-> For more information, check out [Screenshots](../../docs-standards/30-work-with-media/02-screenshots.md)
--->
+- If present, use a fenced code block; take the first fenced block after screenshot/key idea. <!-- CONC-STRUCT-H2-CODE-POSITION -->
+- Snippet is short and illustrative, non-procedural. <!-- CONC-BEHAV-H2-CODE-SHORT-NONPROCEDURAL -->
+- Follow the code rules in the Writing Rules. <!-- CONC-BEHAV-H2-CODE-REFER-WRITING-RULES -->
 
-(Optional) { Code }
+## H3 section (optional) <!-- CONC-H3-SECTION -->
 
-<!--
-> ℹ️ **Note:**
->
-> For more information, check out [Code](../../docs-standards/20-style-the-content/13-code.md)
--->
+- H3 sections expand the preceding H2 section and must be nested under it (no orphan H3). <!-- CONC-STRUCT-H3-SECTION-NESTED -->
+- Limit the document depth to H3. <!-- CONC-STRUCT-H3-SECTION-DEPTH-LIMIT-H3 -->
+- First paragraph = key idea description. <!-- CONC-STRUCT-H3-SECTION-PARAGRAPH-FIRST -->
+- If you add an H3, at least one sibling H3 must follow or the split is unnecessary. <!-- CONC-STRUCT-H3-SECTION-SIBLING -->
 
-(Optional) ### { Section H3 title }
+### Key idea description <!-- CONC-H3-KEY-IDEA -->
 
-<!-- **First H3**
-H3 is used to break down the main H2 section into smaller, more manageable parts. Use it to provide additional details or sub-sections that are relevant to the main section.
--->
+- First paragraph = key idea description. <!-- CONC-STRUCT-H3-KEY-IDEA-PARAGRAPH-FIRST -->
 
-{ Key idea description }
+### Screenshot (optional) <!-- CONC-H3-SHOT -->
 
-(Optional) { Screenshot }
+- If present, the first visual after the key idea must be an image or screenshot. <!-- CONC-STRUCT-H3-SHOT-POSITION -->
+- Screenshot has non-empty alt text. <!-- CONC-STRUCT-H3-SHOT-ALT-TEXT -->
+- Follow the screenshot rules in the Writing Rules. <!-- CONC-BEHAV-H3-SHOT-REFER-WRITING-RULES -->
 
-(Optional){ Code }
+### Code (optional) <!-- CONC-H3-CODE -->
 
-(Optional) ### { Section H3 title }
+- If present, use a fenced code block; take the first fenced block after screenshot/key idea. <!-- CONC-STRUCT-H3-CODE-POSITION -->
+- Snippet is short and illustrative, non-procedural. <!-- CONC-BEHAV-H3-CODE-SHORT-NONPROCEDURAL -->
+- Follow the code rules in the Writing Rules. <!-- CONC-BEHAV-H3-CODE-REFER-WRITING-RULES -->
 
-<!-- **Second H3**
-If you add an H3, at least one sibling H3 must follow or the split is unnecessary.
--->
+## Extra guidelines <!-- group: CONC-EXTRA -->
 
-(Optional) ### { Section H4 title }
+- This section is guidance only; do not render a visible heading or body. <!-- CONC-STRUCT-EXTRA-GUIDELINES-NO-RENDER -->
+- Keep the procedure word count between 400 and 900 words. <!-- CONC-BEHAV-EXTRA-LENGTH -->
 
-{ Key idea description }
+## Forbidden content <!-- group: CONC-FORBID -->
 
-(Optional) { Screenshot }
-
-(Optional) { Code }
-
-(Optional) ### { Section H4 title }
-
-<!--
-Stop at H4. Deeper levels (H5, H6) are forbidden.
--->
-
-{ Key idea description }
-
-(Optional) { Screenshot }
-
-(Optional){ Code }
+- Do not use H4–H6 headings. <!-- CONC-STRUCT-FORBID-H4-H6 -->
+- Do not include a "Further reading" section or links to other related topics at the end of the document. <!-- CONC-BEHAV-FORBID-NO-FURTHER-READING -->
