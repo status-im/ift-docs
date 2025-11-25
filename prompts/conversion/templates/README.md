@@ -156,7 +156,7 @@ Choose **one** backend option and set the environment variables.
 2. **Change to the working folder**
 
    ```bash
-   cd prompts/conversion/markdown-to-json/templates
+   cd prompts/conversion/templates
    ```
 
 3. **Run the transformer**
