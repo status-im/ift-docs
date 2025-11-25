@@ -168,7 +168,7 @@ Choose **one** backend option and set the environment variables.
    If your virtual Python environment and script are in different directories, use absolute paths. For example:
 
    ```bash
-   /home/user/.venv/bin/python3 /logos-docs/prompts/conversion/markdown-to-json/templates/transform.py <template-name>.md out.json --prompt <prompt-name>.md
+   /home/user/.venv/bin/python3 /logos-docs/prompts/conversion/templates/transform.py <template-name>.md out.json --prompt <prompt-name>.md
    ```
 
    > **Note:** Depending on the model and model provider status, the script task may take several minutes to complete.
